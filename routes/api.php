@@ -15,3 +15,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/user', [ProfileController::class, 'update'])->name('user.update');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+// Routes pour Google Auth
+Route::get('/auth/google', [LoginController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallback']);

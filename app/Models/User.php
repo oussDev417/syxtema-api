@@ -20,12 +20,26 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'tenant_id',
         'first_name',
         'last_name',
+        'avatar',
+        'google_id',
+        'date_of_birth',
+        'gender',
         'email',
         'password',
         'phone',
-        'is_active'
+        'is_active',
+        'is_syxtema_com',
+        'role',
+        'last_seen',
+        'created_by',
+        'linkedin_url',
+        'facebook_url',
+        'twitter_url',
+        'instagram_url',
+
     ];
 
     /**

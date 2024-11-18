@@ -9,13 +9,13 @@ class Profile extends Model
 {
     protected $fillable = [
         'user_id',
-        'avatar',
         'bio',
         'company_name',
+        'company_logo',
+        'sector',
         'position',
         'country',
         'city',
-        'social_links',
     ];
 
     public function user(): BelongsTo
