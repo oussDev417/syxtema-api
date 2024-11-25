@@ -12,6 +12,7 @@ class Language extends Model
         'iso_code',
         'flag_id',
         'rtl',
+        'status',
         'default',
     ];
 }

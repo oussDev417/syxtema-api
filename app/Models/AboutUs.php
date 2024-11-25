@@ -11,7 +11,6 @@ class AboutUs extends Model
         'title',
         'vision',
         'goal',
-        'valeur',
         'youtube_url',
         'description',
         'image',

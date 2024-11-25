@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('ideas_category_id');
+            $table->string('title');
+            $table->string('slug');
+            $table->longText('details');
+            $table->integer('image')->nullable();
+            $table->tinyInteger('status')->default(STATUS_PENDING);
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

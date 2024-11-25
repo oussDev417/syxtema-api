@@ -3,11 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ServiceCategory;
+use App\Models\Departement;
 
 class Service extends Model
 {
     protected $fillable = [
         'id',
+        'service_category_id',
+        'departement_id',
         'name',
         'logo', 
         'secteur',

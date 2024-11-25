@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('event_categories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name'); // Nom de la catégorie
+            $table->text('description')->nullable(); // Description de la catégorie
+            $table->string('status')->default('active'); // Statut de la catégorie
+            $table->timestamps(); // Champs created_at et updated_at
         });
     }
 

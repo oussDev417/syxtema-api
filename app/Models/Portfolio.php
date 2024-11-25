@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Portfolio extends Model
 {
     protected $fillable = [
-        'id',
         'name',
         'slug',
         'description',
@@ -15,5 +14,5 @@ class Portfolio extends Model
         'url',
         'location',
         'image',
-        ];
+    ];
 }

@@ -12,6 +12,7 @@ class Coworking extends Model
         'images',
         'address',
         'description',
+        'location',
         'price',
         'capacity',
         'status',

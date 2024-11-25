@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('news_category_id');
+            $table->foreignId('country_id')->constrained('countries')->onDelete('cascade'); // Clé étrangère vers countries
+            $table->string('title');
+            $table->string('slug');
+            $table->longText('description');
+            $table->integer('image')->nullable();
+            $table->tinyInteger('status')->default(STATUS_PENDING);
+            $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
     }

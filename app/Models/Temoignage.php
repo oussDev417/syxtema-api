@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Temoignage extends Model
 {
-    //
+    protected $fillable = [
+        'nom',
+        'profession',
+        'message',
+        'avatar',
+        'logo',
+    ];
 }

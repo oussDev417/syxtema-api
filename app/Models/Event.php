@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\EventCategory;
+use App\Models\Country;
+use App\Models\Departement;
 
 class Event extends Model
 {
@@ -12,13 +15,17 @@ class Event extends Model
         'country_id',
         'departement_id',
         'title',
+        'type',
         'slug',
         'thumbnail',
-        'date',
+        'start_date',
+        'end_date',
         'location',
         'price',
+        'number_of_ticket',
         'number_of_ticket_left',
         'description',
+        'user_id',
         'status',
     ];
     public function category()
@@ -28,5 +35,9 @@ class Event extends Model
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class, 'departement_id');
     }
 }

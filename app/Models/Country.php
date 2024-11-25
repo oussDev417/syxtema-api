@@ -8,10 +8,12 @@ class Country extends Model
 {
     protected $fillable = [
         'id',
-        'name',
-        'code',
-        'iso_code',
-        'phone_code',
+        'short_name',
+       'country_name',
+       'flag',
+        'slug',
+        'phonecode',
+        'continent',
         'status',
     ];
 }

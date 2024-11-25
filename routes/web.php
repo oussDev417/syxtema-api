@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\EventCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -8,9 +10,9 @@ Route::get('/', function () {
 
 Route::view('index', 'index')->name('index');
 Route::view('project_dashboard', 'project_dashboard')->name('project_dashboard');
-Route::view('crypto_dashboard', 'crypto_dashboard')->name('crypto_dashboard');
 Route::view('education_dashboard', 'education_dashboard')->name('education_dashboard');
 
+Route::view('admin_dashboard', 'admin.dashboard')->name('admin.dashboard');
 Route::view('accordions', 'accordions')->name('accordions');
 Route::view('add_blog', 'add_blog')->name('add_blog');
 Route::view('add_product', 'add_product')->name('add_product');
@@ -185,3 +187,23 @@ Route::view('weather_icon', 'weather_icon')->name('weather_icon');
 Route::view('widget', 'widget')->name('widget');
 Route::view('wishlist', 'wishlist')->name('wishlist');
 Route::view('wrapper', 'wrapper')->name('wrapper');
+
+// Routes pour les événements
+Route::prefix('admin/events')->name('admin.events.')->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('index'); // Afficher tous les événements
+    Route::get('/create', [EventController::class, 'create'])->name('create'); // Formulaire pour créer un événement
+    Route::post('/', [EventController::class, 'store'])->name('store'); // Enregistrer un nouvel événement
+    Route::get('/{id}/edit', [EventController::class, 'edit'])->name('edit'); // Formulaire pour éditer un événement
+    Route::put('/{id}', [EventController::class, 'update'])->name('update'); // Mettre à jour un événement
+    Route::delete('/{id}', [EventController::class, 'destroy'])->name('destroy'); // Supprimer un événement
+});
+
+// Routes pour les catégories d'événements
+Route::prefix('admin/event_categories')->name('admin.event_categories.')->group(function () {
+    Route::get('/', [EventCategoryController::class, 'index'])->name('index'); // Afficher toutes les catégories
+    Route::get('/create', [EventCategoryController::class, 'create'])->name('create'); // Formulaire pour créer une nouvelle catégorie
+    Route::post('/', [EventCategoryController::class, 'store'])->name('store'); // Enregistrer une nouvelle catégorie
+    Route::get('/{id}/edit', [EventCategoryController::class, 'edit'])->name('edit'); // Formulaire pour éditer un événement
+    Route::put('/{id}', [EventCategoryController::class, 'update'])->name('update'); // Mettre à jour une catégorie
+    Route::delete('/{id}', [EventCategoryController::class, 'destroy'])->name('destroy'); // Supprimer une catégorie
+});

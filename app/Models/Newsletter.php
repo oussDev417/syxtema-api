@@ -9,5 +9,5 @@ class Newsletter extends Model
     protected $fillable = [
         'id',
         'email',
-        ];
+    ];
 }

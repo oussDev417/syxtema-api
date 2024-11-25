@@ -17,100 +17,40 @@
             <li>
                 <a class="" data-bs-toggle="collapse" href="#dashboard" aria-expanded="false">
                     <i class="ph-duotone  ph-house-line"></i>
-                    dashboard
+                    Dashboard
                     <span class="badge text-bg-success badge-notification ms-2">4</span>
                 </a>
                 <ul class="collapse" id="dashboard">
                     <li><a href="{{ route('index') }}">Ecommerce</a></li>
                     <li><a href="{{ route('project_dashboard') }}">Project</a></li>
-                    <li><a href="{{ route('crypto_dashboard') }}">Crypto</a></li>
                     <li><a href="{{ route('education_dashboard') }}">Education</a></li>
                 </ul>
             </li>
+
+            <!-- Menu Événements -->
             <li>
-                <a class="" data-bs-toggle="collapse" href="#apps" aria-expanded="false">
-                    <i class="ph-duotone  ph-stack"></i>
-                    Apps
+                <a class="" data-bs-toggle="collapse" href="#events" aria-expanded="false">
+                    <i class="ph-duotone ph-calendar"></i> <!-- Icône pour Événements -->
+                    Événements
                 </a>
-                <ul class="collapse" id="apps">
-                    <li><a href="{{route('calendar')}}">Calender</a></li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#Profile-page" aria-expanded="false">
-                            Profile
-                        </a>
-                        <ul class="collapse" id="Profile-page">
-                            <li><a href="{{route('profile')}}">Profile</a></li>
-                            <li><a href="{{route('setting')}}">Setting</a></li>
-                        </ul>
-                    </li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#projects-page" aria-expanded="false">
-                            Projects Page
-                        </a>
-                        <ul class="collapse" id="projects-page">
-                            <li><a href="{{route('project_app')}}">projects</a></li>
-                            <li><a href="{{route('project_details')}}">projects Details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{route('to_do')}}">To-Do</a></li>
-                    <li><a href="{{route('team')}}">Team</a></li>
-                    <li><a href="{{route('api')}}">API</a></li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#ticket-page" aria-expanded="false">
-                            Ticket
-                        </a>
-                        <ul class="collapse" id="ticket-page">
-                            <li><a href="{{route('ticket')}}">Ticket</a></li>
-                            <li><a href="{{route('ticket_details')}}">Ticket Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#email-page" aria-expanded="false">
-                            Email Page
-                        </a>
-                        <ul class="collapse" id="email-page">
-                            <li><a href="{{route('email')}}"> Email</a></li>
-                            <li><a href="{{route('read_email')}}">Read Email</a></li>
-                        </ul>
-                    </li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#e-shop" aria-expanded="false">
-                            E-shop
-                        </a>
-                        <ul class="collapse" id="e-shop">
-                            <li><a href="{{route('cart')}}">Cart</a></li>
-                            <li><a href="{{route('product')}}">Product</a></li>
-                            <li><a href="{{route('add_product')}}">Add Product</a></li>
-                            <li><a href="{{route('product_details')}}">Product-Details</a></li>
-                            <li><a href="{{route('product_list')}}">Product list</a></li>
-                            <li><a href="{{route('orders')}}">Orders</a></li>
-                            <li><a href="{{route('order_details')}}">Orders Details</a></li>
-                            <li><a href="{{route('order_list')}}">Orders List</a></li>
-                            <li><a href="{{route('checkout')}}">Check out</a></li>
-                            <li><a href="{{route('wishlist')}}">Wishlist</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{route('invoice')}}">Invoice</a></li>
-                    <li><a href="{{route('chat')}}">Chat</a></li>
-                    <li><a href="{{route('file_manager')}}">File manager</a></li>
-                    <li><a href="{{route('bookmark')}}">Bookmark</a></li>
-                    <li><a href="{{route('kanban_board')}}">Kanban board</a></li>
-                    <li><a href="{{route('timeline')}}">Timeline</a></li>
-                    <li><a href="{{route('faq')}}">FAQS</a></li>
-                    <li><a href="{{route('pricing')}}">Pricing</a></li>
-                    <li><a href="{{route('gallery')}}">Gallery</a></li>
-                    <li class="another-level">
-                        <a class="" data-bs-toggle="collapse" href="#blog-page" aria-expanded="false">
-                            Blog Page
-                        </a>
-                        <ul class="collapse" id="blog-page">
-                            <li><a href="{{route('blog')}}">Blog</a></li>
-                            <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                            <li><a href="{{route('add_blog')}}">Add Blog</a></li>
-                        </ul>
-                    </li>
+                <ul class="collapse" id="events">
+                    <li><a href="{{ route('admin.events.index') }}">Liste des Événements</a></li>
+                    <li><a href="{{ route('admin.events.create') }}">Ajouter un Événement</a></li>
                 </ul>
             </li>
+
+            <!-- Menu Catégories -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#eventCategories" aria-expanded="false">
+                    <i class="ph-duotone ph-tags"></i> <!-- Icône pour Catégories -->
+                    Catégories
+                </a>
+                <ul class="collapse" id="eventCategories">
+                    <li><a href="{{ route('admin.event_categories.index') }}">Liste des Catégories</a></li>
+                    <li><a href="{{ route('admin.event_categories.create') }}">Ajouter une Catégorie</a></li>
+                </ul>
+            </li>
+
             <li class="no-sub">
                 <a class="" href="{{route('widget')}}">
                     <i class="ph-duotone  ph-squares-four"></i> Widgets
