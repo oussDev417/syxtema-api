@@ -6,7 +6,7 @@
         </a>
 
         <span class="bg-light-primary toggle-semi-nav">
-          <i class="ti ti-chevrons-right f-s-20"></i>
+            <i class="ti ti-chevrons-right f-s-20"></i>
         </span>
     </div>
     <div class="app-nav" id="app-simple-bar">
@@ -42,7 +42,7 @@
             <!-- Menu Catégories -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#eventCategories" aria-expanded="false">
-                    <i class="ph-duotone ph-tags"></i> <!-- Icône pour Catégories -->
+                    <i class="ph-duotone ph-tag"></i> <!-- Icône pour Catégories -->
                     Catégories
                 </a>
                 <ul class="collapse" id="eventCategories">
@@ -99,6 +99,18 @@
                 </ul>
             </li>
 
+            <!-- Menu Témoignages -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#testimonials" aria-expanded="false">
+                    <i class="ph-duotone ph-comments-line"></i> <!-- Icône pour Témoignages -->
+                    Témoignages
+                </a>
+                <ul class="collapse" id="testimonials">
+                    <li><a href="{{ route('admin.testimonials.index') }}">Liste des Témoignages</a></li>
+                    <li><a href="{{ route('admin.testimonials.create') }}">Ajouter un Témoignage</a></li>
+                </ul>
+            </li>
+
             <li class="no-sub">
                 <a class="" href="{{route('widget')}}">
                     <i class="ph-duotone  ph-squares-four"></i> Widgets
@@ -146,9 +158,9 @@
                 <a class="" data-bs-toggle="collapse" href="#advance-ui" aria-expanded="false">
                     <i class="ph-duotone  ph-briefcase-metal"></i> Advance UI
                     <span class=" badge rounded-pill bg-warning badge-notification ms-2">
-                12+
-                <span class="visually-hidden">unread messages</span>
-              </span>
+                        12+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
                 </a>
                 <ul class="collapse" id="advance-ui">
                     <li><a href="{{route('modals')}}">Modals</a></li>
@@ -366,7 +378,7 @@
                 </a>
             </li>
 
-            
+
 
         </ul>
     </div>
