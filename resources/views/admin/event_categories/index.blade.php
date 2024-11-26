@@ -2,12 +2,12 @@
 @section('title', 'Catégories d\'Événements')
 @section('css')
 
-    <!-- filepond css -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/filepond/filepond.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendor/filepond/image-preview.min.css')}}">
+<!-- filepond css -->
+<link rel="stylesheet" href="{{asset('assets/vendor/filepond/filepond.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/filepond/image-preview.min.css')}}">
 
-    <!-- editor css -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
+<!-- editor css -->
+<link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
 @endsection
 
 @section('main-content')
@@ -26,24 +26,24 @@
         </thead>
         <tbody>
             @foreach($categories as $category)
-                <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->description }}</td>
-                    <td>{{ $category->status }}</td>
-                    <td>
-                        <form action="{{ route('admin.event_categories.destroy', $category->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a href="{{ route('admin.event_categories.edit', $category->id) }}" class="btn btn-light-success icon-btn b-r-4">
-                                <i class="ti ti-edit text-success"></i>
-                            </a>
-                            <button type="submit" class="btn btn-light-danger icon-btn b-r-4">
-                                <i class="ti ti-trash"></i>
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+            <tr>
+                <td>{{ $category->id }}</td>
+                <td>{{ $category->name }}</td>
+                <td>{{ $category->description }}</td>
+                <td>{{ $category->status }}</td>
+                <td>
+                    <form action="{{ route('admin.event_categories.destroy', $category->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <a href="{{ route('admin.event_categories.edit', $category->id) }}" class="btn btn-light-success icon-btn b-r-4">
+                            <i class="ti ti-edit text-success"></i>
+                        </a>
+                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie?')" class="btn btn-light-danger icon-btn b-r-4">
+                            <i class="ti ti-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
             @endforeach
         </tbody>
     </table>
@@ -56,4 +56,4 @@
     });
 </script>
 @endsection
-@endsection 
+@endsection

@@ -33,6 +33,7 @@ use App\Http\Controllers\Frontend\StudentProfileSettingController;
 use App\Http\Controllers\Frontend\StudentReviewController;
 use App\Http\Controllers\Frontend\TinymceImageUploadController;
 use App\Http\Controllers\Global\CloudStorageController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 Route::get('/', function () {
@@ -546,4 +547,14 @@ Route::prefix('admin/testimonials')->name('admin.testimonials.')->group(function
     Route::get('/{id}/edit', [TestimonialController::class, 'edit'])->name('edit'); // Formulaire pour éditer un témoignage
     Route::put('/{id}', [TestimonialController::class, 'update'])->name('update'); // Mettre à jour un témoignage
     Route::delete('/{id}', [TestimonialController::class, 'destroy'])->name('destroy'); // Supprimer un témoignage
+});
+
+// Routes pour les teams
+Route::prefix('admin/teams')->name('admin.teams.')->group(function () {
+    Route::get('/', [TeamController::class, 'index'])->name('index'); // Afficher tous les teams
+    Route::get('/create', [TeamController::class, 'create'])->name('create'); // Formulaire pour créer un team
+    Route::post('/', [TeamController::class, 'store'])->name('store'); // Enregistrer un nouveau team
+    Route::get('/{id}/edit', [TeamController::class, 'edit'])->name('edit'); // Formulaire pour éditer un team
+    Route::put('/{id}', [TeamController::class, 'update'])->name('update'); // Mettre à jour un team
+    Route::delete('/{id}', [TeamController::class, 'destroy'])->name('destroy'); // Supprimer un team
 });

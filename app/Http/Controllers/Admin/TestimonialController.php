@@ -19,7 +19,6 @@ class TestimonialController extends Controller
     public function index()
     {
         $testimonials = $this->testimonialService->getAll();
-        // dd($testimonials);
         return view('admin.testimonials.index', compact('testimonials'));
     }
 

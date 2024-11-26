@@ -111,6 +111,18 @@
                 </ul>
             </li>
 
+            <!-- Menu Equipe -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#teams" aria-expanded="false">
+                    <i class="ph-duotone ph-person"></i> <!-- Icône pour Témoignages -->
+                    Equipe
+                </a>
+                <ul class="collapse" id="teams">
+                    <li><a href="{{ route('admin.teams.index') }}">Liste des membres</a></li>
+                    <li><a href="{{ route('admin.teams.create') }}">Ajouter un membre</a></li>
+                </ul>
+            </li>
+
             <li class="no-sub">
                 <a class="" href="{{route('widget')}}">
                     <i class="ph-duotone  ph-squares-four"></i> Widgets

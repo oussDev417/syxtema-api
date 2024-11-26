@@ -11,36 +11,36 @@
 
 @section('main-content')
 <div class="container">
-    <h1>Témoignages</h1>
-    <a href="{{ route('admin.testimonials.create') }}" class="btn btn-success mb-3">Ajouter un Témoignage</a>
-    <table id="testimonialsTable" class="table table-striped">
+    <h1>Equipe</h1>
+    <a href="{{ route('admin.teams.create') }}" class="btn btn-success mb-3">Ajouter un membre</a>
+    <table id="teamsTable" class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nom</th>
                 <th>Profession</th>
-                <th>Message</th>
                 <th>Avatar</th>
-                <th>Logo</th>
+                <th>Facebook</th>
+                <th>Linkedin</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($testimonials as $testimonial)
+            @foreach($teams as $team)
             <tr>
-                <td>{{ $testimonial->id }}</td>
-                <td>{{ $testimonial->nom }}</td>
-                <td>{{ $testimonial->profession }}</td>
-                <td>{{ $testimonial->message }}</td>
-                <td>{{ $testimonial->avatar }}</td>
-                <td>{{ $testimonial->logo }}</td>
+                <td>{{ $team->id }}</td>
+                <td>{{ $team->nom }}</td>
+                <td>{{ $team->profession }}</td>
+                <td>{{ $team->avatar }}</td>
+                <td>{{ $team->facebook_url }}</td>
+                <td>{{ $team->linkedin_url }}</td>
                 <td>
-                    <form action="{{ route('admin.testimonials.destroy', $testimonial->id) }}" method="POST">
+                    <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}" class="btn btn-light-success icon-btn b-r-4">
+                        <a href="{{ route('admin.teams.edit', $team->id) }}" class="btn btn-light-success icon-btn b-r-4">
                             <i class="ti ti-edit text-success"></i>
                         </a>
-                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce témoignage ?')" class="btn btn-light-danger icon-btn b-r-4">
+                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre ?')" class="btn btn-light-danger icon-btn b-r-4">
                             <i class="ti ti-trash"></i>
                         </button>
                     </form>
@@ -54,7 +54,7 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#testimonialsTable').DataTable({
+        $('#teamsTable').DataTable({
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'

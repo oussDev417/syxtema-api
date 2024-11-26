@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('title', 'Ajouter un Témoignage')
+@section('title', 'Ajouter un membre')
 @section('css')
 
 <!-- filepond css -->
@@ -12,8 +12,8 @@
 
 @section('main-content')
 <div class="container-fluid">
-    <h1>Ajouter un Témoignage</h1>
-    <form action="{{ route('admin.testimonials.store') }}" method="POST" enctype="multipart/form-data">
+    <h1>Ajouter un membre</h1>
+    <form action="{{ route('admin.teams.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6 mb-3">
@@ -24,19 +24,18 @@
                 <label for="profession" class="form-label">Profession</label>
                 <input type="text" class="form-control" id="profession" name="profession" required>
             </div>
-            <div class="col-md-12 mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" name="message"></textarea>
+            <div class="col-md-6 mb-3">
+                <label for="facebook_url" class="form-label">Facebook</label>
+                <input type="text" class="form-control" id="facebook_url" name="facebook_url" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="linkedin_url" class="form-label">Linkedin</label>
+                <input type="text" class="form-control" id="linkedin_url" name="linkedin_url" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="avatar" class="form-label">Avatar</label>
                 <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
                 <div id="avatarPreview" class="mt-2"></div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label for="logo" class="form-label">Logo</label>
-                <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
-                <div id="logoPreview" class="mt-2"></div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
@@ -76,35 +75,6 @@
             };
             reader.readAsDataURL(file);
         }
-    });
-    document.getElementById('logo').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('logoPreview').innerHTML = `
-                        <img src="${e.target.result}" class="img-logo" style="max-width: 200px; margin-top: 10px;">
-                        <p>${file.name}</p>
-                    `;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Initialiser l'éditeur pour la description
-    $('#message').trumbowyg({
-        btns: [
-            ['viewHTML'],
-            ['undo', 'redo'],
-            ['formatting'],
-            ['strong', 'em', 'del'],
-            ['superscript', 'subscript'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-            ['unorderedList', 'orderedList'],
-            ['horizontalRule'],
-            ['removeformat'],
-            ['fullscreen']
-        ],
     });
 </script>
 @endsection
