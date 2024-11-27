@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\ServiceCategory;
 use App\Models\Departement;
 
@@ -13,7 +14,7 @@ class Service extends Model
         'service_category_id',
         'departement_id',
         'name',
-        'logo', 
+        'image', 
         'secteur',
         'description',
         'status',
@@ -26,6 +27,6 @@ class Service extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(ServiceCategory::class);
+        return $this->belongsTo(ServiceCategory::class, 'service_category_id');
     }
 }

@@ -21,6 +21,13 @@
                 <input type="text" class="form-control" id="title" name="title" required>
             </div>
             <div class="col-md-6 mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="slug" name="slug" required>
+                    <button type="button" class="btn btn-outline-secondary" id="generateSlug">Générer</button>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
                 <label for="type" class="form-label">Type d'Événement</label>
                 <select class="form-select" id="type" name="type" required>
                     <option value="1">À venir</option>
@@ -38,16 +45,22 @@
                 </select>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="slug" class="form-label">Slug</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="slug" name="slug" required>
-                    <button type="button" class="btn btn-outline-secondary" id="generateSlug">Générer</button>
-                </div>
+                <label for="country_id" class="form-label">Pays</label>
+                <select class="form-select" id="country_id" name="country_id" required>
+                    <option value="">Sélectionnez un pays</option>
+                    @foreach($countries as $country)
+                        <option value="{{ $country->id }}">{{ $country->country_name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="thumbnail" class="form-label">Miniature</label>
-                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/*">
-                <div id="thumbnailPreview" class="mt-2"></div>
+                <label for="departement_id" class="form-label">Département</label>
+                <select class="form-select" id="departement_id" name="departement_id" required>
+                    <option value="">Sélectionnez un département</option>
+                    @foreach($departements as $departement)
+                        <option value="{{ $departement->id }}">{{ $departement->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="start_date" class="form-label">Date de Début</label>
@@ -56,6 +69,11 @@
             <div class="col-md-6 mb-3">
                 <label for="end_date" class="form-label">Date de Fin</label>
                 <input type="date" class="form-control" id="end_date" name="end_date" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="thumbnail" class="form-label">Miniature/Image</label>
+                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept="image/*">
+                <div id="thumbnailPreview" class="mt-2"></div>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="location" class="form-label">Lieu</label>

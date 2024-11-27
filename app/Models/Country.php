@@ -12,6 +12,7 @@ class Country extends Model
        'country_name',
        'flag',
         'slug',
+        'location_map_url',
         'phonecode',
         'continent',
         'status',

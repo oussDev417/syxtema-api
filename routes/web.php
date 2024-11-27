@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\DepartementController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -206,4 +210,44 @@ Route::prefix('admin/event_categories')->name('admin.event_categories.')->group(
     Route::get('/{id}/edit', [EventCategoryController::class, 'edit'])->name('edit'); // Formulaire pour éditer un événement
     Route::put('/{id}', [EventCategoryController::class, 'update'])->name('update'); // Mettre à jour une catégorie
     Route::delete('/{id}', [EventCategoryController::class, 'destroy'])->name('destroy'); // Supprimer une catégorie
+});
+
+// Routes pour les pays
+Route::prefix('admin/countries')->name('admin.countries.')->group(function () {
+    Route::get('/', [CountryController::class, 'index'])->name('index');
+    Route::get('/create', [CountryController::class, 'create'])->name('create');
+    Route::post('/', [CountryController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [CountryController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [CountryController::class, 'update'])->name('update');
+    Route::delete('/{id}', [CountryController::class, 'destroy'])->name('destroy');
+});
+
+// Routes pour les départements
+Route::prefix('admin/departements')->name('admin.departements.')->group(function () {
+    Route::get('/', [DepartementController::class, 'index'])->name('index');
+    Route::get('/create', [DepartementController::class, 'create'])->name('create');
+    Route::post('/', [DepartementController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [DepartementController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [DepartementController::class, 'update'])->name('update');
+    Route::delete('/{id}', [DepartementController::class, 'destroy'])->name('destroy');
+});
+
+// Routes pour les services
+Route::prefix('admin/services')->name('admin.services.')->group(function () {
+    Route::get('/', [ServiceController::class, 'index'])->name('index');
+    Route::get('/create', [ServiceController::class, 'create'])->name('create');
+    Route::post('/', [ServiceController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [ServiceController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [ServiceController::class, 'update'])->name('update');
+    Route::delete('/{id}', [ServiceController::class, 'destroy'])->name('destroy');
+});
+
+// Routes pour les catégories de services
+Route::prefix('admin/service_categories')->name('admin.service_categories.')->group(function () {
+    Route::get('/', [ServiceCategoryController::class, 'index'])->name('index');
+    Route::get('/create', [ServiceCategoryController::class, 'create'])->name('create');
+    Route::post('/', [ServiceCategoryController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [ServiceCategoryController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [ServiceCategoryController::class, 'update'])->name('update');
+    Route::delete('/{id}', [ServiceCategoryController::class, 'destroy'])->name('destroy');
 });

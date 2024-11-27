@@ -51,6 +51,54 @@
                 </ul>
             </li>
 
+            <!-- Menu Pays -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#countries" aria-expanded="false">
+                    <i class="ph-duotone ph-globe"></i> <!-- Icône pour Pays -->
+                    Pays
+                </a>
+                <ul class="collapse" id="countries">
+                    <li><a href="{{ route('admin.countries.index') }}">Liste des Pays</a></li>
+                    <li><a href="{{ route('admin.countries.create') }}">Ajouter un Pays</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Départements -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#departements" aria-expanded="false">
+                    <i class="ph-duotone ph-map"></i> <!-- Icône pour Départements -->
+                    Départements
+                </a>
+                <ul class="collapse" id="departements">
+                    <li><a href="{{ route('admin.departements.index') }}">Liste des Départements</a></li>
+                    <li><a href="{{ route('admin.departements.create') }}">Ajouter un Département</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Services -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#services" aria-expanded="false">
+                    <i class="ph-duotone ph-briefcase"></i> <!-- Icône pour Services -->
+                    Services
+                </a>
+                <ul class="collapse" id="services">
+                    <li><a href="{{ route('admin.services.index') }}">Liste des Services</a></li>
+                    <li><a href="{{ route('admin.services.create') }}">Ajouter un Service</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Catégories de Services -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#serviceCategories" aria-expanded="false">
+                    <i class="ph-duotone ph-tags"></i> <!-- Icône pour Catégories de Services -->
+                    Catégories de Services
+                </a>
+                <ul class="collapse" id="serviceCategories">
+                    <li><a href="{{ route('admin.service_categories.index') }}">Liste des Catégories</a></li>
+                    <li><a href="{{ route('admin.service_categories.create') }}">Ajouter une Catégorie</a></li>
+                </ul>
+            </li>
+
             <li class="no-sub">
                 <a class="" href="{{route('widget')}}">
                     <i class="ph-duotone  ph-squares-four"></i> Widgets
@@ -318,6 +366,7 @@
                 </a>
             </li>
 
+            
 
         </ul>
     </div>

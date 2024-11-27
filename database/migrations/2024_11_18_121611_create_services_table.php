@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('service_category_id')->constrained('service_categories')->onDelete('cascade'); // Clé étrangère vers service_categories
             $table->foreignId('departement_id')->constrained('departements')->onDelete('cascade');
             $table->string('name');
-            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
             $table->string('secteur')->nullable();
             $table->text('description')->nullable();
             $table->string('status')->default('active'); 
