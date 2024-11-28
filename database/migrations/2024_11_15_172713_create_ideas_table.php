@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('details');
             $table->integer('image')->nullable();
-            $table->tinyInteger('status')->default(STATUS_PENDING);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
             $table->softDeletes();

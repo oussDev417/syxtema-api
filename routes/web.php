@@ -4,11 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\DepartementController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 =======
+=======
+>>>>>>> Stashed changes
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\AboutPageController;
 use App\Http\Controllers\Frontend\BecomeInstructorController;
@@ -34,7 +37,11 @@ use App\Http\Controllers\Frontend\StudentOrderController;
 use App\Http\Controllers\Frontend\StudentProfileSettingController;
 use App\Http\Controllers\Frontend\StudentReviewController;
 use App\Http\Controllers\Frontend\TinymceImageUploadController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\Global\CloudStorageController;
+
+>>>>>>> Stashed changes
+=======
 
 >>>>>>> Stashed changes
 
@@ -243,6 +250,7 @@ Route::prefix('admin/event_categories')->name('admin.event_categories.')->group(
 });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // Routes pour les pays
 Route::prefix('admin/countries')->name('admin.countries.')->group(function () {
     Route::get('/', [CountryController::class, 'index'])->name('index');
@@ -283,6 +291,8 @@ Route::prefix('admin/service_categories')->name('admin.service_categories.')->gr
     Route::delete('/{id}', [ServiceCategoryController::class, 'destroy'])->name('destroy');
 });
 =======
+=======
+>>>>>>> Stashed changes
 Route::group(['middleware' => 'maintenance.mode'], function () {
 
     /**
@@ -499,7 +509,10 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
         Route::delete('lesson-question/reply/destroy/{id}', [InstructorLessonQnaController::class, 'destroyReply'])->name('lesson-reply.destroy');
         Route::put('lesson-question/seen-update/{id}', [InstructorLessonQnaController::class, 'markAsReadUnread'])->name('lesson-question.seen-update');
 
+<<<<<<< Updated upstream
         Route::post('cloud/store', [CloudStorageController::class, 'store'])->name('cloud.store');
+=======
+>>>>>>> Stashed changes
     });
 
     Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -541,4 +554,7 @@ Route::get('/maintenance-mode', function () {
 require __DIR__ . '/auth.php';
 
 require __DIR__ . '/admin.php';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

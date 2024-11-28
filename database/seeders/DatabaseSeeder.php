@@ -14,8 +14,11 @@ use Modules\Frontend\database\seeders\AboutSectionSeeder;
 use Modules\GlobalSetting\database\seeders\SeoInfoSeeder;
 use Modules\Menubuilder\database\seeders\MenubuilderSeeder;
 use Modules\GlobalSetting\database\seeders\EmailTemplateSeeder;
+<<<<<<< Updated upstream
 use Modules\Installer\database\seeders\InstallerDatabaseSeeder;
 use Modules\BasicPayment\database\seeders\BasicPaymentInfoSeeder;
+=======
+>>>>>>> Stashed changes
 use Modules\PaymentGateway\database\seeders\PaymentGatewaySeeder;
 use Modules\GlobalSetting\database\seeders\CustomPaginationSeeder;
 use Modules\GlobalSetting\database\seeders\MarketingSettingSeeder;
@@ -35,12 +38,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([
+<<<<<<< Updated upstream
             InstallerDatabaseSeeder::class,
+=======
+>>>>>>> Stashed changes
             LanguageSeeder::class,
             CurrencySeeder::class,
             GlobalSettingInfoSeeder::class,
             MarketingSettingSeeder::class,
+<<<<<<< Updated upstream
             BasicPaymentInfoSeeder::class,
+=======
+>>>>>>> Stashed changes
             PaymentGatewaySeeder::class,
             CustomPaginationSeeder::class,
             EmailTemplateSeeder::class,

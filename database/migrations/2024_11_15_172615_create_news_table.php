@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('description');
             $table->integer('image')->nullable();
-            $table->tinyInteger('status')->default(STATUS_PENDING);
+            $table->tinyInteger('status')->default(0);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();
         });
