@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Facade;
 
 return [
 
@@ -141,8 +142,11 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\AppServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
         // ...
     ],
 
@@ -158,5 +162,10 @@ return [
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ],
+
+    'aliases' => Facade::defaultAliases()->merge([
+        // 'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
+    ])->toArray(),
 
 ];

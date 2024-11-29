@@ -15,20 +15,11 @@
     <!-- CSS here -->
     @include('frontend.layouts.styles')
     <!-- CustomCSS here -->
-    @stack('styles')
-    @if (customCode()?->css)
-        <style>
-            {!! customCode()->css !!}
-        </style>
-    @endif
 
     {{-- dynamic header scripts --}}
     @include('frontend.layouts.header-scripts')
 
-    @php
-        setEnrollmentIdsInSession();
-        setInstructorCourseIdsInSession();
-    @endphp
+    
 </head>
 
 <body>
@@ -100,12 +91,7 @@
         </script>
     @endif
     @stack('scripts')
-    @if (customCode()?->javascript)
-        <script>
-            "use strict";
-            {!! customCode()->javascript !!}
-        </script>
-    @endif
+    
 </body>
 
 </html>

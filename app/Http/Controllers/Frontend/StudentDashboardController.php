@@ -16,13 +16,14 @@ use Modules\CertificateBuilder\app\Models\CertificateBuilder;
 use Modules\CertificateBuilder\app\Models\CertificateBuilderItem;
 use Modules\Order\app\Models\Enrollment;
 use Modules\Order\app\Models\Order;
+use Illuminate\Support\Facades\Auth;
 
 class StudentDashboardController extends Controller {
     public function index(): View {
-        $totalEnrolledCourses = Enrollment::where('user_id', userAuth()->id)->count();
-        $totalQuizAttempts = QuizResult::where('user_id', userAuth()->id)->count();
-        $totalReviews = CourseReview::where('user_id', userAuth()->id)->count();
-        $orders = Order::where('buyer_id', userAuth()->id)->orderBy('id', 'desc')->take(10)->get();
+        $totalEnrolledCourses = Enrollment::where('user_id', Auth::user()->id)->count();
+        $totalQuizAttempts = QuizResult::where('user_id', Auth::user()->id)->count();
+        $totalReviews = CourseReview::where('user_id', Auth::user()->id)->count();
+        $orders = Order::where('buyer_id', Auth::user()->id)->orderBy('id', 'desc')->take(10)->get();
         return view('frontend.student-dashboard.index', compact(
             'totalEnrolledCourses',
             'totalQuizAttempts',
@@ -34,13 +35,13 @@ class StudentDashboardController extends Controller {
     function enrolledCourses() {
         $enrolls = Enrollment::with(['course' => function ($q) {
             $q->withTrashed();
-        }])->where('user_id', userAuth()->id)->orderByDesc('id')->paginate(10);
+        }])->where('user_id', Auth::user()->id)->orderByDesc('id')->paginate(10);
         return view('frontend.student-dashboard.enrolled-courses.index', compact('enrolls'));
     }
 
     function quizAttempts() {
         Session::forget('course_slug');
-        $quizAttempts = QuizResult::with(['quiz'])->where('user_id', userAuth()->id)->orderByDesc('id')->paginate(10);
+        $quizAttempts = QuizResult::with(['quiz'])->where('user_id', Auth::user()->id)->orderByDesc('id')->paginate(10);
 
         return view('frontend.student-dashboard.quiz-attempts.index', compact('quizAttempts'));
     }
@@ -54,12 +55,12 @@ class StudentDashboardController extends Controller {
             $q->where('course_id', $course->id);
         })->count();
 
-        $courseLectureCompletedByUser = CourseProgress::where('user_id', userAuth()->id)
+        $courseLectureCompletedByUser = CourseProgress::where('user_id', Auth::user()->id)
             ->where('course_id', $course->id)->where('watched', 1)->latest();
 
         $completed_date = formatDate($courseLectureCompletedByUser->first()?->created_at);
 
-        $courseLectureCompletedByUser = CourseProgress::where('user_id', userAuth()->id)
+        $courseLectureCompletedByUser = CourseProgress::where('user_id', Auth::user()->id)
             ->where('course_id', $course->id)->where('watched', 1)->count();
 
         $courseCompletedPercent = $courseLectureCount > 0 ? ($courseLectureCompletedByUser / $courseLectureCount) * 100 : 0;
@@ -70,7 +71,7 @@ class StudentDashboardController extends Controller {
 
         $html = view('frontend.student-dashboard.certificate.index', compact('certificateItems', 'certificate'))->render();
 
-        $html = str_replace('[student_name]', userAuth()->name, $html);
+        $html = str_replace('[student_name]', Auth::user()->name, $html);
         $html = str_replace('[platform_name]', Cache::get('setting')->app_name, $html);
         $html = str_replace('[course]', $course->title, $html);
         $html = str_replace('[date]', formatDate($completed_date), $html);

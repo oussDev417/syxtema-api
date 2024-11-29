@@ -35,15 +35,13 @@ class AuthenticatedSessionController extends Controller
         $rules = [
             'email' => 'required|email',
             'password' => 'required',
-            'g-recaptcha-response' => $setting->recaptcha_status == 'active' ? ['required', new CustomRecaptcha()] : 'nullable',
         ];
 
         $customMessages = [
             'email.required' => __('Email is required'),
             'password.required' => __('Password is required'),
-            'g-recaptcha-response.required' => __('Please complete the recaptcha to submit the form'),
         ];
-        $this->validate($request, $rules, $customMessages);
+        $request->validate($rules, $customMessages);
 
         $credential = [
             'email' => $request->email,

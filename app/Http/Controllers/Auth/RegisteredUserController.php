@@ -31,7 +31,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', 'min:4', 'max:100'],
-            'g-recaptcha-response' => $setting->recaptcha_status == 'active' ? ['required', new CustomRecaptcha()] : '',
         ], [
             'name.required' => __('Name is required'),
             'email.required' => __('Email is required'),
@@ -39,12 +38,12 @@ class RegisteredUserController extends Controller
             'password.required' => __('Password is required'),
             'password.confirmed' => __('Confirm password does not match'),
             'password.min' => __('You have to provide minimum 4 character password'),
-            'g-recaptcha-response.required' => __('Please complete the recaptcha to submit the form'),
         ]);
 
         $user = User::create([
             'role' => 'student',
-            'name' => $request->name,
+            'first_name' => $request->name,
+            'last_name' => $request->name,
             'email' => $request->email,
             'status' => 'active',
             'is_banned' => 'no',

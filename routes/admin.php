@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Global\CloudStorageController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
@@ -43,5 +42,4 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::put('admin-status/{id}', [AdminController::class, 'changeStatus'])->name('admin.status');
     // Settings routes
     Route::get('settings', [SettingController::class, 'settings'])->name('settings');
-    Route::post('cloud/store', [CloudStorageController::class, 'store'])->name('cloud.store');
 });

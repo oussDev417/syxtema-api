@@ -1,7 +1,5 @@
 @php
-    $nav_menu = Cache::rememberForever('nav_menu', function () {
-        return menuGetBySlug('nav-menu');
-    });
+    
     $categories = \Modules\Course\app\Models\CourseCategory::with('translation')
         ->where('status', 1)
         ->whereNull('parent_id')
@@ -29,56 +27,12 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="tg-header__top-right">
-                            @if ($setting?->header_social_status == 'active')
-                                <ul class="tg-header__top-social list-wrap">
-                                    <li>{{ __('Follow Us On') }} :</li>
-                                    @foreach (getSocialLinks() as $socialLink)
-                                        <li class="header-social">
-                                            <a href="{{ $socialLink->link }}" target="_blank">
-                                                <img src="{{ asset($socialLink->icon) }}" alt="img">
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            @endif
+                            
                             <div class="header_language_area d-flex flex-wrap d-none d-xl-flex">
 
                                 <ul>
-                                    @if (count(allLanguages()?->where('status', 1)) > 1)
-                                        <form action="{{ route('set-language') }}" id="setLanguageHeader">
-                                            <select name="code" class="select_js">
-                                                @forelse (allLanguages()?->where('status', 1) as $language)
-                                                    <option value="{{ $language->code }}"
-                                                        {{ getSessionLanguage() == $language->code ? 'selected' : '' }}>
-                                                        {{ $language->name }}
-                                                    </option>
-                                                @empty
-                                                    <option value="en"
-                                                        {{ getSessionLanguage() == 'en' ? 'selected' : '' }}>
-                                                        {{ __('English') }}
-                                                    </option>
-                                                @endforelse
-                                            </select>
-                                        </form>
-                                    @endif
-                                    @if (count(allCurrencies()?->where('status', 'active')) > 1)
-                                        <form action="{{ route('set-currency') }}" class="set-currency-header"
-                                            method="GET">
-                                            <select name="currency" class="change-currency select_js">
-                                                @forelse (allCurrencies()?->where('status', 'active') as $currency)
-                                                    <option value="{{ $currency->currency_code }}"
-                                                        {{ getSessionCurrency() == $currency->currency_code ? 'selected' : '' }}>
-                                                        {{ $currency->currency_name }}
-                                                    </option>
-                                                @empty
-                                                    <option value="USD"
-                                                        {{ getSessionCurrency() == 'USD' ? 'selected' : '' }}>
-                                                        {{ __('USD') }}
-                                                    </option>
-                                                @endforelse
-                                            </select>
-                                        </form>
-                                    @endif
+                                    
+                                    
                                 </ul>
 
                             </div>
@@ -100,45 +54,7 @@
                                         alt="Logo"></a>
                             </div>
                             <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
-                                @if ($nav_menu)
-                                    <ul class="navigation">
-                                        @foreach ($nav_menu as $menu)
-                                            @if ($menu['link'] == '/' && $setting?->show_all_homepage == 1)
-                                                <li class="menu-item-has-children">
-                                                    <a href="{{ url('/') }}"
-                                                        title="">{{ __('Home') }}</a>
-                                                    <ul class="sub-menu">
-                                                        <li class=""><a
-                                                                href="{{ route('change-theme', 'theme-one') }}"
-                                                                title="">{{ __('Home One') }}</a></li>
-                                                        <li class=""><a
-                                                                href="{{ route('change-theme', 'theme-two') }}"
-                                                                title="">{{ __('Home Two') }}</a></li>
-                                                        <li class=""><a
-                                                                href="{{ route('change-theme', 'theme-three') }}"
-                                                                title="">{{ __('Home Three') }}</a></li>
-                                                        <li class=""><a
-                                                                href="{{ route('change-theme', 'theme-four') }}"
-                                                                title="">{{ __('Home Four') }}</a></li>
-                                                    </ul><!-- /.sub-menu -->
-                                                </li>
-                                            @else
-                                                <li class="{{ $menu['child'] ? 'menu-item-has-children' : '' }}">
-                                                    <a href="{{ $menu['child'] ? 'javascript:;' : url($menu['link']) }}"
-                                                        title="">{{ $menu['label'] }}</a>
-                                                    @if ($menu['child'])
-                                                        <ul class="sub-menu">
-                                                            @foreach ($menu['child'] as $child)
-                                                                <li class=""><a href="{{ url($child['link']) }}"
-                                                                        title="">{{ $child['label'] }}</a></li>
-                                                            @endforeach
-                                                        </ul><!-- /.sub-menu -->
-                                                    @endif
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    </ul><!-- /.menu -->
-                                @endif
+                                
 
                             </div>
                             <div class="tgmenu__search d-none d-md-block">
@@ -173,7 +89,7 @@
                                         <a href="{{ route('cart') }}" class="cart-count">
                                             <img src="{{ asset('frontend/img/icons/cart.svg') }}" class="injectable"
                                                 alt="img">
-                                            <span class="mini-cart-count">{{ Cart::content()->count() }}</span>
+                                            <span class="mini-cart-count"></span>
                                         </a>
                                     </li>
                                     <li class="mini-cart-icon user_icon">
@@ -226,42 +142,7 @@
                             <div class="header_language_area d-flex flex-wrap">
 
                                 <ul>
-                                    @if (count(allLanguages()?->where('status', 1)) > 1)
-                                        <form action="{{ route('set-language') }}"
-                                            class="change-language-header-mobile" method="GET">
-                                            <select name="code" class="select_js set-language-header-mobile">
-                                                @forelse (allLanguages()?->where('status', 1) as $language)
-                                                    <option value="{{ $language->code }}"
-                                                        {{ getSessionLanguage() == $language->code ? 'selected' : '' }}>
-                                                        {{ $language->name }}
-                                                    </option>
-                                                @empty
-                                                    <option value="en"
-                                                        {{ getSessionLanguage() == 'en' ? 'selected' : '' }}>
-                                                        {{ __('English') }}
-                                                    </option>
-                                                @endforelse
-                                            </select>
-                                        </form>
-                                    @endif
-                                    @if (count(allCurrencies()?->where('status', 'active')) > 1)
-                                        <form action="{{ route('set-currency') }}"
-                                            class="change-currency-header-mobile" method="GET">
-                                            <select name="currency" class="set-currency-header-mobile select_js">
-                                                @forelse (allCurrencies()?->where('status', 'active') as $currency)
-                                                    <option value="{{ $currency->currency_code }}"
-                                                        {{ getSessionCurrency() == $currency->currency_code ? 'selected' : '' }}>
-                                                        {{ $currency->currency_name }}
-                                                    </option>
-                                                @empty
-                                                    <option value="USD"
-                                                        {{ getSessionCurrency() == 'USD' ? 'selected' : '' }}>
-                                                        {{ __('USD') }}
-                                                    </option>
-                                                @endforelse
-                                            </select>
-                                        </form>
-                                    @endif
+                                    
                                 </ul>
                             </div>
                             @guest
@@ -304,17 +185,7 @@
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                             </div>
                             <div class="social-links">
-                                @if (count(getSocialLinks()) > 0)
-                                    <ul class="list-wrap">
-                                        @foreach (getSocialLinks() as $socialLink)
-                                            <li>
-                                                <a href="{{ $socialLink->link }}" target="_blank">
-                                                    <img src="{{ asset($socialLink->icon) }}" alt="img">
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
+                                
                             </div>
                         </nav>
                     </div>

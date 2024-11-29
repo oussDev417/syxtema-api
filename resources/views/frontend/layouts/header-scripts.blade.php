@@ -64,9 +64,4 @@
         gtag('config', '{{ $setting->google_analytic_id }}');
     </script>
 @endif
-@if (customCode()?->header_javascript)
-    <script>
-        "use strict";
-        {!! customCode()->header_javascript !!}
-    </script>
-@endif
+
