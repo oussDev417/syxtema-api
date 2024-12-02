@@ -33,10 +33,6 @@
                 @if (Module::isEnabled('Badges') && checkAdminHasPermission('badge.management'))
                     @include('badges::sidebar')
                 @endif
-
-                @if (Module::isEnabled('Blog'))
-                    @include('blog::sidebar')
-                @endif
             @endif
 
             @if(checkAdminHasPermission('order.management') || checkAdminHasPermission('coupon.management') || checkAdminHasPermission('withdraw.management'))
@@ -48,10 +44,6 @@
 
                 @if (Module::isEnabled('Coupon') && checkAdminHasPermission('coupon.management'))
                     @include('coupon::sidebar')
-                @endif
-
-                @if (Module::isEnabled('PaymentWithdraw') && checkAdminHasPermission('withdraw.management'))
-                    @include('paymentwithdraw::admin.sidebar')
                 @endif
             @endif
 
@@ -74,17 +66,6 @@
 
             @if(checkAdminHasPermission('appearance.management') || checkAdminHasPermission('section.management') || checkAdminHasPermission('footer.management') || checkAdminHasPermission('brand.managemen'))
                 <li class="menu-header">{{ __('Site Contents') }}</li>
-                @if (Module::isEnabled('SiteAppearance') && checkAdminHasPermission('appearance.management'))
-                    @include('siteappearance::sidebar')
-                @endif
-
-                @if (Module::isEnabled('Frontend') && checkAdminHasPermission('section.management'))
-                    @include('frontend::sidebar')
-                @endif
-
-                @if (Module::isEnabled('Brand') && checkAdminHasPermission('brand.management'))
-                    @include('brand::sidebar')
-                @endif
 
                 @if (Module::isEnabled('FooterSetting') && checkAdminHasPermission('footer.management'))
                     @include('footersetting::sidebar')
@@ -95,20 +76,8 @@
             @if(checkAdminHasPermission('menu.view') || checkAdminHasPermission('page.management') || checkAdminHasPermission('social.link.management') || checkAdminHasPermission('faq.view'))
                 <li class="menu-header">{{ __('Manage Website') }}</li>
 
-                @if (Module::isEnabled('MenuBuilder') && checkAdminHasPermission('menu.view'))
-                    @include('menubuilder::sidebar')
-                @endif
-                
-                @if (Module::isEnabled('PageBuilder') && checkAdminHasPermission('page.management'))
-                    @include('pagebuilder::sidebar')
-                @endif
-
                 @if (Module::isEnabled('SocialLink') && checkAdminHasPermission('social.link.management'))
                     @include('sociallink::sidebar')
-                @endif
-
-                @if (Module::isEnabled('Faq') && checkAdminHasPermission('faq.view'))
-                    @include('faq::sidebar')
                 @endif
             @endif
 
@@ -123,14 +92,6 @@
 
             @if(checkAdminHasPermission('newsletter.view') || checkAdminHasPermission('testimonial.view') || checkAdminHasPermission('contect.message.view'))
                 <li class="menu-header">{{ __('Utility') }}</li>
-
-                @if (Module::isEnabled('NewsLetter') && checkAdminHasPermission('newsletter.view'))
-                    @include('newsletter::sidebar')
-                @endif
-
-                @if (Module::isEnabled('Testimonial') && checkAdminHasPermission('testimonial.view'))
-                    @include('testimonial::sidebar')
-                @endif
 
                 @if (Module::isEnabled('ContactMessage') && checkAdminHasPermission('contect.message.view'))
                     @include('contactmessage::sidebar')

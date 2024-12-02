@@ -241,42 +241,7 @@
                         </div>
                     </div>
                     @endif
-                    @if(checkAdminHasPermission('blog.view'))
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card card-hero">
-                            <div class="card-header">
-                                <div class="card-icon">
-                                    <i class="fas fa-blog"></i>
-                                </div>
-                                <h5>{{ __('Recent Blogs') }}</h5>
-                                <div class="card-description">({{ $data['pending_blogs'] }})
-                                    {{ __('Blogs are pending') }}</div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="tickets-list">
-                                    @foreach ($data['recent_blogs'] as $blog)
-                                        <a href="{{ route('admin.blogs.edit', ['blog' => $blog, 'code' => getSessionLanguage()]) }}"
-                                            class="ticket-item">
-                                            <div class="ticket-title">
-                                                <h4>{{ truncate($blog->translation->title, 50) }}</h4>
-                                            </div>
-                                            <div class="ticket-info">
-                                                <div>{{ $blog->author->name }}</div>
-                                                <div class="bullet"></div>
-                                                <div>{{ $blog->status == 1 ? __('Approved') : __('Pending') }}</div>
-                                                <div class="bullet"></div>
-                                                <div class="text-primary">{{ $blog->created_at->diffForHumans() }}</div>
-                                            </div>
-                                        </a>
-                                    @endforeach
-                                    <a href="{{ route('admin.blogs.index') }}" class="ticket-item ticket-more">
-                                        {{ __('View All') }} <i class="fas fa-chevron-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
+                   
                     @if(checkAdminHasPermission('contect.message.view'))
                     <div class="col-md-6 col-lg-4">
                         <div class="card card-hero">

@@ -1,7 +1,7 @@
 @php
+    use Nwidart\Modules\Facades\Module;
     $header_admin = Auth::guard('admin')->user();
 @endphp
-
 <!DOCTYPE html>
 <html lang="en">
 

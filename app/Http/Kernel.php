@@ -46,5 +46,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class.':60,1',
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'role' => \App\Http\Middleware\Role::class,                 
+        'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
+        'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
+        'translation' => \App\Http\Middleware\SetLocaleMiddleware::class,
+        'approved.instructor' => \App\Http\Middleware\ApprovedInstructorMiddleware::class
     ];
 }

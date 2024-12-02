@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Frontend\InstructorCourseController;
+use Modules\Course\app\Http\Controllers\CourseController;
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
@@ -38,7 +39,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::put('role/assign', [RolesController::class, 'assignRoleUpdate'])->name('role.assign.update');
         Route::resource('/role', RolesController::class);
         Route::resource('/role', RolesController::class);
-        Route::get('courses', [InstructorController::class, 'index'])->name('admin.courses.index');
+        Route::get('contact-messages', [ContactMessageController::class, 'index'])->name('contact-messages');
+        Route::get('contact-messages/{id}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
+        Route::delete('contact-messages/{id}', [ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
+        Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
     });
     Route::resource('admin', AdminController::class)->except('show');
     Route::put('admin-status/{id}', [AdminController::class, 'changeStatus'])->name('admin.status');
