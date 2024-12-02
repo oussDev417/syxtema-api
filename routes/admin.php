@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Frontend\InstructorCourseController;
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
@@ -37,6 +38,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::put('role/assign', [RolesController::class, 'assignRoleUpdate'])->name('role.assign.update');
         Route::resource('/role', RolesController::class);
         Route::resource('/role', RolesController::class);
+        Route::get('courses', [InstructorController::class, 'index'])->name('admin.courses.index');
     });
     Route::resource('admin', AdminController::class)->except('show');
     Route::put('admin-status/{id}', [AdminController::class, 'changeStatus'])->name('admin.status');

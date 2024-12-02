@@ -7,7 +7,6 @@ use App\Models\Course;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Modules\Blog\app\Models\Blog;
 use Modules\ContactMessage\app\Models\ContactMessage;
 use Modules\Language\app\Models\Language;
 use Modules\Order\app\Models\Order;
@@ -99,8 +98,6 @@ class DashboardController extends Controller
         $data['this_years_earning'] = $thisYearsEarnings;
         $data['recent_courses'] = Course::orderBy('created_at', 'desc')->limit(5)->get();
         $data['pending_courses'] = Course::where('is_approved', 'pending')->orderBy('created_at', 'desc')->count();
-        $data['recent_blogs'] = Blog::orderBy('created_at', 'desc')->limit(5)->get();
-        $data['pending_blogs'] = Blog::where('status', 0)->orderBy('created_at', 'desc')->count();
         $data['recent_contacts'] = ContactMessage::orderBy('created_at', 'desc')->limit(5)->get();
 
         return view('admin.dashboard', compact('data'));

@@ -257,7 +257,201 @@ if (!function_exists('getSettingStatus')) {
         return false;
     }
 }
+if (!function_exists('checkCrentials')) {
+    function checkCrentials() {
+        if (Cache::has('setting') && $settings = Cache::get('setting')) {
+            if ($settings->recaptcha_status !== 'inactive' && ($settings->recaptcha_site_key == 'recaptcha_site_key' || $settings->recaptcha_secret_key == 'recaptcha_secret_key' || $settings->recaptcha_site_key == '' || $settings->recaptcha_secret_key == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Google Recaptcha credentails not found'),
+                    'description' => __('This may create a problem while submitting any form submission from website. Please fill up the credential from google account.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
 
+            if ($settings->pixel_status !== 'inactive' && ($settings->pixel_app_id == 'pixel_app_id' || $settings->pixel_app_id == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Facebook Pixel credentails not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->facebook_login_status !== 'inactive' && ($settings->facebook_app_id == 'facebook_app_id' || $settings->facebook_app_secret == 'facebook_app_secret' || $settings->facebook_redirect_url == 'facebook_redirect_url' || $settings->facebook_app_id == '' || $settings->facebook_app_secret == '' || $settings->facebook_redirect_url == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Facebook login credentails not found'),
+                    'description' => __('This may create a problem while logging in using facebook. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->google_login_status !== 'inactive' && ($settings->gmail_client_id == 'gmail_client_id' || $settings->gmail_secret_id == 'gmail_secret_id' || $settings->gmail_client_id == '' || $settings->gmail_secret_id == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Google login credentails not found'),
+                    'description' => __('This may create a problem while logging in using google. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->google_tagmanager_status !== 'inactive' && ($settings->google_tagmanager_id == 'google_tagmanager_id' || $settings->google_tagmanager_id == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Google tag manager credentials not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+            if ($settings->google_analytic_status !== 'inactive' && ($settings->google_analytic_id == 'google_analytic_id' || $settings->google_analytic_id == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Google analytic credentials not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->tawk_status !== 'inactive' && ($settings->tawk_chat_link == 'tawk_chat_link' || $settings->tawk_chat_link == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Tawk Chat Link credentails not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->pusher_status !== 'inactive' && ($settings->pusher_app_id == 'pusher_app_id' || $settings->pusher_app_key == 'pusher_app_key' || $settings->pusher_app_secret == 'pusher_app_secret' || $settings->pusher_app_cluster == 'pusher_app_cluster' || $settings->pusher_app_id == '' || $settings->pusher_app_key == '' || $settings->pusher_app_secret == '' || $settings->pusher_app_cluster == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Pusher credentails not found'),
+                    'description' => __('This may create a problem while logging in using google. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+
+            if ($settings->mail_host == 'mail_host' || $settings->mail_username == 'mail_username' || $settings->mail_password == 'mail_password' || $settings->mail_host == '' || $settings->mail_port == '' || $settings->mail_username == '' || $settings->mail_password == '') {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Mail credentails not found'),
+                    'description' => __('This may create a problem while sending email. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.email-configuration',
+                ];
+            }
+            if ($settings->wasabi_status !== 'inactive' && ($settings->wasabi_access_id == 'wasabi_access_id' || $settings->wasabi_access_id == '' || $settings->wasabi_secret_key == 'wasabi_secret_key' || $settings->wasabi_secret_key == '' || $settings->wasabi_bucket == 'wasabi_secret_key' || $settings->wasabi_bucket == '' || $settings->wasabi_region == 'wasabi_region' || $settings->wasabi_region == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Wasabi cloud storage credentials not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+            if ($settings->aws_status !== 'inactive' && ($settings->aws_access_id == 'aws_access_id' || $settings->aws_access_id == '' || $settings->aws_secret_key == 'aws_secret_key' || $settings->aws_secret_key == '' || $settings->aws_bucket == 'aws_secret_key' || $settings->aws_bucket == '' || $settings->aws_region == 'aws_region' || $settings->aws_region == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('AWS cloud storage credentials not found'),
+                    'description' => __('This may create a problem to analyze your website. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.crediential-setting',
+                ];
+            }
+        }
+
+        if (!Cache::has('basic_payment') && Module::isEnabled('BasicPayment')) {
+            Cache::rememberForever('basic_payment', function () {
+                $payment_info = BasicPayment::get();
+                $basic_payment = [];
+                foreach ($payment_info as $payment_item) {
+                    $basic_payment[$payment_item->key] = $payment_item->value;
+                }
+
+                return (object) $basic_payment;
+            });
+        }
+
+        if (Cache::has('basic_payment') && $basicPayment = Cache::get('basic_payment')) {
+            if ($basicPayment->stripe_status !== 'inactive' && ($basicPayment->stripe_key == 'stripe_key' || $basicPayment->stripe_secret == 'stripe_secret' || $basicPayment->stripe_key == '' || $basicPayment->stripe_secret == '')) {
+
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Stripe credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.basicpayment',
+                ];
+            }
+
+            if ($basicPayment->paypal_status !== 'inactive' && ($basicPayment->paypal_client_id == 'paypal_client_id' || $basicPayment->paypal_secret_key == 'paypal_secret_key' || $basicPayment->paypal_client_id == '' || $basicPayment->paypal_secret_key == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Paypal credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.basicpayment',
+                ];
+            }
+        }
+
+        if (!Cache::has('payment_setting') && Module::isEnabled('PaymentGateway')) {
+            Cache::rememberForever('payment_setting', function () {
+                $payment_info = PaymentGateway::get();
+                $payment_setting = [];
+                foreach ($payment_info as $payment_item) {
+                    $payment_setting[$payment_item->key] = $payment_item->value;
+                }
+
+                return (object) $payment_setting;
+            });
+        }
+
+        if (Cache::has('payment_setting') && $paymentAddons = Cache::get('payment_setting')) {
+            if ($paymentAddons->razorpay_status !== 'inactive' && ($paymentAddons->razorpay_key == 'razorpay_key' || $paymentAddons->razorpay_secret == 'razorpay_secret' || $paymentAddons->razorpay_key == '' || $paymentAddons->razorpay_secret == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Razorpay credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.paymentgateway',
+                ];
+            }
+
+            if ($paymentAddons->flutterwave_status !== 'inactive' && ($paymentAddons->flutterwave_public_key == 'flutterwave_public_key' || $paymentAddons->flutterwave_secret_key == 'flutterwave_secret_key' || $paymentAddons->flutterwave_public_key == '' || $paymentAddons->flutterwave_secret_key == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Flutterwave credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.paymentgateway',
+                ];
+            }
+
+            if ($paymentAddons->paystack_status !== 'inactive' && ($paymentAddons->paystack_public_key == 'paystack_public_key' || $paymentAddons->paystack_secret_key == 'paystack_secret_key' || $paymentAddons->paystack_public_key == '' || $paymentAddons->paystack_secret_key == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Paystack credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.paymentgateway',
+                ];
+            }
+
+            if ($paymentAddons->mollie_status !== 'inactive' && ($paymentAddons->mollie_key == 'mollie_key' || $paymentAddons->mollie_key == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Mollie credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.paymentgateway',
+                ];
+            }
+
+            if ($paymentAddons->instamojo_status !== 'inactive' && ($paymentAddons->instamojo_api_key == 'instamojo_api_key' || $paymentAddons->instamojo_auth_token == 'instamojo_auth_token' || $paymentAddons->instamojo_api_key == '' || $paymentAddons->instamojo_auth_token == '')) {
+                return (object) [
+                    'status'      => true,
+                    'message'     => __('Instamojo credentails not found'),
+                    'description' => __('This may create a problem while making payment. Please fill up the credential to avoid any problem.'),
+                    'route'       => 'admin.paymentgateway',
+                ];
+            }
+        }
+
+        return false;
+    }
+}
 
 if (!function_exists('isRoute')) {
     function isRoute(string | array $route, string $returnValue = null) {
@@ -586,7 +780,16 @@ if (!function_exists('routeList')) {
         return (object) $route_list;
     }
 }
-
+//wasabi config setup
+if (!function_exists('set_wasabi_config')) {
+    function set_wasabi_config() {
+        $wasabi_setting = Cache::get('setting');
+        config(['filesystems.disks.wasabi.key' => $wasabi_setting?->wasabi_access_id]);
+        config(['filesystems.disks.wasabi.secret' => $wasabi_setting?->wasabi_secret_key]);
+        config(['filesystems.disks.wasabi.bucket' => $wasabi_setting?->wasabi_bucket]);
+        config(['filesystems.disks.wasabi.region' => $wasabi_setting?->wasabi_region]);
+    }
+}
 if (!function_exists('set_aws_config')) {
     function set_aws_config() {
         $aws_setting = Cache::get('setting');
