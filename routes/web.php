@@ -535,9 +535,9 @@ Route::get('/maintenance-mode', function () {
     return view('global.maintenance');
 })->name('maintenance.mode');
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';
 
-require __DIR__ . '/admin.php';
+// require __DIR__ . '/admin.php';
 
 // Routes pour les témoignages
 Route::prefix('admin/testimonials')->name('admin.testimonials.')->group(function () {
