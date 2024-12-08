@@ -11,7 +11,7 @@ class StoreTeamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StoreTeamRequest extends FormRequest
         return [
             'nom' => 'required|string|max:255',
             'profession' => 'required|string|max:255',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'facebook_url' => 'nullable|string|max:255',
             'linkedin_url' => 'nullable|string|max:255',
         ];

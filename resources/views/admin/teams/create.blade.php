@@ -1,13 +1,8 @@
 @extends('layout.master')
 @section('title', 'Ajouter un membre')
 @section('css')
-
-<!-- filepond css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/filepond.css')}}">
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/image-preview.min.css')}}">
-
 <!-- editor css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
 @endsection
 
 @section('main-content')
@@ -41,40 +36,4 @@
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </div>
-@endsection
-
-@section('script')
-<!--customizer-->
-<div id="customizer"></div>
-
-<!-- Trumbowyg js -->
-<script src="{{asset('assets/vendor/trumbowyg/trumbowyg.min.js')}}"></script>
-
-<!-- filepond -->
-<script src="{{asset('assets/vendor/filepond/file-encode.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-size.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-type.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/exif-orientation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/image-preview.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/filepond.min.js')}}"></script>
-
-<!-- add event js -->
-<script src="{{asset('assets/js/add_event.js')}}"></script>
-
-<script>
-    // Prévisualisation des images sélectionnées
-    document.getElementById('avatar').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('avatarPreview').innerHTML = `
-                        <img src="${e.target.result}" class="img-avatar" style="max-width: 200px; margin-top: 10px;">
-                        <p>${file.name}</p>
-                    `;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
 @endsection

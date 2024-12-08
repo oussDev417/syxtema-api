@@ -8,18 +8,26 @@ class TestimonialService
 {
     public function create(array $data): Temoignage
     {
+        if (isset($data['avatar'])) {
+            $imagePath = $data['avatar']->store('images/testimonials', 'public');
+            $data['avatar'] = $imagePath;
+        }
         return Temoignage::create($data);
     }
 
     public function update(Temoignage $testimonial, array $data): Temoignage
     {
+        if (isset($data['avatar'])) {
+            $imagePath = $data['avatar']->store('images/testimonials', 'public');
+            $data['avatar'] = $imagePath;
+        }
         $testimonial->update($data);
         return $testimonial;
     }
 
-    public function delete(Temoignage $testimonial): void
+    public function delete(Temoignage $testimonial)
     {
-        $testimonial->delete();
+        return $testimonial->delete();
     }
 
     public function getAll()

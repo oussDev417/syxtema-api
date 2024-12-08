@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeamRequest;
-use App\Http\Requests\StoreTestimonialRequest;
 use App\Models\Team;
 use App\Services\TeamService;
 
@@ -25,8 +24,7 @@ class TeamController extends Controller
 
     public function create()
     {
-        $teams = Team::all();
-        return view('admin.teams.create', compact('teams'));
+        return view('admin.teams.create');
     }
 
     public function store(StoreTeamRequest $request)
@@ -41,7 +39,7 @@ class TeamController extends Controller
         return view('admin.teams.edit', compact('team'));
     }
 
-    public function update(StoreTestimonialRequest $request, $id)
+    public function update(StoreTeamRequest $request, $id)
     {
         $team = Team::findOrFail($id);
         $this->teamService->update($team, $request->validated());

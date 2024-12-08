@@ -24,8 +24,7 @@ class TestimonialController extends Controller
 
     public function create()
     {
-        $testimonials = Temoignage::all();
-        return view('admin.testimonials.create', compact('testimonials'));
+        return view('admin.testimonials.create');
     }
 
     public function store(StoreTestimonialRequest $request)

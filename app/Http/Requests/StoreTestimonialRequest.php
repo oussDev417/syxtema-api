@@ -25,8 +25,7 @@ class StoreTestimonialRequest extends FormRequest
             'nom' => 'required|string|max:255',
             'profession' => 'required|string|max:255',
             'message' => 'required|string',
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ];
     }
 }

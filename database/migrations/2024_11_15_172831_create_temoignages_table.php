@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('profession');
             $table->string('message');
             $table->string('avatar');
-            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

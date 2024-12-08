@@ -35,6 +35,7 @@ use App\Http\Controllers\Frontend\TinymceImageUploadController;
 use App\Http\Controllers\Global\CloudStorageController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\PortfolioController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -557,4 +558,14 @@ Route::prefix('admin/teams')->name('admin.teams.')->group(function () {
     Route::get('/{id}/edit', [TeamController::class, 'edit'])->name('edit'); // Formulaire pour éditer un team
     Route::put('/{id}', [TeamController::class, 'update'])->name('update'); // Mettre à jour un team
     Route::delete('/{id}', [TeamController::class, 'destroy'])->name('destroy'); // Supprimer un team
+});
+
+// Routes pour les réalisations
+Route::prefix('admin/portfolios')->name('admin.portfolios.')->group(function () {
+    Route::get('/', [PortfolioController::class, 'index'])->name('index'); // Afficher toutes les réalisations
+    Route::get('/create', [PortfolioController::class, 'create'])->name('create'); // Formulaire pour créer une réalisation
+    Route::post('/', [PortfolioController::class, 'store'])->name('store'); // Enregistrer une nouvelle réalisation
+    Route::get('/{id}/edit', [PortfolioController::class, 'edit'])->name('edit'); // Formulaire pour éditer une réalisation
+    Route::put('/{id}', [PortfolioController::class, 'update'])->name('update'); // Mettre à jour une réalisation
+    Route::delete('/{id}', [PortfolioController::class, 'destroy'])->name('destroy'); // Supprimer une réalisation
 });

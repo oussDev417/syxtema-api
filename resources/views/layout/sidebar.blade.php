@@ -27,6 +27,18 @@
                 </ul>
             </li>
 
+            <!-- Menu Réalisations -->
+             <li>
+                <a class="" data-bs-toggle="collapse" href="#portfolios" aria-expanded="false">
+                    <i class="ph-duotone ph-image"></i> <!-- Icône pour Réalisations -->
+                    Réalisations
+                </a>
+                <ul class="collapse" id="portfolios">
+                    <li><a href="{{ route('admin.portfolios.index') }}">Liste des Réalisations</a></li>
+                    <li><a href="{{ route('admin.portfolios.create') }}">Ajouter une Réalisation</a></li>
+                </ul>
+            </li>
+
             <!-- Menu Événements -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#events" aria-expanded="false">

@@ -1,17 +1,12 @@
 @extends('layout.master')
-@section('title', 'Événements')
+@section('title', 'Liste des témoignages')
 @section('css')
-
-<!-- filepond css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/filepond.css')}}">
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/image-preview.min.css')}}">
-<!-- editor css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/datatables/datatables.min.css') }}">
 @endsection
 
 @section('main-content')
 <div class="container">
-    <h1>Témoignages</h1>
+    <h1>Liste des Témoignages</h1>
     <a href="{{ route('admin.testimonials.create') }}" class="btn btn-success mb-3">Ajouter un Témoignage</a>
     <table id="testimonialsTable" class="table table-striped">
         <thead>
@@ -21,7 +16,7 @@
                 <th>Profession</th>
                 <th>Message</th>
                 <th>Avatar</th>
-                <th>Logo</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,16 +26,15 @@
                 <td>{{ $testimonial->nom }}</td>
                 <td>{{ $testimonial->profession }}</td>
                 <td>{{ $testimonial->message }}</td>
-                <td>{{ $testimonial->avatar }}</td>
-                <td>{{ $testimonial->logo }}</td>
+                <td><img src="{{ asset('storage/' . $testimonial->avatar) }}" alt="" style="height:3em;"></td>
                 <td>
-                    <form action="{{ route('admin.testimonials.destroy', $testimonial->id) }}" method="POST">
+                    <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}" class="btn btn-light-success">
+                        <i class="ti ti-edit"></i>
+                    </a>
+                    <form action="{{ route('admin.testimonials.destroy', $testimonial->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}" class="btn btn-light-success icon-btn b-r-4">
-                            <i class="ti ti-edit text-success"></i>
-                        </a>
-                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce témoignage ?')" class="btn btn-light-danger icon-btn b-r-4">
+                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce témoignage ?')" class="btn btn-light-danger">
                             <i class="ti ti-trash"></i>
                         </button>
                     </form>
@@ -50,36 +44,13 @@
         </tbody>
     </table>
 </div>
+@endsection
 
 @section('scripts')
+<script src="{{ asset('assets/vendor/datatables/datatables.min.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $('#testimonialsTable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        });
+        $('#testimonialsTable').DataTable();
     });
 </script>
-@endsection
-@endsection
-
-@section('script')
-<!--customizer-->
-<div id="customizer"></div>
-
-<!-- Trumbowyg js -->
-<script src="{{asset('assets/vendor/trumbowyg/trumbowyg.min.js')}}"></script>
-
-<!-- filepond -->
-<script src="{{asset('assets/vendor/filepond/file-encode.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-size.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-type.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/exif-orientation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/image-preview.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/filepond.min.js')}}"></script>
-
-<!-- add blog js  -->
-<script src="{{asset('assets/js/add_blog.js')}}"></script>
-@endsection
+@endsection 

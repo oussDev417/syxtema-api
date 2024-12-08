@@ -1,12 +1,7 @@
 @extends('layout.master')
-@section('title', 'Événements')
+@section('title', 'Liste des membres')
 @section('css')
-
-<!-- filepond css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/filepond.css')}}">
-<link rel="stylesheet" href="{{asset('assets/vendor/filepond/image-preview.min.css')}}">
-<!-- editor css -->
-<link rel="stylesheet" href="{{asset('assets/vendor/trumbowyg/trumbowyg.min.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/datatables/datatables.min.css') }}">
 @endsection
 
 @section('main-content')
@@ -30,17 +25,17 @@
                 <td>{{ $team->id }}</td>
                 <td>{{ $team->nom }}</td>
                 <td>{{ $team->profession }}</td>
-                <td>{{ $team->avatar }}</td>
+                <td><img src="{{ asset('storage/' . $team->avatar) }}" alt="" style="height:3em;"></td>
                 <td>{{ $team->facebook_url }}</td>
                 <td>{{ $team->linkedin_url }}</td>
                 <td>
-                    <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST">
+                    <a href="{{ route('admin.teams.edit', $team->id) }}" class="btn btn-light-success">
+                        <i class="ti ti-edit"></i>
+                    </a>
+                    <form action="{{ route('admin.teams.destroy', $team->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <a href="{{ route('admin.teams.edit', $team->id) }}" class="btn btn-light-success icon-btn b-r-4">
-                            <i class="ti ti-edit text-success"></i>
-                        </a>
-                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre ?')" class="btn btn-light-danger icon-btn b-r-4">
+                        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre de l\'équipe ?')" class="btn btn-light-danger">
                             <i class="ti ti-trash"></i>
                         </button>
                     </form>
@@ -50,36 +45,13 @@
         </tbody>
     </table>
 </div>
+@endsection
 
 @section('scripts')
+<script src="{{ asset('assets/vendor/datatables/datatables.min.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $('#teamsTable').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
-            ]
-        });
+        $('#teamsTable').DataTable();
     });
 </script>
-@endsection
-@endsection
-
-@section('script')
-<!--customizer-->
-<div id="customizer"></div>
-
-<!-- Trumbowyg js -->
-<script src="{{asset('assets/vendor/trumbowyg/trumbowyg.min.js')}}"></script>
-
-<!-- filepond -->
-<script src="{{asset('assets/vendor/filepond/file-encode.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-size.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/validate-type.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/exif-orientation.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/image-preview.min.js')}}"></script>
-<script src="{{asset('assets/vendor/filepond/filepond.min.js')}}"></script>
-
-<!-- add blog js  -->
-<script src="{{asset('assets/js/add_blog.js')}}"></script>
 @endsection
