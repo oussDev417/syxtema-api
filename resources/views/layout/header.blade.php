@@ -373,7 +373,7 @@
                                         </a>
                                     </div>
                                     <div class="d-flex-center text-center mb-3">
-                                        <a href="{{route('blogs')}}" target="_blank">
+                                        <a href="{{route('blog')}}" target="_blank">
                               <span>
                                 <i class="ph-duotone  ph-notebook text-primary f-s-30"></i>
                               </span>
@@ -565,7 +565,7 @@
                                     <div class="header-cart-btn">
                                         <a href="{{route('cart')}}" target="_blank" role="button" class="btn btn-light-primary">
                                             <i class="ti ti-eye"></i> View Cart</a>
-                                        <a href="{{route('checkout.index')}}" target="_blank" role="button" class="btn btn-light-success">
+                                        <a href="{{route('checkout')}}" target="_blank" role="button" class="btn btn-light-success">
                                             Checkout <i class="ti ti-shopping-cart"></i></a>
                                     </div>
                                 </div>
