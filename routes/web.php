@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\NewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
@@ -229,6 +230,16 @@ Route::prefix('admin/events')->name('admin.events.')->group(function () {
     Route::get('/{id}/edit', [EventController::class, 'edit'])->name('edit'); // Formulaire pour éditer un événement
     Route::put('/{id}', [EventController::class, 'update'])->name('update'); // Mettre à jour un événement
     Route::delete('/{id}', [EventController::class, 'destroy'])->name('destroy'); // Supprimer un événement
+});
+
+// Routes pour les actualités(news)
+Route::prefix('admin/news')->name('admin.news.')->group(function () {
+    Route::get('/', [NewController::class, 'index'])->name('index'); // Afficher toutes les actualités
+    Route::get('/create', [NewController::class, 'create'])->name('create'); // Formulaire pour créer une nouvelle actualité
+    Route::post('/', [NewController::class, 'store'])->name('store'); // Enregistrer une nouvelle actualité
+    Route::get('/{id}/edit', [NewController::class, 'edit'])->name('edit'); // Formulaire pour éditer une actualité
+    Route::put('/{id}', [NewController::class, 'update'])->name('update'); // Mettre à jour une actualité
+    Route::delete('/{id}', [NewController::class, 'destroy'])->name('destroy'); // Supprimer une actualité
 });
 
 // Routes pour les catégories d'événements
