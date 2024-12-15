@@ -39,6 +39,18 @@
                 </ul>
             </li>
 
+            <!-- Menu Partenaires -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#partners" aria-expanded="false">
+                    <i class="ph-duotone ph-handshake"></i> <!-- Icône pour Partenaires -->
+                    Partenaires
+                </a>
+                <ul class="collapse" id="partners">
+                    <li><a href="{{ route('admin.partners.index') }}">Liste des Partenaires</a></li>
+                    <li><a href="{{ route('admin.partners.create') }}">Ajouter un Partenaire</a></li>
+                </ul>
+            </li>
+
             <!-- Menu Événements -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#events" aria-expanded="false">
@@ -48,6 +60,18 @@
                 <ul class="collapse" id="events">
                     <li><a href="{{ route('admin.events.index') }}">Liste des Événements</a></li>
                     <li><a href="{{ route('admin.events.create') }}">Ajouter un Événement</a></li>
+                </ul>
+            </li>
+
+            {{-- Menu Actualités (news) --}}
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#news" aria-expanded="false">
+                    <i class="ph-duotone ph-event"></i> <!-- Icône pour Événements -->
+                    Actualités
+                </a>
+                <ul class="collapse" id="news">
+                    <li><a href="{{ route('admin.news.index') }}">Liste des Actualités</a></li>
+                    <li><a href="{{ route('admin.news.create') }}">Ajouter une Actualité</a></li>
                 </ul>
             </li>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\NewController;
+use App\Http\Controllers\Admin\PartnerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
@@ -513,7 +514,7 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
 
     Route::group(['middleware' => ['auth', 'verified']], function () {
         /** checkout routes */
-        Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout.index');
+        Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
 
         /**payment related route start */
         Route::get('payment', [PaymentController::class, 'payment'])->name('payment');
@@ -579,4 +580,14 @@ Route::prefix('admin/portfolios')->name('admin.portfolios.')->group(function () 
     Route::get('/{id}/edit', [PortfolioController::class, 'edit'])->name('edit'); // Formulaire pour éditer une réalisation
     Route::put('/{id}', [PortfolioController::class, 'update'])->name('update'); // Mettre à jour une réalisation
     Route::delete('/{id}', [PortfolioController::class, 'destroy'])->name('destroy'); // Supprimer une réalisation
+});
+
+// Routes pour les partenaires
+Route::prefix('admin/partners')->name('admin.partners.')->group(function () {
+    Route::get('/', [PartnerController::class, 'index'])->name('index'); // Afficher tous les partenaires
+    Route::get('/create', [PartnerController::class, 'create'])->name('create'); // Formulaire pour créer un partenaire
+    Route::post('/', [PartnerController::class, 'store'])->name('store'); // Enregistrer un nouveau partenaire
+    Route::get('/{id}/edit', [PartnerController::class, 'edit'])->name('edit'); // Formulaire pour éditer un partenaire
+    Route::put('/{id}', [PartnerController::class, 'update'])->name('update'); // Mettre à jour un partenaire
+    Route::delete('/{id}', [PartnerController::class, 'destroy'])->name('destroy'); // Supprimer un partenaire
 });
