@@ -15,7 +15,7 @@ use Modules\ContactMessage\app\Http\Controllers\ContactMessageController;
 |
 */
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin', 'translation']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::get('contact-messages', [AdminContactMessageController::class, 'index'])->name('contact-messages');
     Route::get('contact-message/{id}', [AdminContactMessageController::class, 'show'])->name('contact-message');
     Route::delete('contact-message-delete/{id}', [AdminContactMessageController::class, 'destroy'])->name('contact-message-delete');

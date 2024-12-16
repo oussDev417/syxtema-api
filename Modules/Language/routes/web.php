@@ -5,7 +5,7 @@ use Modules\Language\app\Http\Controllers\LanguageController;
 use Modules\Language\app\Http\Controllers\StaticLanguageController;
 use Modules\Language\app\Http\Controllers\TranslationController;
 
-Route::middleware(['auth:admin', 'translation'])
+Route::middleware(['auth:admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {

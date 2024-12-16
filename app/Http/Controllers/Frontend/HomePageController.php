@@ -45,7 +45,6 @@ class HomePageController extends Controller {
     use MailSenderTrait;
 
     function index(): View {
-        $hero = HeroSection::first();
         $trendingCategories = CourseCategory::with(['translation:id,name,course_category_id', 'subCategories' => function ($query) {
             $query->withCount(['courses' => function ($query) {
                 $query->where('status', 'active');
@@ -58,11 +57,7 @@ class HomePageController extends Controller {
             ->where('status', 1)
             ->where('show_at_trending', 1)
             ->get();
-        $brands = Brand::where('status', 1)->get();
-        $aboutSection = AboutSection::first();
-        $featuredCourse = FeaturedCourseSection::first();
-        $newsletterSection = NewsletterSection::first();
-        $featuredInstructorSection = FeaturedInstructor::first();
+    
         $instructorIds = json_decode($featuredInstructorSection->instructor_ids ?? '[]');
 
         $selectedInstructors = User::whereIn('id', $instructorIds)
@@ -73,17 +68,7 @@ class HomePageController extends Controller {
             }])
             ->get();
 
-        $counter = CounterSection::first();
-        $faqSection = FaqSection::first();
-        $faqs = Faq::with('translation')->where('status', 1)->get();
-        $ourFeatures = OurFeaturesSection::first();
-        $bannerSection = BannerSection::first();
-        $testimonials = Testimonial::all();
-
-        $featuredBlogs = Blog::with(['translation', 'author'])
-            ->whereHas('category', function ($q) {$q->where('status', 1);})
-            ->where(['show_homepage' => 1, 'status' => 1])->orderBy('created_at', 'desc')->limit(4)->get();
-        $sectionSetting = SectionSetting::first();
+        
 
         $siteTheme = Session::has('demo_theme') ? Session::get('demo_theme') : Cache::get('setting')?->site_theme;
         if ($siteTheme == 'theme-two') {
@@ -96,22 +81,8 @@ class HomePageController extends Controller {
             $themePath = 'frontend.home-one.index';
         }
         return view($themePath, compact(
-            'hero',
             'trendingCategories',
-            'brands',
-            'aboutSection',
-            'featuredCourse',
-            'newsletterSection',
-            'featuredInstructorSection',
             'selectedInstructors',
-            'counter',
-            'faqSection',
-            'faqs',
-            'testimonials',
-            'ourFeatures',
-            'bannerSection',
-            'featuredBlogs',
-            'sectionSetting'
         ));
     }
 

@@ -16,6 +16,6 @@ use Modules\Location\app\Http\Controllers\StateController;
 |
 */
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin', 'translation']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::resource('country', CountryController::class)->names('country');
 });

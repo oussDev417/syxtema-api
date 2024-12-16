@@ -24,7 +24,7 @@ use Modules\Course\app\Http\Controllers\ReviewController;
 |
 */
 
-Route::group(['middleware' => ['auth:admin', 'translation'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('course', CourseController::class)->names('course');
 
     /** Course category routes */

@@ -26,7 +26,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'id' => 1000,
-            'name' => 'Jhon Doe',
+            'first_name' => 'Jhon',
+            'last_name' => 'Doe',
             'email' => 'student@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'student',
@@ -35,7 +36,8 @@ class UserSeeder extends Seeder
 
         User::create([
             'id' => 1001,
-            'name' => 'Jason Thorne',
+            'first_name' => 'Jason',
+            'last_name' => 'Thorne',
             'email' => 'instructor@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -65,13 +67,14 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1001,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
 
         User::create([
             'id' => 1002,
-            'name' => 'Mark Davenport',
+            'first_name' => 'Mark',
+            'last_name' => 'Davenport',
             'email' => 'instructortwo@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -101,13 +104,14 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1002,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
 
         User::create([
             'id' => 1003,
-            'name' => 'Ethan Granger',
+            'first_name' => 'Ethan',
+            'last_name' => 'Granger',
             'email' => 'instructortrhee@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -137,13 +141,14 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1003,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
 
         User::create([
             'id' => 1004,
-            'name' => 'Lucas Hale',
+            'first_name' => 'Lucas',
+            'last_name' => 'Hale',
             'email' => 'instructorfour@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -173,13 +178,14 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1004,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
 
         User::create([
             'id' => 1005,
-            'name' => 'Nathaniel Cross',
+            'first_name' => 'Nathaniel',
+            'last_name' => 'Cross',
             'email' => 'instructorfive@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -209,13 +215,14 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1005,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
 
         User::create([
             'id' => 1006,
-            'name' => 'Adrian Pierce',
+            'first_name' => 'Adrian',
+            'last_name' => 'Pierce',
             'email' => 'instructorsix@gmail.com',
             'password' => bcrypt('1234'),
             'role' => 'instructor',
@@ -245,7 +252,7 @@ class UserSeeder extends Seeder
             ]);
             UserEducation::create([
                 'user_id' => 1006,
-                'education' => $educations[$i],
+                'organization' => $educations[$i],
             ]);
         }
     }

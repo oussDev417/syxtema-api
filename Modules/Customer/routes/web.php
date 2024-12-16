@@ -14,7 +14,7 @@ use Modules\Customer\app\Http\Controllers\CustomerController;
 |
 */
 
-Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin', 'translation']], function () {
+Route::group(['as' => 'admin.', 'prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     Route::controller(CustomerController::class)->group(function () {
 
         Route::get('all-customers', 'index')->name('all-customers');

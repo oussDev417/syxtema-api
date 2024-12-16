@@ -14,7 +14,7 @@ use Modules\CertificateBuilder\app\Http\Controllers\CertificateBuilderController
 |
 */
 
-Route::group(['middleware' => ['auth:admin', 'translation'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::post('certificate-builder/item/update', [CertificateBuilderController::class, 'updateItem'])->name('certificate-builder.item.update');
     Route::resource('certificate-builder', CertificateBuilderController::class)->names('certificate-builder');
 });

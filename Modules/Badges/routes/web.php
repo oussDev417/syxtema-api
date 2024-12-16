@@ -14,7 +14,7 @@ use Modules\Badges\app\Http\Controllers\BadgesController;
 |
 */
 
-Route::group(['middleware' => ['auth:admin', 'translation'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::put('registration-badge', [BadgesController::class, 'registrationBadge'])->name('registration-badge');
     Route::resource('badges', BadgesController::class)->names('badges');
 });
