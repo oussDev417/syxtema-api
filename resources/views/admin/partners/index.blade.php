@@ -7,6 +7,7 @@
 @section('main-content')
     <div class="container">
         <h1>Liste des partenaires</h1>
+        {{-- <div>{{ $partners }}</div> --}}
         <a href="{{ route('admin.partners.create') }}" class="btn btn-success mb-3">Ajouter un partenaire</a>
         <table id="partnersTable" class="table table-striped">
             <thead>
@@ -22,7 +23,11 @@
                     <tr>
                         <td>{{ $partner->id }}</td>
                         <td>{{ $partner->url }}</td>
-                        <td><img src="{{ asset('storage/' . $partner->image) }}" alt="" style="height:3em;"></td>
+                        <td>
+                            @if ($partner->logo)
+                                <img src="{{ asset('storage/' . $partner->logo->path) }}" alt="" width="45" />
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('admin.partners.edit', $partner->id) }}" class="btn btn-light-success">
                                 <i class="ti ti-edit"></i>

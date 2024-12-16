@@ -8,25 +8,32 @@ class PartnerService
 {
     public function create(array $data): Partner
     {
+        $partner = Partner::create($data);
         if (isset($data['image'])) {
             $imagePath = $data['image']->store('images/partners', 'public');
-            $data['image'] = $imagePath;
+            $partner->logo()->create(['path' => $imagePath]);
         }
-        return Partner::create($data);
+        return $partner;
     }
 
     public function update(Partner $partner, array $data): Partner
     {
+        $partner->update($data);
         if (isset($data['image'])) {
             $imagePath = $data['image']->store('images/partners', 'public');
-            $data['image'] = $imagePath;
+            if ($partner->logo) {
+                $partner->logo->delete();
+            }
+            $partner->logo()->create(['path' => $imagePath]);
         }
-        $partner->update($data);
         return $partner;
     }
 
     public function delete(Partner $partner)
     {
+        if ($partner->logo) {
+            $partner->logo->delete();
+        }
         return $partner->delete();
     }
 
