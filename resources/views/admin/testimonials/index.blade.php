@@ -26,7 +26,11 @@
                         <td>{{ $testimonial->nom }}</td>
                         <td>{{ $testimonial->profession }}</td>
                         <td>{{ $testimonial->message }}</td>
-                        <td><img src="{{ asset('storage/' . $testimonial->avatar) }}" alt="" style="height:3em;"></td>
+                        <td>
+                            @if ($testimonial->avatar)
+                                <img src="{{ asset('storage/' . $testimonial->avatar->path) }}" alt="Avatar" width="40">
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}"
                                 class="btn btn-light-success">

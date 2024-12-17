@@ -13,27 +13,34 @@ class PortfolioService
 
     public function create(array $data)
     {
+        $portfolio = Portfolio::create($data);
         if (isset($data['image'])) {
-            $imagePath = $data['image']->store('images/services', 'public'); 
-            $data['image'] = $imagePath;
+            $imagePath = $data['image']->store('images/portfolios', 'public');
+            $portfolio->image()->create(['path' => $imagePath]);
         }
 
-        return Portfolio::create($data);
+        return $portfolio;
     }
 
     public function update(Portfolio $portfolio, array $data)
     {
-        if (isset($data['image'])) {
-            $imagePath = $data['image']->store('images/services', 'public');
-            $data['image'] = $imagePath;
-        }
-
         $portfolio->update($data);
+        if (isset($data['image'])) {
+            $imagePath = $data['image']->store('images/portfolios', 'public');
+            if ($portfolio->image) {
+                // delete the image
+                $portfolio->image->delete();
+            }
+            $portfolio->image()->create(['path' => $imagePath]);
+        }
         return $portfolio;
     }
 
     public function delete(Portfolio $portfolio)
     {
+        if ($portfolio->image) {
+            $portfolio->image->delete();
+        }
         return $portfolio->delete();
     }
-} 
+}

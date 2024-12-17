@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('title');
             $table->string('slug');
             $table->longText('description');
-            $table->integer('image')->nullable();
+            // $table->integer('image')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

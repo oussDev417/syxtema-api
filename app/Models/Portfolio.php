@@ -16,8 +16,15 @@ class Portfolio extends Model
         'client',
         'url',
         'location',
-        'image',
+        // 'image',
     ];
+
+    protected $with = ['image'];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
     public function departement(): BelongsTo
     {

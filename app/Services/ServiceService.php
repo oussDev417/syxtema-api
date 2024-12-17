@@ -13,27 +13,33 @@ class ServiceService
 
     public function create(array $data)
     {
+        $service = Service::create($data);
         if (isset($data['image'])) {
-            $imagePath = $data['image']->store('images/services', 'public'); 
-            $data['image'] = $imagePath;
+            $imagePath = $data['image']->store('images/services', 'public');
+            $service->image()->create(['path' => $imagePath]);
         }
-
-        return Service::create($data);
+        return $service;
     }
 
     public function update(Service $service, array $data)
     {
+        $service->update($data);
         if (isset($data['image'])) {
             $imagePath = $data['image']->store('images/services', 'public');
-            $data['image'] = $imagePath;
+            if ($service->image) {
+                // delete the image
+                $service->image->delete();
+            }
+            $service->image()->create(['path' => $imagePath]);
         }
-
-        $service->update($data);
         return $service;
     }
 
     public function delete(Service $service)
     {
+        if ($service->image) {
+            $service->image->delete();
+        }
         return $service->delete();
     }
-} 
+}

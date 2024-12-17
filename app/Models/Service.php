@@ -10,15 +10,21 @@ use App\Models\Departement;
 class Service extends Model
 {
     protected $fillable = [
-        'id',
         'service_category_id',
         'departement_id',
         'name',
-        'image', 
+        // 'image',
         'secteur',
         'description',
         'status',
     ];
+
+    protected $with = ['image'];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
     public function departement(): BelongsTo
     {

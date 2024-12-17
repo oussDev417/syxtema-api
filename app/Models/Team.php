@@ -14,6 +14,10 @@ class Team extends Model
         'linkedin_url',
     ];
 
+    protected $with = [
+        'avatar',
+    ];
+
     public function avatar(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
