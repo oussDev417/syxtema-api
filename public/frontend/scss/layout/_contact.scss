@@ -40,7 +40,7 @@
                 align-items: center;
                 justify-content: center;
                 border-radius: 50%;
-                background: var(--tg-theme-primary);
+                background: #1c3464;
                 color: var(--tg-common-color-white);
                 font-size: 20px;
                 line-height: 0;
@@ -62,7 +62,7 @@
                     color: var(--tg-body-color);
                     line-height: 1.4;
                     &:hover {
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
             }
@@ -122,7 +122,7 @@
                     opacity: .8;
                 }
                 &:focus {
-                    border-color: var(--tg-theme-primary);
+                    border-color: #1c3464;
                 }
             }
             & textarea {

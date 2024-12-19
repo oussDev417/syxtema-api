@@ -64,13 +64,6 @@
                 @endif
             @endif
 
-            @if(checkAdminHasPermission('appearance.management') || checkAdminHasPermission('section.management') || checkAdminHasPermission('footer.management') || checkAdminHasPermission('brand.managemen'))
-                <li class="menu-header">{{ __('Site Contents') }}</li>
-
-                @if (Module::isEnabled('FooterSetting') && checkAdminHasPermission('footer.management'))
-                    @include('footersetting::sidebar')
-                @endif
-            @endif
 
 
             @if(checkAdminHasPermission('menu.view') || checkAdminHasPermission('page.management') || checkAdminHasPermission('social.link.management') || checkAdminHasPermission('faq.view'))
@@ -81,14 +74,7 @@
                 @endif
             @endif
 
-            @if(checkAdminHasPermission('setting.view') || checkAdminHasPermission('basic.payment.view') || checkAdminHasPermission('payment.view') || checkAdminHasPermission('currency.view') || checkAdminHasPermission('role.view') || checkAdminHasPermission('admin.view'))
-                <li class="menu-header">{{ __('Settings') }}</li>
-                <li class="{{ isRoute('admin.settings', 'active') }}">
-                    <a class="nav-link" href="{{ route('admin.settings') }}"><i class="fas fa-cog"></i>
-                        <span>{{ __('Settings') }}</span>
-                    </a>
-                </li>
-            @endif
+            
 
             @if(checkAdminHasPermission('newsletter.view') || checkAdminHasPermission('testimonial.view') || checkAdminHasPermission('contect.message.view'))
                 <li class="menu-header">{{ __('Utility') }}</li>

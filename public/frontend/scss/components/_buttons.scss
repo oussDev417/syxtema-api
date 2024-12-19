@@ -9,7 +9,7 @@
 .btn {
     user-select: none;
     -moz-user-select: none;
-    background: var(--tg-theme-primary) none repeat scroll 0 0;
+    background: #1c3464 none repeat scroll 0 0;
     border: medium none;
     color: var(--tg-common-color-white);
     cursor: pointer;
@@ -51,15 +51,15 @@
     }
     &.btn-border {
         background: var(--tg-common-color-white);
-        border: 1px solid var(--tg-theme-primary);
-        color: var(--tg-theme-primary);
+        border: 1px solid #1c3464;
+        color: #1c3464;
         padding: 19px 23px 16px 23px;
         & svg path {
-            stroke: var(--tg-theme-primary);
+            stroke: #1c3464;
         }
         &:focus-visible,
         &:hover {
-            background: var(--tg-theme-primary);
+            background: #1c3464;
             color: var(--tg-common-color-white);
             & svg path {
                 stroke: var(--tg-common-color-white)
@@ -83,10 +83,10 @@
         }
         &:hover,
         &:focus-visible {
-            background: var(--tg-theme-primary);
+            background: #1c3464;
             color: var(--tg-common-color-white);
             box-shadow: 0 0 0 0 var(--tg-common-color-blue);
-            border-color: var(--tg-theme-primary);
+            border-color: #1c3464;
             & svg {
                 color: var(--tg-common-color-white) !important;
             }

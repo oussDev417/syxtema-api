@@ -174,12 +174,12 @@
                             font-size: 18px;
                         }
                         &:hover {
-                            color: var(--tg-theme-primary);
+                            color: #1c3464;
                         }
                     }
                     &.active {
                         & a {
-                            color: var(--tg-theme-primary);
+                            color: #1c3464;
                         }
                     }
                 }
@@ -337,7 +337,7 @@
             margin: 0 auto 25px;
             font-size: 30px;
             line-height: 0;
-            color: var(--tg-theme-primary);
+            color: #1c3464;
         }
         & .content {
             & .count {
@@ -345,7 +345,7 @@
                 font-family: var(--tg-heading-font-family);
                 font-size: 50px;
                 font-weight: 700;
-                color: var(--tg-theme-primary);
+                color: #1c3464;
                 line-height: 1;
                 @media #{$lg} {
                     font-size: 35px;
@@ -358,7 +358,7 @@
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
                 opacity: 0.5;
-                color: var(--tg-theme-primary);
+                color: #1c3464;
             }
         }
     }
@@ -403,7 +403,7 @@
                         color: var(--tg-heading-color);
                         font-weight: 500;
                         &:hover {
-                            color: var(--tg-theme-primary);
+                            color: #1c3464;
                         }
                     }
                     & p {
@@ -419,7 +419,7 @@
                             font-weight: 500;
                             font-size: 15px;
                             &:hover {
-                                color: var(--tg-theme-primary);
+                                color: #1c3464;
                             }
                         }
                     }
@@ -442,13 +442,13 @@
             font-size: 14px;
             padding: 0 14px;
             background: #2f57ef21;
-            color: var(--tg-theme-primary);
+            color: #1c3464;
             @include flexbox();
             align-items: center;
             justify-content: center;
             @include border-radius(30px);
             &:hover {
-                background: var(--tg-theme-primary);
+                background: #1c3464;
                 color: var(--tg-common-color-white);
                 transform: translateY(-2px);
             }
@@ -478,7 +478,7 @@
                 & a {
                     color: var(--tg-heading-color);
                     &:hover {
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
             }
@@ -535,7 +535,7 @@
                         right: 0;
                         width: 0;
                         height: 3px;
-                        background: var(--tg-theme-primary);
+                        background: #1c3464;
                         -webkit-border-radius: 30px;
                         -moz-border-radius: 30px;
                         -o-border-radius: 30px;
@@ -550,7 +550,7 @@
                         transition: all 0.3s ease-out 0s;
                     }
                     &.active {
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                         &::after {
                             width: 100%;
                         }
@@ -659,12 +659,12 @@
                     justify-content: center;
                     background: var(--tg-common-color-white);
                     border: none;
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                     @include border-radius(50%);
                     font-size: 14px;
                     padding: 0;
                     &:hover {
-                        background: var(--tg-theme-primary);
+                        background: #1c3464;
                         color: var(--tg-common-color-white);
                     }
                 }
@@ -698,7 +698,7 @@
                     display: block;
                     transition: .3s ease-in-out;
                     &:focus {
-                        border-color: var(--tg-theme-primary);
+                        border-color: #1c3464;
                     }
                     &::placeholder {
                         font-size: 14px;
@@ -727,7 +727,7 @@
                     cursor: pointer;
                     transition: .3s ease-in-out;
                     &:focus {
-                        border-color: var(--tg-theme-primary);
+                        border-color: #1c3464;
                     }
                 }
                 &.select-grp {
@@ -740,7 +740,7 @@
                         font-weight: 700;
                         right: 20px;
                         font-size: 14px;
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
             }
@@ -761,7 +761,7 @@
             height: 14px;
         }
         &:hover {
-            color: var(--tg-theme-primary);
+            color: #1c3464;
         }
     }
 }

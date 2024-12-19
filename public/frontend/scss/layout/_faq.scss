@@ -159,10 +159,10 @@
                 }
                 &:not(.collapsed) {
                     box-shadow: none;
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                     &::after {
                         transform: rotate(-90deg);
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
                 &:focus {

@@ -71,7 +71,7 @@
                 & svg {
                     width: 100%;
                     height: 100%;
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                 }
             }
             & .popup-video {
@@ -88,11 +88,11 @@
                 @include transform(translate(-50%, -50%));
                 & svg {
                     width: 16px;
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                     @include transition(.3s);
                 }
                 &:hover {
-                    background: var(--tg-theme-primary);
+                    background: #1c3464;
                     & svg {
                         color: var(--tg-common-color-white);
                     }
@@ -120,7 +120,7 @@
         & .title {
             font-size: 16px;
             font-weight: var(--tg-fw-medium);
-            color: var(--tg-theme-primary);
+            color: #1c3464;
             margin: 0 0 2px;
             & span {
                 font-weight: var(--tg-fw-bold);

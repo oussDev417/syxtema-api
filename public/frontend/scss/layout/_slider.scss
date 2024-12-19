@@ -51,7 +51,7 @@
             @include border-radius(4px);
             padding: 5px 15px;
             font-weight: var(--tg-fw-medium);
-            color: var(--tg-theme-primary);
+            color: #1c3464;
             margin: 0 0 13px;
             @media #{$xl} {
                 padding: 0 0;
@@ -73,7 +73,7 @@
                 margin: 0 0 30px;
             }
             & span:not(.svg-icon) {
-                color: var(--tg-theme-primary);
+                color: #1c3464;
                 position: relative;
                 display: inline-block;
                 z-index: 1;

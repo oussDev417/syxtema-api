@@ -70,7 +70,7 @@ class CoursePageController extends Controller
             });
         });
 
-        $query->with(['instructor:id,name', 'enrollments', 'category.translation']);
+        $query->with(['instructor:id,first_name,last_name', 'enrollments', 'category.translation']);
 
         $query->orderBy('created_at', $request->order && $request->filled('order') ? $request->order : 'desc');
         $courses = $query->paginate(9);

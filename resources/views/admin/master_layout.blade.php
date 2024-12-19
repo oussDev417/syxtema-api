@@ -32,43 +32,7 @@
                                     class="fas fa-bars"></i></a></li>
                         <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-none"><i
                                     class="fas fa-search"></i></a></li>
-                        @if (Module::isEnabled('Language') && Route::has('set-language'))
-                            @if (count(allLanguages()?->where('status', 1)) > 1)
-                                <form id="setLanguageHeader" action="{{ route('set-language') }}">
-                                    <select class="bg-transparent form-control-sm border-light select_js"
-                                        name="code">
-                                        @forelse (allLanguages()?->where('status', 1) as $language)
-                                            <option class="text-dark" value="{{ $language->code }}"
-                                                {{ getSessionLanguage() == $language->code ? 'selected' : '' }}>
-                                                {{ $language->name }}
-                                            </option>
-                                        @empty
-                                            <option value="en" {{ getSessionLanguage() == 'en' ? 'selected' : '' }}>
-                                                English
-                                            </option>
-                                        @endforelse
-                                    </select>
-                                </form>
-                            @endif
-                        @endif
-
-                        @if (count(allCurrencies()?->where('status', 'active')) > 1)
-                            <form action="{{ route('set-currency') }}" class="set-currency-header">
-                                <select name="currency"
-                                    class="change-currency bg-transparent form-control-sm border-light ml-2 select_js">
-                                    @forelse (allCurrencies()?->where('status', 'active') as $currency)
-                                        <option class="text-dark" value="{{ $currency->currency_code }}"
-                                            {{ getSessionCurrency() == $currency->currency_code ? 'selected' : '' }}>
-                                            {{ $currency->currency_name }}
-                                        </option>
-                                    @empty
-                                        <option value="USD" {{ getSessionCurrency() == 'USD' ? 'selected' : '' }}>
-                                            {{ __('USD') }}
-                                        </option>
-                                    @endforelse
-                                </select>
-                            </form>
-                        @endif
+                        
                     </ul>
                 </div>
                 <div class="mr-auto search-box position-relative">

@@ -46,8 +46,8 @@
             color: var(--tg-common-color-dark);
             padding: 10px 20px;
             &:hover {
-                color: var(--tg-theme-primary);
-                border-color: var(--tg-theme-primary);
+                color: #1c3464;
+                border-color: #1c3464;
             }
         }
     }
@@ -102,7 +102,7 @@
                     text-transform: capitalize;
                 }
                 &:focus {
-                    border-color: var(--tg-theme-primary);
+                    border-color: #1c3464;
                 }
             }
         }
@@ -121,7 +121,7 @@
             justify-content: center;
             gap: 5px;
             & a {
-                color: var(--tg-theme-primary);
+                color: #1c3464;
                 text-decoration: underline;
                 &:hover {
                     color: var(--tg-theme-secondary);
@@ -145,8 +145,8 @@
                     box-shadow: none;
                 }
                 &:checked {
-                    background-color: var(--tg-theme-primary);
-                    border-color: var(--tg-theme-primary);
+                    background-color: #1c3464;
+                    border-color: #1c3464;
                 }
             }
             & label {
@@ -155,11 +155,11 @@
         }
         &-forgot {
             & a {
-                color: var(--tg-theme-primary);
+                color: #1c3464;
                 font-size: 16px;
                 text-decoration: underline;
                 &:hover {
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                 }
             }
         }

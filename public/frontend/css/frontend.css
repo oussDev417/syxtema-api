@@ -790,7 +790,7 @@ body {
 }
 
 .header_language_area .droap_language li a:hover {
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 }
 
 .header_language_area .droap_language li a span img {
@@ -967,7 +967,7 @@ body {
 .pagination-wrap .page-link:hover,
 .pagination-wrap li.active .page-link {
     color: var(--tg-common-color-white);
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 }
 
 .pagination-wrap .page-item i,
@@ -1140,8 +1140,8 @@ body {
 }
 
 .tgmenu__action .user_icon:hover>a {
-    background: var(--tg-theme-primary);
-    border-color: var(--tg-theme-primary);
+    background: #1c3464;
+    border-color: #1c3464;
 }
 
 .tgmenu__action .user_icon:hover a img {
@@ -1189,7 +1189,7 @@ body {
 }
 
 .user_icon .menu_user_list li a:hover {
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 }
 
 .user_icon:hover .menu_user_list {
@@ -1236,7 +1236,7 @@ body {
     text-transform: capitalize;
     font-size: 16px;
     font-weight: 500;
-    color: var(--tg-theme-primary);
+    color: #1c3464;
     transition: all linear 0.3s;
     display: block;
     text-align: center;
@@ -1250,7 +1250,7 @@ body {
 }
 
 .mobile_menu_login li a:hover {
-    background: var(--tg-theme-primary);
+    background: #1c3464;
     color: var(--tg-common-color-white);
 }
 
@@ -1376,7 +1376,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--tg-theme-primary);
+    background: #1c3464;
     color: var(--tg-common-color-white);
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1531,7 +1531,7 @@ body {
 }
 
 .courses__sidebar_area.show .courses__sidebar_button {
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 }
 
 .courses__sidebar_area.show .courses__sidebar_button h4 {
@@ -1661,14 +1661,14 @@ body {
     margin: 0;
     background: #5751e11c;
     padding: 4px 10px 5px 10px;
-    color: var(--tg-theme-primary);
+    color: #1c3464;
     border-radius: 3px;
 }
 
 .course-language-list span {
     background: #5751e11c;
     padding: 4px 10px 5px 10px;
-    color: var(--tg-theme-primary) !important;
+    color: #1c3464 !important;
     border-radius: 3px;
 }
 
@@ -1716,11 +1716,11 @@ li.level-wrapper b {
 
 .nice-select .option.focus,
 .nice-select .option.selected.focus {
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 }
 
 .nice-select .option:hover {
-    background-color: var(--tg-theme-primary) !important;
+    background-color: #1c3464 !important;
     color: #fff !important;
 }
 
@@ -2015,8 +2015,8 @@ li.level-wrapper b {
 }
 
 .page-item.active span {
-    background: var(--tg-theme-primary) !important;
-    border: 1px solid var(--tg-theme-primary) !important;
+    background: #1c3464 !important;
+    border: 1px solid #1c3464 !important;
 }
 
 .newsletter__img-wrap {
@@ -2059,12 +2059,12 @@ li.level-wrapper b {
 }
 
 .dashboard__review-table tbody tr td>a:first-child {
-    background: var(--tg-theme-primary);
+    background: #1c3464;
     color: var(--tg-common-color-white) !important;
 }
 
 .dashboard__review-table tbody tr td>a:last-child {
-    background: var(--tg-theme-primary);
+    background: #1c3464;
     color: var(--tg-common-color-white) !important;
 }
 
@@ -2183,7 +2183,7 @@ li.level-wrapper b {
 
 .wsus__course_header {
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     display: flex;
 
@@ -2619,7 +2619,7 @@ li.level-wrapper b {
 
 .video-js .vjs-big-play-button {
 
-    background-color: var(--tg-theme-primary) !important;
+    background-color: #1c3464 !important;
 
 }
 
@@ -2663,7 +2663,7 @@ li.level-wrapper b {
 
     background: none;
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -2739,7 +2739,7 @@ li.level-wrapper b {
 
 .video_about table tr td .table_btn {
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     color: var(--tg-common-color-white);
 
@@ -2785,7 +2785,7 @@ li.level-wrapper b {
 
 .video_about table tr td p a {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -2911,7 +2911,7 @@ li.level-wrapper b {
 
     border: none;
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     color: var(--tg-common-color-white);
 
@@ -3123,7 +3123,7 @@ li.level-wrapper b {
 
 .video_qna_list_item .text a:hover {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3175,7 +3175,7 @@ li.level-wrapper b {
 
     font-weight: 500;
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3233,7 +3233,7 @@ li.level-wrapper b {
 
 .qna_details_area .flow:hover {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3325,7 +3325,7 @@ li.level-wrapper b {
 
 .qns_details_list_item .dot:hover {
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     color: var(--tg-common-color-white);
 
@@ -3403,7 +3403,7 @@ li.level-wrapper b {
 
 .qns_details_list_item .dot ul li a:hover {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3617,7 +3617,7 @@ li.level-wrapper b {
 
 .wsus__course_sidebar .dropdown:hover i {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3733,7 +3733,7 @@ li.level-wrapper b {
 
 .wsus__course_sidebar .dropdown ul li a:hover:after {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3827,7 +3827,7 @@ li.level-wrapper b {
 
     display: inline-block;
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     color: var(--tg-common-color-white);
 
@@ -3895,7 +3895,7 @@ li.level-wrapper b {
 
 .dashboard_courses .edit_btn li:first-child a {
 
-    color: var(--tg-theme-primary);
+    color: #1c3464;
 
 }
 
@@ -3903,7 +3903,7 @@ li.level-wrapper b {
 
 .dashboard_courses .edit_btn li:first-child a:hover {
 
-    background: var(--tg-theme-primary) !important;
+    background: #1c3464 !important;
 
     color: var(--tg-common-color-white);
 
@@ -3977,7 +3977,7 @@ li.level-wrapper b {
 
 .dashboard_courses .dropdown .dropdown-toggle:hover {
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
     color: var(--tg-common-color-white);
 
@@ -4101,7 +4101,7 @@ li.level-wrapper b {
 
     color: var(--tg-common-color-white);
 
-    background: var(--tg-theme-primary);
+    background: #1c3464;
 
 }
 
@@ -5067,7 +5067,7 @@ li.level-wrapper b {
 
 .bsb-timeline-1 .timeline>.timeline-item:before {
 
-    background-color: var(--tg-theme-primary);
+    background-color: #1c3464;
 
     border-radius: 50%;
 
@@ -6929,7 +6929,7 @@ li.level-wrapper b {
 
 #pdf_current_page {
 
-    background-color: var(--tg-theme-primary);
+    background-color: #1c3464;
 
     color: #fff;
 
@@ -7175,7 +7175,7 @@ input.question-view.form-check-input:checked[type=checkbox] {
 
 .progress-bar {
 
-    background-color: var(--tg-theme-primary);
+    background-color: #1c3464;
 
 }
 

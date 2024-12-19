@@ -18,7 +18,7 @@
             & a {
                 &:hover {
                     text-decoration: underline;
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                 }
             }
         }
@@ -78,7 +78,7 @@
                         font-weight: 700;
                         right: 20px;
                         font-size: 14px;
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
                 & label {
@@ -126,7 +126,7 @@
 
 .order {
     &__info-wrap {
-        border: 2px solid var(--tg-theme-primary);
+        border: 2px solid #1c3464;
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
@@ -180,7 +180,7 @@
             & a {
                 text-decoration: underline;
                 &:hover {
-                    color: var(--tg-theme-primary);
+                    color: #1c3464;
                 }
             }
         }

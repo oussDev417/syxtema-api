@@ -11,7 +11,7 @@
         @include border-radius(30px);
         padding: 3px 16px;
         font-weight: var(--tg-fw-medium);
-        color: var(--tg-theme-primary);
+        color: #1c3464;
         margin: 0 0 14px;
     }
     & .title {
@@ -27,7 +27,7 @@
             font-size: 36px;
         }
         & span:not(.svg-icon) {
-            color: var(--tg-theme-primary);
+            color: #1c3464;
             position: relative;
             color: var(--tg-common-color-white);
             padding: 0 13px 0 20px;
@@ -78,7 +78,7 @@
     }
     &.white-title {
         & .sub-title {
-            background: var(--tg-theme-primary);
+            background: #1c3464;
             color: var(--tg-common-color-white);
         }
         & .title {

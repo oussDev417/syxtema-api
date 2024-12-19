@@ -459,7 +459,7 @@ img.mr-3.ml-3.rounded-circle {
 }
 
 .wsus__show_product a:hover {
-    color: #6777ef !important;
+    color: #1c3464 !important;
 }
 
 .lang_list_top {
@@ -484,7 +484,7 @@ img.mr-3.ml-3.rounded-circle {
 .select2-container--default .select2-selection--multiple .select2-selection__choice,
 .select2-container--default .select2-results__option[aria-selected="true"],
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-    background-color: #6777ef !important;
+    background-color: #1c3464 !important;
 }
 
 .select2-container--default .select2-selection--multiple {
@@ -575,8 +575,8 @@ div.switcher label input+span small {
 }
 
 div.switcher label input:checked+span {
-    background: #6777ef;
-    border-color: #6777ef;
+    background: #1c3464;
+    border-color: #1c3464;
 }
 
 div.switcher label input:checked+span small {
@@ -1005,7 +1005,7 @@ button.dropdown-item.has-icon.text-danger i {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: #6777ef !important;
+    background-color: #1c3464 !important;
     border-radius: 50%;
 }
 
@@ -1154,7 +1154,7 @@ button.dropdown-item.has-icon.text-danger i {
 .admin_role_border .text-capitalize,
 .permission_all {
     font-weight: 700;
-    color: #6777ef;
+    color: #1c3464;
 }
 
 #hwpwrap #wpbody .open-label span {
@@ -1793,12 +1793,12 @@ textarea.form-control {
 }
 
 .dashboard__review-table .nav-tabs .nav-item .nav-link:hover {
-    color: #6777EF;
+    color: #1c3464;
 }
 
 .dashboard__review-table .nav-tabs .nav-item .nav-link.active {
-    background: #6777EF;
-    border-color: #6777EF !important;
+    background: #1c3464;
+    border-color: #1c3464 !important;
     color: #fff;
 }
 
@@ -1942,7 +1942,7 @@ textarea.form-control {
 }
 
 .search-box #admin_menu_list a:hover {
-    color: #6777ef;
+    color: #1c3464;
 }
 
 .search-box #admin_menu_list a.not-found-message {

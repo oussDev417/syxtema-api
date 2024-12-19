@@ -69,7 +69,7 @@
             &:hover {
                 & .instructor__thumb-two {
                     & .shape-one {
-                        color: var(--tg-theme-primary);
+                        color: #1c3464;
                     }
                 }
             }
@@ -176,7 +176,7 @@
         }
         & .designation {
             display: block;
-            color: var(--tg-theme-primary);
+            color: #1c3464;
             font-family: var(--tg-heading-font-family);
             line-height: 1.2;
             margin-bottom: 12px;
@@ -249,7 +249,7 @@
                 line-height: 1;
                 font-size: 18px;
                 font-weight: 400;
-                color: var(--tg-theme-primary);
+                color: #1c3464;
                 font-family: var(--tg-heading-font-family);
                 margin-bottom: 15px;
             }
@@ -299,9 +299,9 @@
                     font-size: 18px;
                     color: var(--tg-common-color-gray-3);
                     &:hover {
-                        background: var(--tg-theme-primary);
+                        background: #1c3464;
                         box-shadow: none;
-                        border-color: var(--tg-theme-primary);
+                        border-color: #1c3464;
                         color: var(--tg-common-color-white);
                     }
                 }
@@ -338,7 +338,7 @@
             & button {
                 filter: grayscale(0);
                 background: var(--tg-common-color-white);
-                border-color: var(--tg-theme-primary);
+                border-color: #1c3464;
             }
         }
     }
@@ -623,7 +623,7 @@
                 justify-content: center;
                 @include border-radius(50%);
                 border: 2px solid var(--tg-common-color-dark);
-                background: var(--tg-theme-primary);
+                background: #1c3464;
                 color: var(--tg-common-color-white);
                 font-size: 20px;
                 @include box-shadow(3.6px 2.4px 0px 0px #23232B);
