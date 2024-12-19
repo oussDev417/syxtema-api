@@ -7,6 +7,8 @@ use App\Http\Requests\StoreEventRequest;
 use App\Services\EventService;
 use App\Models\EventCategory;
 use App\Models\Event;
+use App\Models\Country;
+use App\Models\Departement;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -27,7 +29,9 @@ class EventController extends Controller
     public function create()
     {
         $categories = EventCategory::all();
-        return view('admin.events.create', compact('categories'));
+        $countries = Country::all();
+        $departements = Departement::all();
+        return view('admin.events.create', compact('categories', 'countries', 'departements'));
     }
 
     public function store(StoreEventRequest $request)
@@ -40,7 +44,9 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
         $categories = EventCategory::all();
-        return view('admin.events.edit', compact('event', 'categories'));
+        $countries = Country::all();
+        $departements = Departement::all();
+        return view('admin.events.edit', compact('event', 'categories', 'countries', 'departements'));
     }
 
     public function update(StoreEventRequest $request, $id)

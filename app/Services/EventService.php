@@ -8,11 +8,19 @@ class EventService
 {
     public function create(array $data): Event
     {
+        if (isset($data['thumbnail'])) {
+            $imagePath = $data['thumbnail']->store('images/events', 'public');
+            $data['thumbnail'] = $imagePath;
+        }
         return Event::create($data);
     }
 
     public function update(Event $event, array $data): Event
     {
+        if (isset($data['thumbnail'])) {
+            $imagePath = $data['thumbnail']->store('images/events', 'public');
+            $data['thumbnail'] = $imagePath;
+        }
         $event->update($data);
         return $event;
     }

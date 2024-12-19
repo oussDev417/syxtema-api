@@ -11,6 +11,5 @@ class Temoignage extends Model
         'profession',
         'message',
         'avatar',
-        'logo',
     ];
 }

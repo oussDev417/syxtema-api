@@ -84,6 +84,24 @@
                 <label for="status" class="form-label">Statut</label>
                 <input type="number" class="form-control" id="status" name="status" value="{{ $event->status }}" required>
             </div>
+            <div class="col-md-6 mb-3">
+                <label for="country_id" class="form-label">Pays</label>
+                <select class="form-select" id="country_id" name="country_id" required>
+                    <option value="">Sélectionnez un pays</option>
+                    @foreach($countries as $country)
+                        <option value="{{ $country->id }}" {{ $event->country_id == $country->id ? 'selected' : '' }}>{{ $country->country_name  }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="departement_id" class="form-label">Département</label>
+                <select class="form-select" id="departement_id" name="departement_id" required>
+                    <option value="">Sélectionnez un département</option>
+                    @foreach($departements as $departement)
+                        <option value="{{ $departement->id }}" {{ $event->departement_id == $departement->id ? 'selected' : '' }}>{{ $departement->name }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Modifier Événement</button>
     </form>

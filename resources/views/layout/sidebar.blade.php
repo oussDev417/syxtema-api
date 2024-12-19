@@ -6,7 +6,7 @@
         </a>
 
         <span class="bg-light-primary toggle-semi-nav">
-          <i class="ti ti-chevrons-right f-s-20"></i>
+            <i class="ti ti-chevrons-right f-s-20"></i>
         </span>
     </div>
     <div class="app-nav" id="app-simple-bar">
@@ -27,6 +27,18 @@
                 </ul>
             </li>
 
+            <!-- Menu Réalisations -->
+             <li>
+                <a class="" data-bs-toggle="collapse" href="#portfolios" aria-expanded="false">
+                    <i class="ph-duotone ph-image"></i> <!-- Icône pour Réalisations -->
+                    Réalisations
+                </a>
+                <ul class="collapse" id="portfolios">
+                    <li><a href="{{ route('admin.portfolios.index') }}">Liste des Réalisations</a></li>
+                    <li><a href="{{ route('admin.portfolios.create') }}">Ajouter une Réalisation</a></li>
+                </ul>
+            </li>
+
             <!-- Menu Événements -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#events" aria-expanded="false">
@@ -42,12 +54,84 @@
             <!-- Menu Catégories -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#eventCategories" aria-expanded="false">
-                    <i class="ph-duotone ph-tags"></i> <!-- Icône pour Catégories -->
+                    <i class="ph-duotone ph-tag"></i> <!-- Icône pour Catégories -->
                     Catégories
                 </a>
                 <ul class="collapse" id="eventCategories">
                     <li><a href="{{ route('admin.event_categories.index') }}">Liste des Catégories</a></li>
                     <li><a href="{{ route('admin.event_categories.create') }}">Ajouter une Catégorie</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Pays -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#countries" aria-expanded="false">
+                    <i class="ph-duotone ph-globe"></i> <!-- Icône pour Pays -->
+                    Pays
+                </a>
+                <ul class="collapse" id="countries">
+                    <li><a href="{{ route('admin.countries.index') }}">Liste des Pays</a></li>
+                    <li><a href="{{ route('admin.countries.create') }}">Ajouter un Pays</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Départements -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#departements" aria-expanded="false">
+                    <i class="ph-duotone ph-map"></i> <!-- Icône pour Départements -->
+                    Départements
+                </a>
+                <ul class="collapse" id="departements">
+                    <li><a href="{{ route('admin.departements.index') }}">Liste des Départements</a></li>
+                    <li><a href="{{ route('admin.departements.create') }}">Ajouter un Département</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Services -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#services" aria-expanded="false">
+                    <i class="ph-duotone ph-briefcase"></i> <!-- Icône pour Services -->
+                    Services
+                </a>
+                <ul class="collapse" id="services">
+                    <li><a href="{{ route('admin.services.index') }}">Liste des Services</a></li>
+                    <li><a href="{{ route('admin.services.create') }}">Ajouter un Service</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Catégories de Services -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#serviceCategories" aria-expanded="false">
+                    <i class="ph-duotone ph-tags"></i> <!-- Icône pour Catégories de Services -->
+                    Catégories de Services
+                </a>
+                <ul class="collapse" id="serviceCategories">
+                    <li><a href="{{ route('admin.service_categories.index') }}">Liste des Catégories</a></li>
+                    <li><a href="{{ route('admin.service_categories.create') }}">Ajouter une Catégorie</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Témoignages -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#testimonials" aria-expanded="false">
+                    <i class="ph-duotone ph-comments-line"></i> <!-- Icône pour Témoignages -->
+                    Témoignages
+                </a>
+                <ul class="collapse" id="testimonials">
+                    <li><a href="{{ route('admin.testimonials.index') }}">Liste des Témoignages</a></li>
+                    <li><a href="{{ route('admin.testimonials.create') }}">Ajouter un Témoignage</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Equipe -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#teams" aria-expanded="false">
+                    <i class="ph-duotone ph-person"></i> <!-- Icône pour Témoignages -->
+                    Equipe
+                </a>
+                <ul class="collapse" id="teams">
+                    <li><a href="{{ route('admin.teams.index') }}">Liste des membres</a></li>
+                    <li><a href="{{ route('admin.teams.create') }}">Ajouter un membre</a></li>
                 </ul>
             </li>
 
@@ -98,9 +182,9 @@
                 <a class="" data-bs-toggle="collapse" href="#advance-ui" aria-expanded="false">
                     <i class="ph-duotone  ph-briefcase-metal"></i> Advance UI
                     <span class=" badge rounded-pill bg-warning badge-notification ms-2">
-                12+
-                <span class="visually-hidden">unread messages</span>
-              </span>
+                        12+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
                 </a>
                 <ul class="collapse" id="advance-ui">
                     <li><a href="{{route('modals')}}">Modals</a></li>
@@ -317,6 +401,7 @@
                     <i class="ph-duotone  ph-chats"></i> Support
                 </a>
             </li>
+
 
 
         </ul>
