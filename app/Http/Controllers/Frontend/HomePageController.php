@@ -78,7 +78,7 @@ class HomePageController extends Controller {
         }elseif ($siteTheme == 'theme-four') {
             $themePath = 'frontend.home-four.index';
         } else {
-            $themePath = 'frontend.home-one.index';
+            $themePath = 'frontend.pages.course';
         }
         return view($themePath, compact(
             'trendingCategories',
