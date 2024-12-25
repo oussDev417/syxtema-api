@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\NewController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\StartupController;
+use App\Http\Controllers\Admin\SuccessStoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
@@ -590,4 +592,24 @@ Route::prefix('admin/partners')->name('admin.partners.')->group(function () {
     Route::get('/{id}/edit', [PartnerController::class, 'edit'])->name('edit'); // Formulaire pour éditer un partenaire
     Route::put('/{id}', [PartnerController::class, 'update'])->name('update'); // Mettre à jour un partenaire
     Route::delete('/{id}', [PartnerController::class, 'destroy'])->name('destroy'); // Supprimer un partenaire
+});
+
+// routes pour les histoires de succès (success stories)
+Route::prefix('admin/success_stories')->name('admin.success_stories.')->group(function () {
+    Route::get('/', [SuccessStoryController::class, 'index'])->name('index'); // Afficher toutes les histoires de succès
+    Route::get('/create', [SuccessStoryController::class, 'create'])->name('create'); // Formulaire pour créer une histoire de succès
+    Route::post('/', [SuccessStoryController::class, 'store'])->name('store'); // Enregistrer une nouvelle histoire de succès
+    Route::get('/{id}/edit', [SuccessStoryController::class, 'edit'])->name('edit'); // Formulaire pour éditer une histoire de succès
+    Route::put('/{id}', [SuccessStoryController::class, 'update'])->name('update'); // Mettre à jour une histoire de succès
+    Route::delete('/{id}', [SuccessStoryController::class, 'destroy'])->name('destroy'); // Supprimer une histoire de succès
+});
+
+// routes pour les startups
+Route::prefix('admin/startups')->name('admin.startups.')->group(function () {
+    Route::get('/', [StartupController::class, 'index'])->name('index'); // Afficher toutes les startups
+    Route::get('/create', [StartupController::class, 'create'])->name('create'); // Formulaire pour créer une startup
+    Route::post('/', [StartupController::class, 'store'])->name('store'); // Enregistrer une nouvelle startup
+    Route::get('/{id}/edit', [StartupController::class, 'edit'])->name('edit'); // Formulaire pour éditer une startup
+    Route::put('/{id}', [StartupController::class, 'update'])->name('update'); // Mettre à jour une startup
+    Route::delete('/{id}', [StartupController::class, 'destroy'])->name('destroy'); // Supprimer une startup
 });

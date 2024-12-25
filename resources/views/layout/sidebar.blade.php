@@ -39,6 +39,30 @@
                 </ul>
             </li>
 
+            {{-- Menu histoires de succès --}}
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#successStories" aria-expanded="false">
+                    <i class="ph-duotone ph-trophy"></i> <!-- Icône pour Histoires de Succès -->
+                    Histoires de Succès
+                </a>
+                <ul class="collapse" id="successStories">
+                    <li><a href="{{ route('admin.success_stories.index') }}">Liste des Histoires de Succès</a></li>
+                    <li><a href="{{ route('admin.success_stories.create') }}">Ajouter une Histoire de Succès</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Startups -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#startups" aria-expanded="false">
+                    <i class="ph-duotone ph-building"></i> <!-- Icône pour Startups -->
+                    Startups
+                </a>
+                <ul class="collapse" id="startups">
+                    <li><a href="{{ route('admin.startups.index') }}">Liste des Startups</a></li>
+                    <li><a href="{{ route('admin.startups.create') }}">Ajouter une Startup</a></li>
+                </ul>
+            </li>
+
             <!-- Menu Partenaires -->
             <li>
                 <a class="" data-bs-toggle="collapse" href="#partners" aria-expanded="false">
