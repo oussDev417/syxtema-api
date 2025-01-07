@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\NewController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\StartupController;
+use App\Http\Controllers\Admin\SuccessStoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventCategoryController;
@@ -229,6 +233,16 @@ Route::prefix('admin/events')->name('admin.events.')->group(function () {
     Route::get('/{id}/edit', [EventController::class, 'edit'])->name('edit'); // Formulaire pour éditer un événement
     Route::put('/{id}', [EventController::class, 'update'])->name('update'); // Mettre à jour un événement
     Route::delete('/{id}', [EventController::class, 'destroy'])->name('destroy'); // Supprimer un événement
+});
+
+// Routes pour les actualités(news)
+Route::prefix('admin/news')->name('admin.news.')->group(function () {
+    Route::get('/', [NewController::class, 'index'])->name('index'); // Afficher toutes les actualités
+    Route::get('/create', [NewController::class, 'create'])->name('create'); // Formulaire pour créer une nouvelle actualité
+    Route::post('/', [NewController::class, 'store'])->name('store'); // Enregistrer une nouvelle actualité
+    Route::get('/{id}/edit', [NewController::class, 'edit'])->name('edit'); // Formulaire pour éditer une actualité
+    Route::put('/{id}', [NewController::class, 'update'])->name('update'); // Mettre à jour une actualité
+    Route::delete('/{id}', [NewController::class, 'destroy'])->name('destroy'); // Supprimer une actualité
 });
 
 // Routes pour les catégories d'événements
@@ -502,7 +516,7 @@ Route::group(['middleware' => 'maintenance.mode'], function () {
 
     Route::group(['middleware' => ['auth', 'verified']], function () {
         /** checkout routes */
-        Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout.index');
+        Route::get('checkout', [CheckOutController::class, 'index'])->name('checkout');
 
         /**payment related route start */
         Route::get('payment', [PaymentController::class, 'payment'])->name('payment');
@@ -811,3 +825,33 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 require __DIR__ . '/auth.php';
 
 require __DIR__ . '/admin.php';
+
+// Routes pour les partenaires
+Route::prefix('admin/partners')->name('admin.partners.')->group(function () {
+    Route::get('/', [PartnerController::class, 'index'])->name('index'); // Afficher tous les partenaires
+    Route::get('/create', [PartnerController::class, 'create'])->name('create'); // Formulaire pour créer un partenaire
+    Route::post('/', [PartnerController::class, 'store'])->name('store'); // Enregistrer un nouveau partenaire
+    Route::get('/{id}/edit', [PartnerController::class, 'edit'])->name('edit'); // Formulaire pour éditer un partenaire
+    Route::put('/{id}', [PartnerController::class, 'update'])->name('update'); // Mettre à jour un partenaire
+    Route::delete('/{id}', [PartnerController::class, 'destroy'])->name('destroy'); // Supprimer un partenaire
+});
+
+// routes pour les histoires de succès (success stories)
+Route::prefix('admin/success_stories')->name('admin.success_stories.')->group(function () {
+    Route::get('/', [SuccessStoryController::class, 'index'])->name('index'); // Afficher toutes les histoires de succès
+    Route::get('/create', [SuccessStoryController::class, 'create'])->name('create'); // Formulaire pour créer une histoire de succès
+    Route::post('/', [SuccessStoryController::class, 'store'])->name('store'); // Enregistrer une nouvelle histoire de succès
+    Route::get('/{id}/edit', [SuccessStoryController::class, 'edit'])->name('edit'); // Formulaire pour éditer une histoire de succès
+    Route::put('/{id}', [SuccessStoryController::class, 'update'])->name('update'); // Mettre à jour une histoire de succès
+    Route::delete('/{id}', [SuccessStoryController::class, 'destroy'])->name('destroy'); // Supprimer une histoire de succès
+});
+
+// routes pour les startups
+Route::prefix('admin/startups')->name('admin.startups.')->group(function () {
+    Route::get('/', [StartupController::class, 'index'])->name('index'); // Afficher toutes les startups
+    Route::get('/create', [StartupController::class, 'create'])->name('create'); // Formulaire pour créer une startup
+    Route::post('/', [StartupController::class, 'store'])->name('store'); // Enregistrer une nouvelle startup
+    Route::get('/{id}/edit', [StartupController::class, 'edit'])->name('edit'); // Formulaire pour éditer une startup
+    Route::put('/{id}', [StartupController::class, 'update'])->name('update'); // Mettre à jour une startup
+    Route::delete('/{id}', [StartupController::class, 'destroy'])->name('destroy'); // Supprimer une startup
+});

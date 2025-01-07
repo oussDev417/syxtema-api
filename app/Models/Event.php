@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\EventCategory;
 use App\Models\Country;
 use App\Models\Departement;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Event extends Model
 {
     protected $fillable = [
-        'id',
         'event_category_id',
         'country_id',
         'departement_id',
         'title',
         'type',
         'slug',
-        'thumbnail',
+        // 'thumbnail',
         'start_date',
         'end_date',
         'location',
@@ -28,6 +28,11 @@ class Event extends Model
         'user_id',
         'status',
     ];
+    protected $with = ['thumbnail'];
+    public function thumbnail(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
     public function category()
     {
         return $this->belongsTo(EventCategory::class, 'event_category_id');

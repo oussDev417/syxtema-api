@@ -5,8 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Helpers\Constant;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -20,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->tinyInteger('type')->default(1);
             $table->string('slug')->unique(); // Slug de l'événement
-            $table->string('thumbnail')->nullable(); // Miniature de l'événement
+            // $table->string('thumbnail')->nullable(); // Miniature de l'événement
             $table->dateTime('start_date'); // Date de début
             $table->dateTime('end_date'); // Date de fin
             $table->string('location'); // Lieu de l'événement

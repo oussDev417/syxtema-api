@@ -11,27 +11,34 @@ class CountryService
         return Country::all();
     }
 
-    public function create(array $data)
+    public function create(array $data): Country
     {
+        $country = Country::create($data);
         if (isset($data['flag'])) {
-            $imagePath = $data['flag']->store('images/country', 'public'); // Déplace l'image
-            $data['flag'] = $imagePath; // Met à jour le chemin de l'image
+            $imagePath = $data['flag']->store('images/country', 'public'); // store the image
+            $country->flag()->create(['path' => $imagePath]);
         }
-        return Country::create($data);
+        return $country;
     }
 
-    public function update(Country $country, array $data)
+    public function update(Country $country, array $data): Country
     {
-        if (isset($data['flag'])) {
-            $imagePath = $data['flag']->store('images/country', 'public'); // Déplace l'image
-            $data['flag'] = $imagePath; // Met à jour le chemin de l'image
-        }
         $country->update($data);
+        if (isset($data['flag'])) {
+            $imagePath = $data['flag']->store('images/country', 'public'); // Stocker l'image
+            if ($country->flag) {
+                $country->flag->delete();
+            }
+            $country->flag()->create(['path' => $imagePath]);
+        }
         return $country;
     }
 
     public function delete(Country $country)
     {
+        if ($country->flag) {
+            $country->flag->delete();
+        }
         return $country->delete();
     }
-} 
+}

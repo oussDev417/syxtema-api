@@ -3,15 +3,23 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Team extends Model
 {
     protected $fillable = [
-        'id',
         'nom',
         'profession',
-        'avatar',
         'facebook_url',
         'linkedin_url',
     ];
+
+    protected $with = [
+        'avatar',
+    ];
+
+    public function avatar(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

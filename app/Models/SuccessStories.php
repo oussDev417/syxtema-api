@@ -3,17 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class SuccessStories extends Model
 {
     protected $fillable = [
-        'id',
-        'user_id',
+        // 'user_id',
         'title',
-        'thumbnail',
-        'body',
-        'status',
+        'slug',
+        'description',
+        // 'status',
     ];
+
+    protected $with = ['image'];
+
+    public function image(): MorphOne
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 
     public function user()
     {

@@ -7,6 +7,7 @@
 @section('main-content')
     <div class="container">
         <h1>Equipe</h1>
+        {{-- <div>{{ $teams }}</div> --}}
         <a href="{{ route('admin.teams.create') }}" class="btn btn-success mb-3">Ajouter un membre</a>
         <table id="teamsTable" class="table table-striped">
             <thead>
@@ -25,7 +26,11 @@
                         <td>{{ $team->id }}</td>
                         <td>{{ $team->nom }}</td>
                         <td>{{ $team->profession }}</td>
-                        <td><img src="{{ asset('storage/' . $team->avatar) }}" alt="" style="height:3em;"></td>
+                        <td>
+                            @if ($team->avatar)
+                                <img src="{{ asset('storage/' . $team->avatar->path) }}" alt="" width="35">
+                            @endif
+                        </td>
                         <td>{{ $team->facebook_url }}</td>
                         <td>{{ $team->linkedin_url }}</td>
                         <td>

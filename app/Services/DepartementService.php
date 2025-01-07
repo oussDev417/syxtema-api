@@ -13,25 +13,32 @@ class DepartementService
 
     public function create(array $data)
     {
+        $departement = Departement::create($data);
         if (isset($data['logo'])) {
             $imagePath = $data['logo']->store('images/departements', 'public');
-            $data['logo'] = $imagePath;
+            $departement->logo()->create(['path' => $imagePath]);
         }
-        return Departement::create($data);
+        return $departement;
     }
 
     public function update(Departement $departement, array $data)
     {
+        $departement->update($data);
         if (isset($data['logo'])) {
             $imagePath = $data['logo']->store('images/departements', 'public');
-            $data['logo'] = $imagePath;
+            if ($departement->logo) {
+                $departement->logo->delete();
+            }
+            $departement->logo()->create(['path' => $imagePath]);
         }
-        $departement->update($data);
         return $departement;
     }
 
     public function delete(Departement $departement)
     {
+        if ($departement->logo) {
+            $departement->logo->delete();
+        }
         return $departement->delete();
     }
-} 
+}
