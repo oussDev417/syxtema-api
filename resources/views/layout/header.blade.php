@@ -391,7 +391,7 @@
                                         </a>
                                     </div>
                                     <div class="d-flex-center text-center mb-3">
-                                        <a href="{{ route('blogs') }}" target="_blank">
+                                        <a href="{{ route('blog') }}" target="_blank">
                                             <span>
                                                 <i class="ph-duotone  ph-notebook text-primary f-s-30"></i>
                                             </span>

@@ -1,16 +1,16 @@
 @extends('admin.master_layout')
 @section('title')
-    <title>{{ __('Category List') }}</title>
+    <title>{{ __('Liste des catégories') }}</title>
 @endsection
 @section('admin-content')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1 class="text-primary">{{ __('Course') }}</h1>
+                <h1 class="text-primary">{{ __('Cours') }}</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Tableau de bord') }}</a>
                     </div>
-                    <div class="breadcrumb-item">{{ __('Sub Category List') }}</div>
+                    <div class="breadcrumb-item">{{ __('Liste des sous-catégories') }}</div>
                 </div>
             </div>
             <div class="section-body">
@@ -28,25 +28,25 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">{{ __('Message for Reviewer') }} <code></code></label>
+                                                <label for="">{{ __('Message pour le réviseur') }} <code></code></label>
                                                 <textarea name="message_for_reviewer" class="form-control">{{ $course->message_for_reviewer }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                           <div class="form-group">
-                                              <label for="">{{ __('Status') }} <code>*</code></label>
+                                              <label for="">{{ __('Statut') }} <code>*</code></label>
                                               <select name="status" id="" class="form-control">
-                                                <option value="">{{ __('Select') }}</option>
-                                                <option @selected($course->status == 'active') value="active">{{ __('Publish') }}</option>
-                                                <option @selected($course->status == 'inactive') value="inactive">{{ __('UnPublish') }}</option>
-                                                <option @selected($course->status == 'is_draft') value="is_draft">{{ __('Draft') }}</option>
+                                                <option value="">{{ __('Sélectionner') }}</option>
+                                                <option @selected($course->status == 'active') value="active">{{ __('Publier') }}</option>
+                                                <option @selected($course->status == 'inactive') value="inactive">{{ __('En attente') }}</option>
+                                                <option @selected($course->status == 'is_draft') value="is_draft">{{ __('Brouillon') }}</option>
                                               </select>
                                           </div>
                                       </div>
 
                                         <div class="col-md-12">
-                                            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+                                            <button class="btn btn-primary" type="submit">{{ __('Enregistrer') }}</button>
                                         </div>
                                     </div>
                                 </form>
@@ -62,4 +62,3 @@
 @push('js')
 <script src="{{ asset('backend/js/default/courses.js') }}"></script>
 @endpush
-

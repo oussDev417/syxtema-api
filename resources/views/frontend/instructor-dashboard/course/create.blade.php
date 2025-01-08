@@ -4,7 +4,7 @@
     <div class="dashboard__content-wrap">
 
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Create Course') }}</h4>
+            <h4 class="title">{{ __('Créer un cours') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -20,7 +20,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-grp">
-                                    <label for="title">{{ __('Title') }} <code>*</code></label>
+                                    <label for="title">{{ __('Titre') }} <code>*</code></label>
                                     <input id="title" name="title" type="text" value="{{ @$course?->title }}">
                                 </div>
                             </div>
@@ -33,19 +33,19 @@
 
                             <div class="col-md-12">
                                 <div class="form-grp">
-                                    <label for="seo_description">{{ __('Seo description') }} <code></code></label>
+                                    <label for="seo_description">{{ __('Description SEO') }} <code></code></label>
                                     <input id="seo_description" name="seo_description" type="text" value="{{ @$course?->seo_description }}"
-                                        placeholder="{{ __('150 - 160 characters recommended') }}">
+                                        placeholder="{{ __('150 - 160 caractères recommandés') }}">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="from-group mb-3">
-                                    <label class="form-file-manager-label" for="">{{ __('Thumbnail') }}
+                                    <label class="form-file-manager-label" for="">{{ __('Miniature') }}
                                         <code>*</code></label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <a data-input="thumbnail" data-preview="holder" class="file-manager-image">
-                                                <i class="fa fa-picture-o"></i> {{ __('Choose') }}
+                                                <i class="fa fa-picture-o"></i> {{ __('Choisir') }}
                                             </a>
                                         </span>
                                         <input id="thumbnail" readonly class="form-control file-manager-input"
@@ -56,26 +56,25 @@
 
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="demo_video_storage">{{ __('Demo Video Storage') }}
-                                        <code>({{ __('optional') }})</code></label>
+                                    <label for="demo_video_storage">{{ __('Stockage vidéo de démonstration') }}
+                                        <code>({{ __('optionnel') }})</code></label>
                                     <select name="demo_video_storage" id="demo_video_storage" class="form-select">
-                                        <option @selected(@$course?->demo_video_storage == 'upload') value="upload">{{ __('upload') }}</option>
-                                        <option @selected(@$course?->demo_video_storage == 'youtube') value="youtube">{{ __('youtube') }}</option>
-                                        <option @selected(@$course?->demo_video_storage == 'vimeo') value="vimeo">{{ __('vimeo') }}</option>
-                                        <option @selected(@$course?->demo_video_storage == 'external_link') value="external_link">{{ __('external_link') }}</option>
-                                        {{-- <option @selected(@$course?->demo_video_storage == 'aws') value="aws">{{ __('aws') }}</option> --}}
+                                        <option @selected(@$course?->demo_video_storage == 'upload') value="upload">{{ __('Télécharger') }}</option>
+                                        <option @selected(@$course?->demo_video_storage == 'youtube') value="youtube">{{ __('Youtube') }}</option>
+                                        <option @selected(@$course?->demo_video_storage == 'vimeo') value="vimeo">{{ __('Vimeo') }}</option>
+                                        <option @selected(@$course?->demo_video_storage == 'external_link') value="external_link">{{ __('Lien externe') }}</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-6 upload {{ @$course?->demo_video_storage == 'upload' ? '' : 'd-none' }}">
                                 <div class="from-group mb-3">
-                                    <label class="form-file-manager-label" for="">{{ __('Path') }}
+                                    <label class="form-file-manager-label" for="">{{ __('Chemin') }}
                                         <code></code></label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1">
                                             <a data-input="path" data-preview="holder" class="file-manager">
-                                                <i class="fa fa-picture-o"></i> {{ __('Choose') }}
+                                                <i class="fa fa-picture-o"></i> {{ __('Choisir') }}
                                             </a>
                                         </span>
                                         <input id="path" readonly class="form-control file-manager-input"
@@ -86,12 +85,12 @@
 
                             <div class="col-md-6 external_link {{ @$course?->demo_video_storage != 'upload' ? '' : 'd-none' }}">
                                 <div class="form-grp">
-                                    <label for="meta_description">{{ __('Path') }} <code></code></label>
+                                    <label for="meta_description">{{ __('Chemin') }} <code></code></label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-link"></i></span>
                                         <input type="text" class="form-control" name="external_path"
-                                            placeholder="{{ __('peste your external link') }}" value="{{ @$course?->demo_video_source }}">
+                                            placeholder="{{ __('Collez votre lien externe') }}" value="{{ @$course?->demo_video_source }}">
                                     </div>
                                 </div>
                             </div>
@@ -99,14 +98,14 @@
 
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="price">{{ __('Price') }} <code>*</code></label>
+                                    <label for="price">{{ __('Prix') }} <code>*</code></label>
                                     <input id="price" name="price" type="text" value="{{ @$course?->price }}">
-                                    <code>{{ __('Put 0 for free') }}</code>
+                                    <code>{{ __('Mettre 0 pour gratuit') }}</code>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="discount_price">{{ __('Discount Price') }} <code></code></label>
+                                    <label for="discount_price">{{ __('Prix réduit') }} <code></code></label>
                                     <input id="discount_price" name="discount_price" type="text" value="{{ @$course?->discount_price }}">
                                 </div>
                             </div>
@@ -117,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+                        <button class="btn btn-primary" type="submit">{{ __('Enregistrer') }}</button>
                     </form>
                 </div>
             </div>
@@ -140,9 +139,9 @@
             function convertToSlug(text) {
                 return text
                     .toLowerCase()
-                    .replace(/[^a-z\s-]/g, "") // Remove all non-word characters (except -)
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/-+/g, "-"); // Replace multiple - with single -
+                    .replace(/[^a-z\s-]/g, "") // Supprime tous les caractères non-mot (sauf -)
+                    .replace(/\s+/g, "-") // Remplace les espaces par -
+                    .replace(/-+/g, "-"); // Remplace plusieurs - par un seul -
             }
         })
     </script>

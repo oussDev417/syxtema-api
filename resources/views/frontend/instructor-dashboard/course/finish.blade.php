@@ -4,7 +4,7 @@
     <div class="dashboard__content-wrap">
 
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Create Course') }}</h4>
+            <h4 class="title">{{ __('Créer un cours') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -19,25 +19,25 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-grp">
-                                    <label for="">{{ __('Message for Reviewer') }} <code></code></label>
+                                    <label for="">{{ __('Message pour le réviseur') }} <code></code></label>
                                     <textarea name="message_for_reviewer" class="form-control">{{ $course->message_for_reviewer }}</textarea>
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                               <div class="form-grp">
-                                  <label for="">{{ __('Status') }} <code>*</code></label>
+                                  <label for="">{{ __('Statut') }} <code>*</code></label>
                                   <select name="status" id="" class="form-select">
-                                    <option value="">{{ __('Select') }}</option>
-                                    <option @selected($course->status == 'active') value="active">{{ __('Publish') }}</option>
-                                    <option @selected($course->status == 'inactive') value="inactive">{{ __('UnPublish') }}</option>
-                                    <option @selected($course->status == 'is_draft') value="is_draft">{{ __('Draft') }}</option>
+                                    <option value="">{{ __('Sélectionner') }}</option>
+                                    <option @selected($course->status == 'active') value="active">{{ __('Publier') }}</option>
+                                    <option @selected($course->status == 'inactive') value="inactive">{{ __('Dépublier') }}</option>
+                                    <option @selected($course->status == 'is_draft') value="is_draft">{{ __('Brouillon') }}</option>
                                   </select>
                               </div>
                           </div>
 
                             <div>
-                                <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+                                <button class="btn btn-primary" type="submit">{{ __('Enregistrer') }}</button>
                             </div>
                     </form>
                 </div>

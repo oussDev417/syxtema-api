@@ -3,10 +3,10 @@
     <!-- Experience -->
     <div class="instructor__profile-form-wrap">
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Experience') }}</h4>
+            <h4 class="title">{{ __('Expérience') }}</h4>
             <button type="button" class="btn btn-primary btn-hight-basic show-modal"
                 data-url="{{ route('student.setting.experience-modal') }}">
-                {{ __('Add Experience') }}
+                {{ __('Ajouter une expérience') }}
             </button>
 
         </div>
@@ -16,11 +16,11 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>{{ __('No') }}</th>
-                                <th>{{ __('Compnay') }}</th>
-                                <th>{{ __('Position') }}</th>
-                                <th>{{ __('Start Date') }}</th>
-                                <th>{{ __('End Date') }}</th>
+                                <th>{{ __('N°') }}</th>
+                                <th>{{ __('Entreprise') }}</th>
+                                <th>{{ __('Poste') }}</th>
+                                <th>{{ __('Date de début') }}</th>
+                                <th>{{ __('Date de fin') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -40,21 +40,21 @@
                                         <p>{{ $experience->start_date }}</p>
                                     </td>
                                     <td>
-                                        <p>{{ $experience->current ? 'Present' : $experience->end_date }}</p>
+                                        <p>{{ $experience->current ? 'Actuel' : $experience->end_date }}</p>
                                     </td>
                                     <td>
                                         <div class="dashboard__review-action">
                                             <a href="#" class="show-modal"
                                                 data-url="{{ route('student.setting.edit-experience-modal', $experience->id) }}"
-                                                title="Edit"><i class="far fa-edit"></i></i></a>
+                                                title="Modifier"><i class="far fa-edit"></i></i></a>
                                             <a href="{{ route('student.setting.experience.destroy', $experience->id) }}"
-                                                class="delete-item" title="Delete"><i class="far fa-trash-alt"></i></a>
+                                                class="delete-item" title="Supprimer"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                             @empty
                                 <td colspan="6" class="text-center">
-                                    <span class="text-muted">{{ __('No Data!') }}</span>
+                                    <span class="text-muted">{{ __('Aucune donnée !') }}</span>
                                 </td>
                             @endforelse
 
@@ -69,10 +69,10 @@
     <!-- Education -->
     <div class="instructor__profile-form-wrap">
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Education') }}</h4>
+            <h4 class="title">{{ __('Formation') }}</h4>
             <button type="button" class="btn btn-primary btn-hight-basic show-modal"
                 data-url="{{ route('student.setting.add-education-modal') }}">
-                {{ __('Add Education') }}
+                {{ __('Ajouter une formation') }}
             </button>
 
         </div>
@@ -82,8 +82,8 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>{{ __('No') }}</th>
-                                <th>{{ __('Education') }}</th>
+                                <th>{{ __('N°') }}</th>
+                                <th>{{ __('Formation') }}</th>
                                 <th width="20%">{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -101,15 +101,15 @@
                                         <div class="dashboard__review-action">
                                             <a href="#" class="show-modal"
                                                 data-url="{{ route('student.setting.edit-education-modal', $education->id) }}"
-                                                title="Edit"><i class="far fa-edit"></i></i></a>
+                                                title="Modifier"><i class="far fa-edit"></i></i></a>
                                             <a href="{{ route('student.setting.education.destroy', $education->id) }}"
-                                                class="delete-item" title="Delete"><i class="far fa-trash-alt"></i></a>
+                                                class="delete-item" title="Supprimer"><i class="far fa-trash-alt"></i></a>
                                         </div>
                                     </td>
                                 </tr>
                             @empty
                                 <td colspan="6" class="text-center">
-                                    <span class="text-muted">{{ __('No Data!') }}</span>
+                                    <span class="text-muted">{{ __('Aucune donnée !') }}</span>
                                 </td>
                             @endforelse
 

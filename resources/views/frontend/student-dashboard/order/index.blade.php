@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title">
-            <h4 class="title">{{ __('Order History') }}</h4>
+            <h4 class="title">{{ __('Historique des commandes') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -11,12 +11,12 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>{{ __('No') }}</th>
-                                <th>{{ __('Invoice') }}</th>
-                                <th>{{ __('Paid') }}</th>
-                                <th>{{ __('Gateway') }}</th>
-                                <th>{{ __('Status') }}</th>
-                                <th>{{ __('Payment') }}</th>
+                                <th>{{ __('N°') }}</th>
+                                <th>{{ __('Facture') }}</th>
+                                <th>{{ __('Payé') }}</th>
+                                <th>{{ __('Moyen de paiement') }}</th>
+                                <th>{{ __('Statut') }}</th>
+                                <th>{{ __('Paiement') }}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -32,23 +32,23 @@
                                     </td>
                                     <td>
                                         @if ($order->status == 'completed')
-                                            <div class="badge bg-success">{{ __('Completed') }}</div>
+                                            <div class="badge bg-success">{{ __('Terminé') }}</div>
                                         @elseif($order->status == 'processing')
-                                            <div class="badge bg-warning">{{ __('Processing') }}</div>
+                                            <div class="badge bg-warning">{{ __('En cours') }}</div>
                                         @elseif($order->status == 'declined')
-                                            <div class="badge bg-danger">{{ __('Declined') }}</div>
+                                            <div class="badge bg-danger">{{ __('Refusé') }}</div>
                                         @else
-                                            <div class="badge bg-warning">{{ __('Pending') }}</div>
+                                            <div class="badge bg-warning">{{ __('En attente') }}</div>
                                         @endif
                                     </td>
 
                                     <td>
                                         @if ($order->payment_status == 'paid')
-                                            <div class="badge bg-success">{{ __('Paid') }}</div>
+                                            <div class="badge bg-success">{{ __('Payé') }}</div>
                                         @elseif ($order->payment_status == 'cancelled')
-                                            <div class="badge bg-danger">{{ __('Cancelled') }}</div>
+                                            <div class="badge bg-danger">{{ __('Annulé') }}</div>
                                         @else
-                                            <div class="badge bg-danger">{{ __('Pending') }}</div>
+                                            <div class="badge bg-danger">{{ __('En attente') }}</div>
                                         @endif
                                     </td>
 
@@ -59,7 +59,7 @@
                                 </tr>
                             @empty
                             <tr>
-                                <td colspan="10" class="text-center">{{ __('No orders found!') }}</td>
+                                <td colspan="10" class="text-center">{{ __('Aucune commande trouvée !') }}</td>
                             </tr>
                             @endforelse
                         </tbody>

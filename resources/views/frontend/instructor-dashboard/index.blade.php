@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap dashboard__content-wrap-two mb-60">
         <div class="dashboard__content-title">
-            <h4 class="title">{{ __('Dashboard') }}</h4>
+            <h4 class="title">{{ __('Tableau de bord') }}</h4>
         </div>
 
         <div class="row">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="content">
                         <span class="count odometer" data-count="{{ $totalCourses }}"></span>
-                        <p>{{ __('TOTAL COURSES') }}</p>
+                        <p>{{ __('TOTAL DES COURS') }}</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="content">
                         <span class="count odometer" data-count="{{ $totalPendingCourses }}"></span>
-                        <p>{{ __('PENDING COURSES') }}</p>
+                        <p>{{ __('COURS EN ATTENTE') }}</p>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="content">
                         <span class="count odometer" data-count="{{ $totalOrders }}"></span>
-                        <p>{{ __('TOTAL ORDERS') }}</p>
+                        <p>{{ __('TOTAL DES COMMANDES') }}</p>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="content">
                         <span class="count odometer" data-count="{{ $totalPendingOrders }}"></span>
-                        <p>{{ __('PENDING ORDERS') }}</p>
+                        <p>{{ __('COMMANDES EN ATTENTE') }}</p>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="content">
                         <span class="count" data-count="">{{ currency(userAuth()->wallet_balance) }}</span>
-                        <p class="mt-3">{{ __('Current Balance') }}</p>
+                        <p class="mt-3">{{ __('Solde actuel') }}</p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="content">
                         <span class="count">{{ currency($totalWithdraw) }}</span>
-                        <p class="mt-3">{{ __('Total Payout') }}</p>
+                        <p class="mt-3">{{ __('Total des paiements') }}</p>
                     </div>
                 </div>
             </div>

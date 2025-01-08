@@ -17,7 +17,7 @@ tabindex="0">
             <input id="linkedin" name="linkedin" type="url" value="{{ $user->linkedin }}">
         </div>
         <div class="form-grp">
-            <label for="website">{{ __('Website') }}</label>
+            <label for="website">{{ __('Site web') }}</label>
             <input id="website" name="website" type="url" value="{{ $user->website }}">
         </div>
         <div class="form-grp">
@@ -25,9 +25,8 @@ tabindex="0">
             <input id="github" name="github" type="url" value="{{ $user->github }}">
         </div>
         <div class="submit-btn mt-25">
-            <button type="submit" class="btn">{{ __('Update Social') }}</button>
+            <button type="submit" class="btn">{{ __('Mettre à jour') }}</button>
         </div>
     </form>
 </div>
 </div>
-

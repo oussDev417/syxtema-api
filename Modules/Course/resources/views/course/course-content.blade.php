@@ -5,10 +5,10 @@
 @endsection
 
 @section('title')
-    <title>{{ __('Course Create') }}</title>
+    <title>{{ __('Créer un cours') }}</title>
 @endsection
 @section('admin-content')
-    {{-- Step form --}}
+    {{-- Formulaire par étapes --}}
     <form action="{{ route('admin.courses.update') }}" class="instructor__profile-form course-form">
         @csrf
         <input type="hidden" name="step" value="3">
@@ -19,11 +19,11 @@
 
         <section class="section">
             <div class="section-header">
-                <h1 class="text-primary">{{ __('Course') }}</h1>
+                <h1 class="text-primary">{{ __('Cours') }}</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Tableau de bord') }}</a>
                     </div>
-                    <div class="breadcrumb-item">{{ __('Course Create') }}</div>
+                    <div class="breadcrumb-item">{{ __('Créer un cours') }}</div>
                 </div>
             </div>
             <div class="section-body">
@@ -37,11 +37,11 @@
                                     <div class="mb-3 d-flex justify-content-between">
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#exampleModal">
-                                            {{ __('Add new chapter') }}
+                                            {{ __('Ajouter un nouveau chapitre') }}
                                         </button>
 
                                         <button type="button" class="btn btn-primary sort-chapter-btn">
-                                            {{ __('Sort chapter') }}
+                                            {{ __('Trier les chapitres') }}
                                         </button>
 
                                     </div>
@@ -77,17 +77,17 @@
                                                                     <li><a class="dropdown-item add-lesson-btn"
                                                                             data-type="lesson"
                                                                             data-chapterid="{{ $chapter->id }}"
-                                                                            href="javascript:;">{{ __('Add Lesson') }}</a>
+                                                                            href="javascript:;">{{ __('Ajouter une leçon') }}</a>
                                                                     </li>
                                                                     <li><a class="dropdown-item add-lesson-btn"
                                                                             data-type="document"
                                                                             data-chapterid="{{ $chapter->id }}"
-                                                                            href="javascript:;">{{ __('Add Document') }}</a>
+                                                                            href="javascript:;">{{ __('Ajouter un document') }}</a>
                                                                     </li>
                                                                     <li><a class="dropdown-item add-lesson-btn"
                                                                             data-type="quiz"
                                                                             data-chapterid="{{ $chapter->id }}"
-                                                                            href="javascript:;">{{ __('Add Quiz') }}</a>
+                                                                            href="javascript:;">{{ __('Ajouter un quiz') }}</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -205,7 +205,7 @@
                                                                                             class="dropdown-menu dropdown-menu-end">
                                                                                             <li><a class="dropdown-item add-quiz-question-btn"
                                                                                                     data-quiz-id="{{ $chapterItem->quiz->id }}"
-                                                                                                    href="javascript:;">{{ __('Add Question') }}</a>
+                                                                                                    href="javascript:;">{{ __('Ajouter une question') }}</a>
                                                                                             </li>
                                                                                         </ul>
                                                                                     </div>
@@ -258,7 +258,7 @@
                                                                                     </div>
                                                                                 @empty
                                                                                     <p class="text-center">
-                                                                                        {{ __('No questions found.') }}</p>
+                                                                                        {{ __('Aucune question trouvée.') }}</p>
                                                                                 @endforelse
                                                                             </div>
                                                                         </div>
@@ -266,13 +266,13 @@
                                                                 </div>
                                                             @endif
                                                         @empty
-                                                            <p class="text-center">{{ __('No lessons found.') }}</p>
+                                                            <p class="text-center">{{ __('Aucune leçon trouvée.') }}</p>
                                                         @endforelse
                                                     </div>
                                                 </div>
                                             </div>
                                         @empty
-                                            <p class="text-center p-5">{{ __('No chapters found.') }}</p>
+                                            <p class="text-center p-5">{{ __('Aucun chapitre trouvé.') }}</p>
                                         @endforelse
                                     </div>
                                 </form>

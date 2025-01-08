@@ -25,7 +25,7 @@ tabindex="0">
             <input id="github" name="github" type="url" value="{{ $user->github }}">
         </div>
         <div class="submit-btn mt-25">
-            <button type="submit" class="btn">{{ __('Update Social') }}</button>
+            <button type="submit" class="btn">{{ __('Mettre à jour') }}</button>
         </div>
     </form>
 </div>

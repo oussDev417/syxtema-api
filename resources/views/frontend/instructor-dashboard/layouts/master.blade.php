@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 <!-- meta -->
-@section('meta_title', __('Instructor Dashboard'))
+@section('meta_title', __('Tableau de bord formateur'))
 <!-- end meta -->
 
 @section('contents')
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="dashboard__instructor-info-right">
-                        <a href="{{ route('student.dashboard') }}" class="btn btn-two arrow-btn">{{ __('Student Dashboard') }} <img
+                        <a href="{{ route('student.dashboard') }}" class="btn btn-two arrow-btn">{{ __('Tableau de bord étudiant') }} <img
                             src="{{ asset('frontend/img/icons/right_arrow.svg') }}" alt="img" class="injectable"></a>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="col-lg-9 position-relative">
                     <div class="preloader d-none">
-                        <div class="loader-icon"><img src="{{ asset(Cache::get('setting')->preloader) }}" alt="Preloader">
+                        <div class="loader-icon"><img src="{{ asset(Cache::get('setting')->preloader) }}" alt="Préchargeur">
                         </div>
                     </div>
 

@@ -7,9 +7,9 @@
             <div class="row">
 
                 <div class="form-grp">
-                    <label for="payout_account">{{ __('Payout Account') }} <code>*</code></label>
+                    <label for="payout_account">{{ __('Compte de paiement') }} <code>*</code></label>
                     <select name="payout_account" id="payout_account" class="form-select">
-                        <option value="">{{ __('Select') }}</option>
+                        <option value="">{{ __('Sélectionner') }}</option>
                         @foreach ($withdrawMethods as $method)  
                             <option  @selected($instructorRequest->payout_account == $method->name)  value="{{ $method->name }}">{{ $method->name }}</option>
                         @endforeach
@@ -19,7 +19,7 @@
 
                 <div class=" payment_info_wrap">
                     <div class="form-grp">
-                        <label for="payment_information">{{ __('Payment Information') }} <code>*</code></label>
+                        <label for="payment_information">{{ __('Informations de paiement') }} <code>*</code></label>
                         @foreach ($withdrawMethods as $method)  
                         <div class="normal-text payment-{{ $method->name }} payment-info {{ $instructorRequest->payout_account == $method->name ? '' : 'd-none' }}">
                             {!! clean($method->description) !!}
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="submit-btn mt-25">
-                <button type="submit" class="btn">{{ __('Update Payout') }}</button>
+                <button type="submit" class="btn">{{ __('Mettre à jour le paiement') }}</button>
             </div>
         </form>
     </div>

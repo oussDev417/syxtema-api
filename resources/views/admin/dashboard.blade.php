@@ -1,10 +1,10 @@
 @extends('admin.master_layout')
 @section('title')
-    <title>{{ __('Dashboard') }}</title>
+    <title>{{ __('Tableau de bord') }}</title>
 @endsection
 @section('admin-content')
     <div class="main-content">
-        {{-- Show Credentials Setup Alert --}}
+        {{-- Afficher l'alerte de configuration des identifiants --}}
         
 
         @if ($setting->is_queable == 'active' && Cache::get('corn_working') !== 'working')
@@ -12,7 +12,7 @@
                 <div class="alert-icon"><i class="fas fa-sync"></i></div>
                 <div class="alert-body">
                     <div class="alert-title"><a href="{{ route('admin.general-setting') }}" target="_blank"
-                            rel="noopener noreferrer">{{ __('Corn Job Is Not Running! Many features will be disabled and face errors') }}</a>
+                            rel="noopener noreferrer">{{ __('La tâche Cron ne fonctionne pas ! De nombreuses fonctionnalités seront désactivées et rencontreront des erreurs') }}</a>
                     </div>
                     <button class="close" data-dismiss="alert">
                         <span><i class="fas fa-times"></i></span>
@@ -23,7 +23,7 @@
 
         <section class="section">
             <div class="section-header">
-                <h1>{{ __('Dashboard') }}</h1>
+                <h1>{{ __('Tableau de bord') }}</h1>
             </div>
 
             <div class="section-body">
@@ -36,7 +36,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Total Order') }}</h4>
+                                    <h4>{{ __('Total des commandes') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $data['total_orders'] }}
@@ -51,7 +51,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Pending Order') }}</h4>
+                                    <h4>{{ __('Commandes en attente') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $data['total_pending_orders'] }}
@@ -66,7 +66,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Total Courses') }}</h4>
+                                    <h4>{{ __('Total des cours') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $data['total_course'] }}
@@ -81,7 +81,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Pending Courses') }}</h4>
+                                    <h4>{{ __('Cours en attente') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ $data['total_pending_course'] }}
@@ -96,7 +96,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Total Earnings') }}</h4>
+                                    <h4>{{ __('Gains totaux') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ currency($data['total_earning']) }}
@@ -111,7 +111,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('This Years Earnings') }}</h4>
+                                    <h4>{{ __('Gains de cette année') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ currency($data['this_years_earning']) }}
@@ -126,7 +126,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('This Month Earnings') }}</h4>
+                                    <h4>{{ __('Gains de ce mois') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ currency($data['this_months_earning']) }}
@@ -142,7 +142,7 @@
                             </div>
                             <div class="card-wrap">
                                 <div class="card-header">
-                                    <h4>{{ __('Todays Earnings') }}</h4>
+                                    <h4>{{ __("Gains d'aujourd'hui") }}</h4>
                                 </div>
                                 <div class="card-body">
                                     {{ currency($data['todays_earning']) }}
@@ -153,12 +153,12 @@
                 </div>
                 
                 <div class="row">
-                    <!-- Area Chart -->
+                    <!-- Graphique -->
                     <div class="col">
                         <div class="mb-4 shadow card">
-                            <!-- Card Header - Dropdown -->
+                            <!-- En-tête de la carte - Menu déroulant -->
                             <div class="flex-row py-3 card-header d-flex align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary"> {{ __('Sales In') }}
+                                <h6 class="m-0 font-weight-bold text-primary"> {{ __('Ventes en') }}
                                     {{ request()->has('year') && request()->has('month')
                                         ? Carbon\Carbon::createFromFormat('Y-m', request('year') . '-' . request('month'))->format('F, Y')
                                         : date('F, Y') }}
@@ -194,7 +194,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <!-- Card Body -->
+                            <!-- Corps de la carte -->
                             <div class="card-body">
                                 <div class="chart-area">
                                     <canvas id="myAreaChart"></canvas>
@@ -212,9 +212,9 @@
                                 <div class="card-icon">
                                     <i class="fas fa-graduation-cap"></i>
                                 </div>
-                                <h5>{{ __('Recent Courses') }}</h5>
+                                <h5>{{ __('Cours récents') }}</h5>
                                 <div class="card-description">({{ $data['pending_courses'] }})
-                                    {{ __('Courses are pending') }}</div>
+                                    {{ __('Cours en attente') }}</div>
                             </div>
                             <div class="card-body p-0">
                                 <div class="tickets-list">
@@ -234,7 +234,7 @@
                                         </a>
                                     @endforeach
                                     <a href="{{ route('admin.courses.index') }}" class="ticket-item ticket-more">
-                                        {{ __('View All') }} <i class="fas fa-chevron-right"></i>
+                                        {{ __('Voir tout') }} <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
@@ -249,8 +249,8 @@
                                 <div class="card-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <h5>{{ __('Recent Contacts') }}</h5>
-                                <div class="card-description">{{ __('Here is your recent contacts messages') }}</div>
+                                <h5>{{ __('Contacts récents') }}</h5>
+                                <div class="card-description">{{ __('Voici vos messages de contacts récents') }}</div>
                             </div>
                             <div class="card-body p-0">
                                 <div class="tickets-list">
@@ -271,7 +271,7 @@
                                         </a>
                                     @endforeach
                                     <a href="{{ route('admin.contact-messages') }}" class="ticket-item ticket-more">
-                                        {{ __('View All') }} <i class="fas fa-chevron-right"></i>
+                                        {{ __('Voir tout') }} <i class="fas fa-chevron-right"></i>
                                     </a>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
 
             "use strict";
 
-            // Area Chart Example
+            // Exemple de graphique en zone
             $(document).ready(function() {
 
                 var bData = @json($data['monthly_data']);
@@ -307,7 +307,7 @@
                             "26", "27", "28", "29", "30", "31"
                         ],
                         datasets: [{
-                            label: "{{ __('Sales') }}",
+                            label: "{{ __('Ventes') }}",
                             lineTension: 0.3,
                             backgroundColor: "rgba(78, 115, 223, 0.05)",
                             borderColor: "rgba(78, 115, 223, 1)",
@@ -349,7 +349,7 @@
                                 ticks: {
                                     maxTicksLimit: 5,
                                     padding: 10,
-                                    // Include a dollar sign in the ticks
+                                    // Inclure un symbole monétaire dans les graduations
                                     callback: function(value, index, values) {
                                         return '{{ session()->get('currency_icon') }}' +
                                             number_format(value);

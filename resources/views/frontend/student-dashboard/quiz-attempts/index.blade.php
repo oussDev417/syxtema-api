@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title">
-            <h4 class="title">{{ __('My Quiz Attempts') }}</h4>
+            <h4 class="title">{{ __('Mes tentatives de quiz') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -11,12 +11,12 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>{{ __('No') }}</th>
-                                <th>{{ __('Course') }}</th>
+                                <th>{{ __('N°') }}</th>
+                                <th>{{ __('Cours') }}</th>
                                 <th>{{ __('Quiz') }}</th>
-                                <th>{{ __('Quiz Grade') }}</th>
-                                <th>{{ __('My Grade') }}</th>
-                                <th>{{ __('Status') }}</th>
+                                <th>{{ __('Note du quiz') }}</th>
+                                <th>{{ __('Ma note') }}</th>
+                                <th>{{ __('Statut') }}</th>
                                 <th>{{ __('Date') }}</th>
                                 <th></th>
                             </tr>
@@ -34,9 +34,9 @@
                                     <td>{{ $attempt->user_grade }}</td>
                                     <td>
                                         @if($attempt->status == 'pass')
-                                            <span class="badge bg-success">{{ $attempt->status }}</span>
+                                            <span class="badge bg-success">{{ __('Réussi') }}</span>
                                         @else
-                                            <span class="badge bg-danger">{{ $attempt->status }}</span>
+                                            <span class="badge bg-danger">{{ __('Échoué') }}</span>
                                         @endif 
                                     </td>
 
@@ -49,7 +49,7 @@
                                 </tr>
                             @empty
                             <tr>
-                                <td colspan="10" class="text-center">{{ __('No data found!') }}</td>
+                                <td colspan="10" class="text-center">{{ __('Aucune donnée trouvée !') }}</td>
                             </tr>
                             @endforelse
                         </tbody>

@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Enrolled Courses') }}</h4>
+            <h4 class="title">{{ __('Cours inscrits') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -72,7 +72,7 @@
                                                         @endphp
                                                         <div class="progress-item progress-item-two">
                                                             <h6 class="title">
-                                                                {{ __('COMPLETE') }}<span>{{ number_format($courseCompletedPercent, 1) }}%</span>
+                                                                {{ __('TERMINÉ') }}<span>{{ number_format($courseCompletedPercent, 1) }}%</span>
                                                             </h6>
                                                             <div class="progress" role="progressbar"
                                                                 aria-label="Example with label" aria-valuenow="25"
@@ -99,7 +99,7 @@
                                                                     <a class="basic-button"
                                                                         href="{{ route('student.download-certificate', $enroll->course->id) }}"><i
                                                                             class="certificate fas fa-download"></i>
-                                                                        {{ __('Certificate') }}</a>
+                                                                        {{ __('Certificat') }}</a>
                                                                 </li>
                                                             @endif
                                                         </ul>
@@ -110,7 +110,7 @@
                                     </div>
                                 </div>
                             @empty
-                            <h6 class="text-center">{{ __('No Course Found') }}</h6>
+                            <h6 class="text-center">{{ __('Aucun cours trouvé') }}</h6>
                             @endforelse
                         </div>
                     </div>

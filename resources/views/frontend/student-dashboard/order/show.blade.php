@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title">
-            <h4 class="title">{{ __('Order History') }}</h4>
+            <h4 class="title">{{ __('Historique des commandes') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -15,31 +15,31 @@
                                     <div class="row w-100">
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <div class="invoice-title">
-                                                <h2>{{ __('Invoice') }}</h2>
-                                                <div class="invoice-number">{{ __('Order ') }} #{{ $order->invoice_id }}
+                                                <h2>{{ __('Facture') }}</h2>
+                                                <div class="invoice-number">{{ __('Commande ') }} #{{ $order->invoice_id }}
                                                 </div>
                                                 <address>
-                                                    <strong>{{ __('Order Date') }}:</strong><br>
+                                                    <strong>{{ __('Date de commande') }}:</strong><br>
                                                     {{ formatDate($order->created_at) }}<br><br>
                                                 </address>
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <address>
-                                                <strong>{{ __('Billed To') }}:</strong><br>
-                                                {{ $order->user->name }}<br>
-                                                {{ __('Phone:') }} {{ $order->user->phone }}<br>
+                                                <strong>{{ __('Facturé à') }}:</strong><br>
+                                                {{ $order->user->first_name }} {{ $order->user->last_name }}<br>
+                                                {{ __('Téléphone:') }} {{ $order->user->phone }}<br>
                                                 {{ __('Email') }} {{ $order->user->email }}<br>
-                                                {{ __('Address') }} {{ $order->user->address }}<br>
+                                                {{ __('Adresse') }} {{ $order->user->address }}<br>
                                             </address>
                                         </div>
                                         <div class="col-12 col-sm-6 col-md-4">
                                             <address>
-                                                <strong>{{ __('Payment Method') }}:</strong><br>
+                                                <strong>{{ __('Moyen de paiement') }}:</strong><br>
                                                 {{ $order->payment_method }}<br>
                                             </address>
                                             <address>
-                                                <strong>{{ __('Payment Status') }}:</strong><br>
+                                                <strong>{{ __('Statut du paiement') }}:</strong><br>
                                                 {{ $order->payment_status }}<br><br>
                                             </address>
                                         </div>
@@ -49,14 +49,14 @@
 
                             <div class="row mt-4">
                                 <div class="col-md-12">
-                                    <div class="section-title">{{ __('Order Summary') }}</div>
+                                    <div class="section-title">{{ __('Résumé de la commande') }}</div>
                                     <div class="table-responsive">
                                         <table class="table table-striped table-hover table-md">
                                             <tr>
                                                 <th data-width="40">#</th>
-                                                <th>{{ __('Item') }}</th>
-                                                <th>{{ __('by') }}</th>
-                                                <th class="text-center">{{ __('Price') }}</th>
+                                                <th>{{ __('Article') }}</th>
+                                                <th>{{ __('par') }}</th>
+                                                <th class="text-center">{{ __('Prix') }}</th>
                                             </tr>
                                             @foreach ($order->orderItems as $item)
                                                 <tr>
@@ -95,7 +95,7 @@
 
                                         <div class="col-lg-8 text-end">
                                             <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">{{ __('Subtotal') }}</div>
+                                                <div class="invoice-detail-name">{{ __('Sous-total') }}</div>
                                                 <div class="invoice-detail-value">
                                                     {{ number_format($subTotal * $order->conversion_rate, 2) }} {{ $order->payable_currency }}
                                                 </div>
@@ -103,13 +103,13 @@
                                             </div>
 
                                             <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">{{ __('Discount') }}</div>
+                                                <div class="invoice-detail-name">{{ __('Remise') }}</div>
                                                 <div class="invoice-detail-value">
                                                     {{ number_format($discount * $order->conversion_rate, 2) }} {{ $order->payable_currency }}
                                                 </div>
                                             </div>
                                             <div class="invoice-detail-item">
-                                                <div class="invoice-detail-name">{{ __('Gateway Charge') }}
+                                                <div class="invoice-detail-name">{{ __('Frais de transaction') }}
                                                     ({{ number_format($gatewayCharge) }}%)</div>
                                                 <div class="invoice-detail-value">
                                                     {{ number_format($order->gateway_charge * $order->conversion_rate, 2) }} {{ $order->payable_currency }}
@@ -132,7 +132,7 @@
                         <div class="text-md-right">
 
                             <a target="_blank" href="{{ route('student.order.print-invoice', $order->id) }}" class="btn btn-warning btn-icon icon-left print-btn"><i class="fas fa-print"></i>
-                                {{ __('Print') }}</a>
+                                {{ __('Imprimer') }}</a>
                         </div>
                     </div>
                 </div>
@@ -140,5 +140,3 @@
         </div>
     </div>
 @endsection
-
-

@@ -1,21 +1,21 @@
 @extends('admin.master_layout')
 @section('title')
-    <title>{{ __('Course lnaguage') }}</title>
+    <title>{{ __('Langue du cours') }}</title>
 @endsection
 @section('admin-content')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>{{ __('Course Language') }}</h1>
+                <h1>{{ __('Langue du cours') }}</h1>
             </div>
 
             <div class="section-body">
                 <div class="text-right">
                     <a href="{{ route('admin.course-language.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i>
-                        {{ __('Add New') }}</a>
+                        {{ __('Ajouter nouveau') }}</a>
                 </div>
                 <div class="row mt-4">
-                    {{-- Search filter --}}
+                    {{-- Filtre de recherche --}}
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -24,35 +24,35 @@
                                     <div class="row">
                                         <div class="col-md-3 form-group">
                                             <input type="text" name="keyword" value="{{ request()->get('keyword') }}"
-                                                class="form-control" placeholder="{{ __('Search') }}">
+                                                class="form-control" placeholder="{{ __('Rechercher') }}">
                                         </div>
 
 
                                         <div class="col-md-3 form-group">
                                             <select name="status" id="status" class="form-control">
-                                                <option value="">{{ __('Select Status') }}</option>
+                                                <option value="">{{ __('Sélectionner le statut') }}</option>
                                                 <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>
-                                                    {{ __('Active') }}
+                                                    {{ __('Actif') }}
                                                 </option>
                                                 <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>
-                                                    {{ __('In-Active') }}
+                                                    {{ __('Inactif') }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <select name="order_by" id="order_by" class="form-control">
-                                                <option value="">{{ __('Order By') }}</option>
+                                                <option value="">{{ __('Trier par') }}</option>
                                                 <option value="1" {{ request('order_by') == '1' ? 'selected' : '' }}>
-                                                    {{ __('ASC') }}
+                                                    {{ __('Croissant') }}
                                                 </option>
                                                 <option value="0" {{ request('order_by') == '0' ? 'selected' : '' }}>
-                                                    {{ __('DESC') }}
+                                                    {{ __('Décroissant') }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <select name="par-page" id="par-page" class="form-control">
-                                                <option value="">{{ __('Per Page') }}</option>
+                                                <option value="">{{ __('Par page') }}</option>
                                                 <option value="10" {{ '10' == request('par-page') ? 'selected' : '' }}>
                                                     {{ __('10') }}
                                                 </option>
@@ -65,7 +65,7 @@
                                                 </option>
                                                 <option value="all"
                                                     {{ 'all' == request('par-page') ? 'selected' : '' }}>
-                                                    {{ __('All') }}
+                                                    {{ __('Tout') }}
                                                 </option>
                                             </select>
                                         </div>
@@ -81,9 +81,9 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>{{ __('SN') }}</th>
-                                                <th>{{ __('Name') }}</th>
-                                                <th>{{ __('Status') }}</th>
+                                                <th>{{ __('N°') }}</th>
+                                                <th>{{ __('Nom') }}</th>
+                                                <th>{{ __('Statut') }}</th>
                                                 <th>{{ __('Action') }}</th>
                                             </tr>
                                         </thead>
@@ -97,7 +97,7 @@
                                                             data-url="{{ route('admin.course-language.status-update', $language->id) }}"
                                                             id="status_toggle" type="checkbox"
                                                             {{ $language->status ? 'checked' : '' }} data-toggle="toggle"
-                                                            data-on="{{ __('Active') }}" data-off="{{ __('Inactive') }}"
+                                                            data-on="{{ __('Actif') }}" data-off="{{ __('Inactif') }}"
                                                             data-onstyle="success" data-offstyle="danger">
                                                     </td>
                                                     <td>
@@ -111,8 +111,8 @@
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <x-empty-table :name="__('Course Language')" route="admin.course-language.create"
-                                                    create="yes" :message="__('No data found!')" colspan="4"></x-empty-table>
+                                                <x-empty-table :name="__('Langue du cours')" route="admin.course-language.create"
+                                                    create="yes" :message="__('Aucune donnée trouvée!')" colspan="4"></x-empty-table>
                                             @endforelse
                                         </tbody>
                                     </table>

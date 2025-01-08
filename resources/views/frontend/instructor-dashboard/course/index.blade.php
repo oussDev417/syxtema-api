@@ -3,9 +3,9 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title d-flex flex-wrap justify-content-between">
-            <h4 class="title">{{ __('All Courses') }}</h4>
+            <h4 class="title">{{ __('Tous les cours') }}</h4>
             <a href="{{ route('instructor.courses.create') }}"
-                class="btn btn-primary btn-hight-basic">{{ __('Add Course') }}</a>
+                class="btn btn-primary btn-hight-basic">{{ __('Ajouter un cours') }}</a>
         </div>
         <div class="row">
             <div class="col-12">
@@ -26,16 +26,16 @@
                                                                 <img src="{{ asset($course->thumbnail) }}" alt="img">
                                                             </a>
                                                             @if ($course->is_approved == 'pending')
-                                                                <p class="bg-warning">{{ __('Pending') }}</p>
+                                                                <p class="bg-warning">{{ __('En attente') }}</p>
                                                             @elseif($course->is_approved == 'rejected')
-                                                                <p>{{ __('Rejected') }}</p>
+                                                                <p>{{ __('Rejeté') }}</p>
                                                             @else
                                                                 @if ($course->status == 'active')
-                                                                    <p class="bg-success">{{ __('Published') }}</p>
+                                                                    <p class="bg-success">{{ __('Publié') }}</p>
                                                                 @elseif($course->status == 'inactive')
-                                                                    <p class="bg-danger">{{ __('Unpublished') }}</p>
+                                                                    <p class="bg-danger">{{ __('Ne pas publié') }}</p>
                                                                 @else
-                                                                    <p class="bg-danger">{{ __('Draft') }}</p>
+                                                                    <p class="bg-danger">{{ __('Brouillon') }}</p>
                                                                 @endif
                                                             @endif
                                                         </div>
@@ -112,7 +112,7 @@
                                 @empty
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <h6>{{ __('No Course Found') }}</h6>
+                                            <h6>{{ __('Aucun cours trouvé') }}</h6>
                                         </div>
                                     </div>
                                 @endforelse

@@ -1,21 +1,21 @@
 @extends('admin.master_layout')
 @section('title')
-    <title>{{ __('Courses') }}</title>
+    <title>{{ __('Cours') }}</title>
 @endsection
 @section('admin-content')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1 class="">{{ __('Courses') }}</h1>
+                <h1 class="">{{ __('Cours') }}</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Tableau de bord') }}</a>
                     </div>
-                    <div class="breadcrumb-item">{{ __('Courses List') }}</div>
+                    <div class="breadcrumb-item">{{ __('Liste des cours') }}</div>
                 </div>
             </div>
             <div class="section-body">
                 <div class="mt-4 row">
-                    {{-- Search filter --}}
+                    {{-- Filtre de recherche --}}
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -24,7 +24,7 @@
                                     <div class="row">
                                         <div class="col-md-3 form-group">
                                             <input type="text" name="keyword" value="{{ request()->get('keyword') }}"
-                                                class="form-control" placeholder="{{ __('Search') }}">
+                                                class="form-control" placeholder="{{ __('Rechercher') }}">
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <input type="text" autocomplete="off" name="date" value="{{ request()->get('date') }}"
@@ -33,7 +33,7 @@
                                         <div class="col-md-3">
                                             <div class="from-group">
                                                 <select class="select2 form-group category" name="category">
-                                                    <option value="">{{ __('Category') }}</option>
+                                                    <option value="">{{ __('Catégorie') }}</option>
                                                     @foreach ($categories as $category)
                                                         <optgroup label="{{ $category->translation?->name }}">
                                                             @foreach ($category->subCategories as $subCategory)
@@ -49,8 +49,7 @@
 
                                         <div class="col-md-3 form-group">
                                             <select name="instructor" id="instructor" class="form-control select2">
-
-                                                <option value="">{{ __('Instructor') }}</option>
+                                                <option value="">{{ __('Formateur') }}</option>
                                                 @foreach ($instructors as $instructor)
                                                     <option value="{{ $instructor->id }}" {{ request()->get('instructor') == $instructor->id ? 'selected' : '' }}>
                                                         {{ $instructor->name }} ({{ $instructor->email }})</option>
@@ -60,45 +59,45 @@
 
                                         <div class="col-md-3 form-group">
                                             <select name="approve_status" id="" class="form-control">
-                                                <option value="">{{ __('Approval Status') }}</option>
+                                                <option value="">{{ __('Statut d\'approbation') }}</option>
                                                 <option
                                                     {{ request()->get('approve_status') == 'pending' ? 'selected' : '' }}
-                                                    value="pending">{{ __('Pending') }}</option>
+                                                    value="pending">{{ __('En attente') }}</option>
                                                 <option
                                                     {{ request()->get('approve_status') == 'approved' ? 'selected' : '' }}
-                                                    value="approved">{{ __('Approved') }}</option>
+                                                    value="approved">{{ __('Approuvé') }}</option>
                                                 <option
                                                     {{ request()->get('approve_status') == 'rejected' ? 'selected' : '' }}
-                                                    value="rejected">{{ __('Rejected') }}</option>
+                                                    value="rejected">{{ __('Rejeté') }}</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-3 form-group">
                                             <select name="status" id="status" class="form-control">
-                                                <option value="">{{ __('Status') }}</option>
+                                                <option value="">{{ __('Statut') }}</option>
                                                 <option {{ request()->get('status') == 'active' ? 'selected' : '' }}
-                                                    value="active">{{ __('Published') }}</option>
+                                                    value="active">{{ __('Publié') }}</option>
                                                 <option {{ request()->get('status') == 'inactive' ? 'selected' : '' }}
-                                                    value="inactive">{{ __('Unpublished') }}</option>
+                                                    value="inactive">{{ __('Non publié') }}</option>
                                                 <option {{ request()->get('status') == 'draft' ? 'selected' : '' }}
-                                                    value="draft">{{ __('Drafted') }}</option>
+                                                    value="draft">{{ __('Brouillon') }}</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-3 form-group">
                                             <select name="order_by" id="order_by" class="form-control">
-                                                <option value="">{{ __('Order By') }}</option>
+                                                <option value="">{{ __('Trier par') }}</option>
                                                 <option value="1" {{ request('order_by') == '1' ? 'selected' : '' }}>
-                                                    {{ __('ASC') }}
+                                                    {{ __('Croissant') }}
                                                 </option>
                                                 <option value="0" {{ request('order_by') == '0' ? 'selected' : '' }}>
-                                                    {{ __('DESC') }}
+                                                    {{ __('Décroissant') }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <select name="par_page" id="par-page" class="form-control">
-                                                <option value="">{{ __('Per Page') }}</option>
+                                                <option value="">{{ __('Par page') }}</option>
                                                 <option value="10" {{ '10' == request('par-page') ? 'selected' : '' }}>
                                                     {{ __('10') }}
                                                 </option>
@@ -119,10 +118,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ __('Courses List') }}</h4>
+                                <h4>{{ __('Liste des cours') }}</h4>
                                 <div>
                                     <a href="{{ route('admin.courses.create') }}" class="btn btn-primary"> <i
-                                            class="fa fa-plus"></i>{{ __('Add New') }}</a>
+                                            class="fa fa-plus"></i>{{ __('Ajouter nouveau') }}</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -130,15 +129,15 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>{{ __('SN') }}</th>
-                                                <th class="course-table-title">{{ __('Title') }}</th>
-                                                <th>{{ __('Instructor') }}</th>
-                                                <th>{{ __('Price') }}</th>
-                                                <th>{{ __('Students') }}</th>
-                                                <th>{{ __('Created Date') }}</th>
-                                                <th>{{ __('Update Date') }}</th>
-                                                <th>{{ __('Status') }}</th>
-                                                <th class="course-table-approve">{{ __('Approve') }}</th>
+                                                <th>{{ __('N°') }}</th>
+                                                <th class="course-table-title">{{ __('Titre') }}</th>
+                                                <th>{{ __('Formateur') }}</th>
+                                                <th>{{ __('Prix') }}</th>
+                                                <th>{{ __('Étudiants') }}</th>
+                                                <th>{{ __('Date de création') }}</th>
+                                                <th>{{ __('Date de mise à jour') }}</th>
+                                                <th>{{ __('Statut') }}</th>
+                                                <th class="course-table-approve">{{ __('Approuver') }}</th>
                                                 <th class="text-center">{{ __('Actions') }}</th>
                                             </tr>
                                         </thead>
@@ -154,7 +153,7 @@
                                                     <td>{{ $course->instructor->name ?? '' }}</td>
                                                     <td>
                                                         @if ($course->price == 0)
-                                                            <span>{{ __('Free') }}</span>
+                                                            <span>{{ __('Gratuit') }}</span>
                                                         @elseif($course->discount > 0)
                                                             {{ currency($course->discount) }}
                                                         @else
@@ -172,11 +171,11 @@
                                                     </td>
                                                     <td>
                                                         @if ($course->status == 'active')
-                                                            <span class="badge badge-success">{{ __('Published') }}</span>
+                                                            <span class="badge badge-success">{{ __('Publié') }}</span>
                                                         @elseif ($course->status == 'inactive')
-                                                            <span class="badge badge-danger">{{ __('Unpublished') }}</span>
+                                                            <span class="badge badge-danger">{{ __('Non publié') }}</span>
                                                         @else
-                                                            <span class="badge badge-warning">{{ __('draft') }}</span>
+                                                            <span class="badge badge-warning">{{ __('Brouillon') }}</span>
                                                         @endif
                                                     </td>
 
@@ -184,11 +183,11 @@
                                                         <select name="" class="form-control course-change-status"
                                                             data-id="{{ $course->id }}">
                                                             <option @selected($course->is_approved == 'pending') value="pending">
-                                                                {{ __('Pending') }}</option>
+                                                                {{ __('En attente') }}</option>
                                                             <option @selected($course->is_approved == 'approved') value="approved">
-                                                                {{ __('Approved') }}</option>
+                                                                {{ __('Approuvé') }}</option>
                                                             <option @selected($course->is_approved == 'rejected') value="rejected">
-                                                                {{ __('Rejected') }}</option>
+                                                                {{ __('Rejeté') }}</option>
                                                         </select>
                                                     </td>
 
@@ -203,18 +202,18 @@
                                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                                     <a href="{{ route('admin.courses.edit-view', $course->id) }}"
                                                                         class="dropdown-item"
-                                                                        target="_blank">{{ __('Edit') }}</a>
+                                                                        target="_blank">{{ __('Modifier') }}</a>
 
                                                                     <a href="{{ route('admin.courses.destroy', $course->id) }}"
-                                                                        class="dropdown-item text-danger delete-item">{{ __('Delete') }}</a>
+                                                                        class="dropdown-item text-danger delete-item">{{ __('Supprimer') }}</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <x-empty-table :name="__('Couse Filter')" route="admin.course-filter.create"
-                                                    create="no" :message="__('No data found!')" colspan="11"></x-empty-table>
+                                                <x-empty-table :name="__('Filtre de cours')" route="admin.course-filter.create"
+                                                    create="no" :message="__('Aucune donnée trouvée!')" colspan="11"></x-empty-table>
                                             @endforelse
                                         </tbody>
                                     </table>

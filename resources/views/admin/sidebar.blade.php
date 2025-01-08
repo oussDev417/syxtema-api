@@ -14,13 +14,13 @@
             @adminCan('dashboard.view')
                 <li class="{{ isRoute('admin.dashboard', 'active') }}">
                     <a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
-                        <span>{{ __('Dashboard') }}</span>
+                        <span>{{ __('Tableau de bord') }}</span>
                     </a>
                 </li>
             @endadminCan
 
             @if(checkAdminHasPermission('course.management') || checkAdminHasPermission('course.certificate.management') || checkAdminHasPermission('badge.management') || checkAdminHasPermission('blog.view'))
-                <li class="menu-header">{{ __('Manage Contents') }}</li>
+                <li class="menu-header">{{ __('Gestion des contenus') }}</li>
 
                 @if (Module::isEnabled('Course') && checkAdminHasPermission('course.management'))
                     @include('course::sidebar')
@@ -36,7 +36,7 @@
             @endif
 
             @if(checkAdminHasPermission('order.management') || checkAdminHasPermission('coupon.management') || checkAdminHasPermission('withdraw.management'))
-                <li class="menu-header">{{ __('Manage Orders') }}</li>
+                <li class="menu-header">{{ __('Gestion des commandes') }}</li>
 
                 @if (Module::isEnabled('Order') && checkAdminHasPermission('order.management'))
                     @include('order::sidebar')
@@ -48,7 +48,7 @@
             @endif
 
             @if(checkAdminHasPermission('instructor.request.list') || checkAdminHasPermission('customer.view') || checkAdminHasPermission('location.view'))
-                <li class="menu-header">{{ __('Manage Users') }}</li>
+                <li class="menu-header">{{ __('Gestion des utilisateurs') }}</li>
                 @if (
                     (Module::isEnabled('InstructorRequest') && checkAdminHasPermission('instructor.request.list')) ||
                         checkAdminHasPermission('instructor.request.setting'))
@@ -64,20 +64,16 @@
                 @endif
             @endif
 
-
-
             @if(checkAdminHasPermission('menu.view') || checkAdminHasPermission('page.management') || checkAdminHasPermission('social.link.management') || checkAdminHasPermission('faq.view'))
-                <li class="menu-header">{{ __('Manage Website') }}</li>
+                <li class="menu-header">{{ __('Gestion du site web') }}</li>
 
                 @if (Module::isEnabled('SocialLink') && checkAdminHasPermission('social.link.management'))
                     @include('sociallink::sidebar')
                 @endif
             @endif
 
-            
-
             @if(checkAdminHasPermission('newsletter.view') || checkAdminHasPermission('testimonial.view') || checkAdminHasPermission('contect.message.view'))
-                <li class="menu-header">{{ __('Utility') }}</li>
+                <li class="menu-header">{{ __('Utilitaires') }}</li>
 
                 @if (Module::isEnabled('ContactMessage') && checkAdminHasPermission('contect.message.view'))
                     @include('contactmessage::sidebar')

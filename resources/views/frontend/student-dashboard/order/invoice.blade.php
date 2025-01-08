@@ -1,9 +1,9 @@
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ __('Invoice') }}</title>
+    <title>{{ __('Facture') }}</title>
 
     <style>
         * {
@@ -171,10 +171,10 @@
                                 </a>
                             </td>
                             <td class="right">
-                                <h2>{{ __('invoice') }}</h2>
-                                <h5>{{ __('Order Id: ') }}{{ $order->invoice_id }}</h5>
+                                <h2>{{ __('facture') }}</h2>
+                                <h5>{{ __('N° de commande : ') }}{{ $order->invoice_id }}</h5>
                                 <br>
-                                <h5>{{ __('Date: ') }}{{ formatDate($order->created_at) }}</h5>
+                                <h5>{{ __('Date : ') }}{{ formatDate($order->created_at) }}</h5>
                             </td>
                         </tr>
                     </tbody>
@@ -188,15 +188,15 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h5>{{ __('Billed To') }}</h5>
-                                <p>{{ $order->user->name }}</p>
+                                <h5>{{ __('Facturé à') }}</h5>
+                                <p>{{ $order->user->first_name }} {{ $order->user->last_name }}</p>
                                 <p>{{ $order->user->phone }}</p>
                                 <p>{{ $order->user->email }}</p>
                                 <p>{{ $order->user->address }}</p>
 
                             </td>
                             <td>
-                                <h5>{{ __('Billed From') }}</h5>
+                                <h5>{{ __('Facturé par') }}</h5>
                                 <p>{{ $setting->app_name }}</p>
                                 <p>{{ $setting->contact_message_receiver_mail }}</p>
                                 <p>{{ $setting->site_address }}</p>
@@ -212,10 +212,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="sl-no">{{ __('No') }}.</th>
-                            <th class="item">{{ __('Item') }}</th>
-                            <th class="by">{{ __('By') }}</th>
-                            <th class="price">{{ __('Price') }}</th>
+                            <th class="sl-no">{{ __('N°') }}.</th>
+                            <th class="item">{{ __('Article') }}</th>
+                            <th class="by">{{ __('Par') }}</th>
+                            <th class="price">{{ __('Prix') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -261,18 +261,18 @@
                     <tbody>
                         <tr>
                             <td class="left">
-                                <h5>{{ __('Payment Details') }}</h5>
-                                <p><b>{{ __('Payment Method') }} :</b> {{ $order->payment_method }}</p>
-                                <p><b>{{ __('Payment Status') }} :</b> {{ $order->payment_status }}</p>
+                                <h5>{{ __('Détails du paiement') }}</h5>
+                                <p><b>{{ __('Moyen de paiement') }} :</b> {{ $order->payment_method }}</p>
+                                <p><b>{{ __('Statut du paiement') }} :</b> {{ $order->payment_status }}</p>
                             </td>
                             <td class="right">
-                                <p>{{ __('Sub Total') }}
+                                <p>{{ __('Sous-total') }}
                                     :<span>{{ number_format($subTotal * $order->conversion_rate, 2) }}
                                         {{ $order->payable_currency }}</span></p>
-                                <p>{{ __('Discount') }}
+                                <p>{{ __('Remise') }}
                                     :<span>{{ number_format($discount * $order->conversion_rate, 2) }}
                                         {{ $order->payable_currency }}</span></p>
-                                <p>{{ __('Gateway Charge') }}
+                                <p>{{ __('Frais de transaction') }}
                                     ({{ $gatewayCharge }}%)<span>{{ number_format($order->gateway_charge * $order->conversion_rate, 2) }}
                                         {{ $order->payable_currency }}</span> </p>
                                 <p>{{ __('Total') }} :<span>{{ number_format($total, 2) }}
@@ -290,7 +290,7 @@
 
     <script>
         'use strict'
-        // auto print the page
+        // Impression automatique de la page
         window.addEventListener('load', window.print());
     </script>
 </body>

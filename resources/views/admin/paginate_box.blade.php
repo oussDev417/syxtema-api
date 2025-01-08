@@ -1,8 +1,8 @@
-<nav aria-label="Page navigation example">
+<nav aria-label="Exemple de navigation par page">
     <ul class="pagination">
         @if ($paginator->onFirstPage())
         @else
-            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}">{{ __('Previous') }}</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $paginator->previousPageUrl() }}">{{ __('Précédent') }}</a></li>
         @endif
 
         @foreach ($elements as $element)
@@ -24,7 +24,7 @@
         @endforeach
 
         @if ($paginator->hasMorePages())
-            <li class="page-item"><a class="page-link" href="{{ $paginator->nextPageUrl() }}">{{ __('Next') }}</a></li>
+            <li class="page-item"><a class="page-link" href="{{ $paginator->nextPageUrl() }}">{{ __('Suivant') }}</a></li>
         @endif
     </ul>
-  </nav>
+</nav>

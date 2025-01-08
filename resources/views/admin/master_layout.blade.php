@@ -3,7 +3,7 @@
     $header_admin = Auth::guard('admin')->user();
 @endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <link rel="shortcut icon" href="" type="image/x-icon">
@@ -11,7 +11,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="mode" content="{{ env('PROJECT_MODE') ?? 'LIVE' }}">
-    <!-- Custom Meta -->
+    <!-- Meta personnalisées -->
     @yield('custom_meta')
 
     @yield('title')
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mr-auto search-box position-relative">
                     <input type="text" id="search_menu" class="form-control"
-                        placeholder="{{ __('Search options') }}">
+                        placeholder="{{ __('Options de recherche') }}">
                     <div id="admin_menu_list" class="position-absolute d-none rounded-2">
                         @foreach (routeList() as $route_item)
                             @if (checkAdminHasPermission($route_item?->permission) || empty($route_item?->permission))
@@ -49,14 +49,14 @@
                                     href="{{ $route_item?->route }}">{{ $route_item?->name }}</a>
                             @endif
                         @endforeach
-                        <a class="not-found-message d-none" href="javascript:;">{{ __('Not Found!') }}</a>
+                        <a class="not-found-message d-none" href="javascript:;">{{ __('Non trouvé !') }}</a>
                     </div>
                 </div>
 
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown dropdown-list-toggle">
-                        <a target="_blank" href="{{ route('home') }}" class="nav-link nav-link-lg">
-                            <i class="fas fa-home"></i> {{ __('Visit Website') }}</i>
+                        <a target="_blank" href="{{ route('courses') }}" class="nav-link nav-link-lg">
+                            <i class="fas fa-home"></i> {{ __('Visiter le site') }}</i>
                         </a>
                     </li>
 
@@ -73,18 +73,18 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="{{ route('admin.settings') }}" class="dropdown-item has-icon">
-                                <i class="fas fa-cog"></i> {{ __('Settings') }}
+                                <i class="fas fa-cog"></i> {{ __('Paramètres') }}
                             </a>
 
 
                             @adminCan('admin.profile.view')
                                 <a href="{{ route('admin.edit-profile') }}" class="dropdown-item has-icon">
-                                    <i class="far fa-user"></i> {{ __('Profile') }}
+                                    <i class="far fa-user"></i> {{ __('Profil') }}
                                 </a>
                             @endadminCan
                             <a href="javascript:;" class="dropdown-item has-icon d-flex align-items-center text-danger"
                                 onclick="event.preventDefault(); $('#admin-logout-form').trigger('submit');">
-                                <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                                <i class="fas fa-sign-out-alt"></i> {{ __('Déconnexion') }}
                             </a>
                         </div>
                     </li>
@@ -94,7 +94,7 @@
 
             @if (request()->routeIs(
                     'admin.general-setting',
-                    'admin.marketing-setting',
+                    'admin.marketing-setting', 
                     'admin.commission-setting',
                     'admin.crediential-setting',
                     'admin.email-configuration',
@@ -128,11 +128,11 @@
         </div>
     </div>
 
-    {{-- start admin logout form --}}
+    {{-- formulaire de déconnexion admin --}}
     <form id="admin-logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
         @csrf
     </form>
-    {{-- end admin logout form --}}
+    {{-- fin formulaire de déconnexion admin --}}
     @include('admin.partials.modal')
     @include('admin.partials.javascripts')
     @include('global.dynamic-js-variables')

@@ -1,21 +1,21 @@
 @extends('admin.master_layout')
 @section('title')
-    <title>{{ __('Course Level List') }}</title>
+    <title>{{ __('Liste des niveaux de cours') }}</title>
 @endsection
 @section('admin-content')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>{{ __('Course Level List') }}</h1>
+                <h1>{{ __('Liste des niveaux de cours') }}</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
+                    <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">{{ __('Tableau de bord') }}</a>
                     </div>
-                    <div class="breadcrumb-item">{{ __('Course Level List') }}</div>
+                    <div class="breadcrumb-item">{{ __('Liste des niveaux de cours') }}</div>
                 </div>
             </div>
             <div class="section-body">
                 <div class="mt-4 row">
-                    {{-- Search filter --}}
+                    {{-- Filtre de recherche --}}
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
@@ -24,34 +24,34 @@
                                     <div class="row">
                                         <div class="col-md-3 form-group">
                                             <input type="text" name="keyword" value="{{ request()->get('keyword') }}"
-                                                class="form-control" placeholder="{{ __('Search') }}">
+                                                class="form-control" placeholder="{{ __('Rechercher') }}">
                                         </div>
 
                                         <div class="col-md-3 form-group">
                                             <select name="status" id="status" class="form-control">
-                                                <option value="">{{ __('Select Status') }}</option>
+                                                <option value="">{{ __('Sélectionner le statut') }}</option>
                                                 <option value="1" {{ request('status') == '1' ? 'selected' : '' }}>
-                                                    {{ __('Active') }}
+                                                    {{ __('Actif') }}
                                                 </option>
                                                 <option value="0" {{ request('status') == '0' ? 'selected' : '' }}>
-                                                    {{ __('In-Active') }}
+                                                    {{ __('Inactif') }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <select name="order_by" id="order_by" class="form-control">
-                                                <option value="">{{ __('Order By') }}</option>
+                                                <option value="">{{ __('Trier par') }}</option>
                                                 <option value="1" {{ request('order_by') == '1' ? 'selected' : '' }}>
-                                                    {{ __('ASC') }}
+                                                    {{ __('Croissant') }}
                                                 </option>
                                                 <option value="0" {{ request('order_by') == '0' ? 'selected' : '' }}>
-                                                    {{ __('DESC') }}
+                                                    {{ __('Décroissant') }}
                                                 </option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 form-group">
                                             <select name="par-page" id="par-page" class="form-control">
-                                                <option value="">{{ __('Per Page') }}</option>
+                                                <option value="">{{ __('Par page') }}</option>
                                                 <option value="10" {{ '10' == request('par-page') ? 'selected' : '' }}>
                                                     {{ __('10') }}
                                                 </option>
@@ -64,7 +64,7 @@
                                                 </option>
                                                 <option value="all"
                                                     {{ 'all' == request('par-page') ? 'selected' : '' }}>
-                                                    {{ __('All') }}
+                                                    {{ __('Tout') }}
                                                 </option>
                                             </select>
                                         </div>
@@ -77,10 +77,10 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between">
-                                <h4>{{ __('Course Level List') }}</h4>
+                                <h4>{{ __('Liste des niveaux de cours') }}</h4>
                                 <div>
                                     <a href="{{ route('admin.course-level.create') }}" class="btn btn-primary"><i
-                                            class="fa fa-plus"></i>{{ __('Add New') }}</a>
+                                            class="fa fa-plus"></i>{{ __('Ajouter nouveau') }}</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -88,10 +88,10 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>{{ __('SN') }}</th>
-                                                <th>{{ __('Name') }}</th>
+                                                <th>{{ __('N°') }}</th>
+                                                <th>{{ __('Nom') }}</th>
                                                 <th>{{ __('Slug') }}</th>
-                                                <th>{{ __('Status') }}</th>
+                                                <th>{{ __('Statut') }}</th>
                                                 <th class="text-center">{{ __('Actions') }}</th>
                                             </tr>
                                         </thead>
@@ -106,7 +106,7 @@
                                                             data-url="{{ route('admin.course-level.status-update', $level->id) }}"
                                                             id="status_toggle" type="checkbox"
                                                             {{ $level->status ? 'checked' : '' }} data-toggle="toggle"
-                                                            data-on="{{ __('Active') }}" data-off="{{ __('Inactive') }}"
+                                                            data-on="{{ __('Actif') }}" data-off="{{ __('Inactif') }}"
                                                             data-onstyle="success" data-offstyle="danger">
                                                     </td>
                                                     <td class="text-center">
@@ -116,7 +116,7 @@
                                                                 'code' => getSessionLanguage(),
                                                             ]) }}"
                                                                 class="m-1 text-white btn btn-sm btn-warning"
-                                                                title="Edit">
+                                                                title="Modifier">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                             <a href="javascript:;" data-toggle="modal"
@@ -127,8 +127,8 @@
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <x-empty-table :name="__('Level')" route="admin.course-level.create"
-                                                    create="yes" :message="__('No data found!')" colspan="6"></x-empty-table>
+                                                <x-empty-table :name="__('Niveau')" route="admin.course-level.create"
+                                                    create="yes" :message="__('Aucune donnée trouvée!')" colspan="6"></x-empty-table>
                                             @endforelse
                                         </tbody>
                                     </table>
@@ -155,7 +155,7 @@
         function changeStatus(id) {
             var isDemo = "{{ env('PROJECT_MODE') ?? 1 }}"
             if (isDemo == 0) {
-                toastr.error("{{ __('This Is Demo Version. You Can Not Change Anything') }}");
+                toastr.error("{{ __('Ceci est une version de démonstration. Vous ne pouvez rien modifier') }}");
                 return;
             }
             $.ajax({

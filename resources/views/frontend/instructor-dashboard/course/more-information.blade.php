@@ -4,7 +4,7 @@
     <div class="dashboard__content-wrap">
 
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Create Course') }}</h4>
+            <h4 class="title">{{ __('Créer un cours') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -19,14 +19,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="capacity">{{ __('Capacity') }} <code></code></label>
+                                    <label for="capacity">{{ __('Capacité') }} <code></code></label>
                                     <input id="capacity" name="capacity" type="text" value="{{ $course?->capacity }}">
-                                    <code>{{ __('leave blank for unlimited') }}</code>
+                                    <code>{{ __('laisser vide pour illimité') }}</code>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="course_duration">{{ __('Course Duration (Minutes)') }}
+                                    <label for="course_duration">{{ __('Durée du cours (Minutes)') }}
                                         <code>*</code></label>
                                     <input id="course_duration" name="course_duration" type="text"
                                         value="{{ $course?->duration }}">
@@ -35,7 +35,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>{{ __('Q&A') }}</p>
+                                    <p>{{ __('Questions/Réponses') }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="switcher ms-3">
@@ -50,7 +50,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>{{ __('Completion Certificate') }}</p>
+                                    <p>{{ __('Certificat de réussite') }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="switcher ms-3">
@@ -65,7 +65,7 @@
 
                             <div class="row d-none">
                                 <div class="col-md-6 ">
-                                    <p>{{ __('Downloadable') }}</p>
+                                    <p>{{ __('Téléchargeable') }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="switcher ms-3">
@@ -80,7 +80,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>{{ __('Patner instructor') }}</p>
+                                    <p>{{ __('Instructeur partenaire') }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="switcher ms-3">
@@ -96,7 +96,7 @@
                             <div class="col-md-12">
                                 <div
                                     class="partner_instructor_list {{ $course?->partner_instructor == 0 ? 'd-none' : '' }}">
-                                    <label for="cpacity">{{ __('Select a partner instructor') }} <code></code></label>
+                                    <label for="cpacity">{{ __('Sélectionner un instructeur partenaire') }} <code></code></label>
                                     <select class="select2 partner_instructor_select form-select" name="partner_instructors[]"
                                         multiple="multiple">
                                         @foreach ($course?->partnerInstructors as $instructor)
@@ -109,9 +109,9 @@
 
                             <div class="col-md-12 mt-2">
                                 <div class="from-group">
-                                    <label for="category">{{ __('Category') }}<span class="text-danger">*</span></label>
+                                    <label for="category">{{ __('Catégorie') }}<span class="text-danger">*</span></label>
                                     <select class="select2 form-select category" name="category">
-                                        <option value="">{{ __('Select') }}</option>
+                                        <option value="">{{ __('Sélectionner') }}</option>
                                         @foreach ($categories as $category)
                                             @if ($category->subCategories->isNotEmpty())
                                                 <optgroup label="{{ $category->translation?->name }}">
@@ -129,14 +129,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            
 
                             <div class="filter-holder">
                                 <div class="row mb-3">
                                     <div class="col-md-4 mb-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ __('Level') }}</h5>
+                                                <h5 class="card-title">{{ __('Niveau') }}</h5>
                                                 @php
                                                     $courseLevel = $course->levels->pluck('level_id')->toArray();
                                                     $courseLanguage = $course->languages
@@ -168,7 +167,7 @@
                                     <div class="col-md-4">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title">{{ __('Language') }}</h5>
+                                                <h5 class="card-title">{{ __('Langue') }}</h5>
                                                 @foreach ($languages as $language)
                                                     <div class="form-group">
                                                         <div class="form-check">
@@ -193,7 +192,7 @@
                             </div>
 
                             <div>
-                                <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+                                <button class="btn btn-primary" type="submit">{{ __('Enregistrer') }}</button>
                             </div>
                     </form>
                 </div>

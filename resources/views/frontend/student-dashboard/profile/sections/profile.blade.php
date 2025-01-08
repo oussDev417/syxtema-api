@@ -6,13 +6,13 @@
                     <img class="preview-avatar" src="{{ asset($user->image) }}"
                         alt="img">
                 </div>
-                <button title="Upload Photo" onclick="$('#avatar').trigger('click')"><i
+                <button title="Télécharger une photo" onclick="$('#avatar').trigger('click')"><i
                         class="fas fa-camera"></i></button>
 
             </div>
             <div class="instructor__cover-info-right">
                 <a href="javascript:;" onclick="$('#cover-img').trigger('click')"
-                    class="btn btn-two arrow-btn">{{ __('Edit Cover Photo') }}</a>
+                    class="btn btn-two arrow-btn">{{ __('Modifier la photo de couverture') }}</a>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-grp">
-                        <label for="name">{{ __('Full Name') }} <code>*</code></label>
+                        <label for="name">{{ __('Nom complet') }} <code>*</code></label>
                         <input id="name" name="name" type="text" value="{{ $user->name }}">
                     </div>
                 </div>
@@ -39,25 +39,25 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-grp">
-                        <label for="phone">{{ __('Phone') }}</label>
+                        <label for="phone">{{ __('Téléphone') }}</label>
                         <input id="phone" name="phone" type="text" value="{{ $user->phone }}">
 
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-grp">
-                        <label for="gender">{{ __('Gender') }}</label>
+                        <label for="gender">{{ __('Genre') }}</label>
                         <select name="gender" id="gender" class="form-select">
-                            <option value="">{{ __('Select') }}</option>
-                            <option @selected($user->gender == 'male') value="male">{{ __('Male') }}</option>
-                            <option @selected($user->gender == 'female') value="female">{{ __('Female') }}</option>
+                            <option value="">{{ __('Sélectionner') }}</option>
+                            <option @selected($user->gender == 'male') value="male">{{ __('Homme') }}</option>
+                            <option @selected($user->gender == 'female') value="female">{{ __('Femme') }}</option>
                         </select>
 
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-grp">
-                        <label for="age">{{ __('Age') }}</label>
+                        <label for="age">{{ __('Âge') }}</label>
                         <input id="age" name="age" type="text" value="{{ $user->age }}">
                     </div>
                 </div>
@@ -65,7 +65,7 @@
             </div>
 
             <div class="submit-btn mt-25">
-                <button type="submit" class="btn">{{ __('Update Info') }}</button>
+                <button type="submit" class="btn">{{ __('Mettre à jour') }}</button>
             </div>
         </form>
     </div>

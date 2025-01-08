@@ -4,7 +4,7 @@
 @endpush
 
 @section('dashboard-contents')
-    {{-- Step form --}}
+    {{-- Formulaire par étapes --}}
     <form action="{{ route('instructor.courses.update') }}" class="instructor__profile-form course-form">
         @csrf
         <input type="hidden" name="step" value="3">
@@ -13,7 +13,7 @@
 
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title d-flex justify-content-between">
-            <h4 class="title">{{ __('Create Course') }}</h4>
+            <h4 class="title">{{ __('Créer un cours') }}</h4>
         </div>
         <div class="row">
             <div class="col-12">
@@ -24,11 +24,11 @@
                         <div class="mb-3 d-flex flex-wrap justify-content-between">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">
-                                {{ __('Add new chapter') }}
+                                {{ __('Ajouter un nouveau chapitre') }}
                             </button>
 
                             <button type="button" class="btn btn-info sort-chapter-btn">
-                                {{ __('Sort chapter') }}
+                                {{ __('Trier les chapitres') }}
                             </button>
 
                         </div>
@@ -60,16 +60,16 @@
                                                     <ul class="dropdown-menu dropdown-menu-end">
                                                         <li><a class="dropdown-item add-lesson-btn" data-type="lesson"
                                                                 data-chapterid="{{ $chapter->id }}"
-                                                                href="javascript:;">{{ __('Add Lesson') }}</a></li>
+                                                                href="javascript:;">{{ __('Ajouter une leçon') }}</a></li>
                                                         <li><a class="dropdown-item add-lesson-btn" data-type="document"
                                                                 data-chapterid="{{ $chapter->id }}"
-                                                                href="javascript:;">{{ __('Add Document') }}</a></li>
+                                                                href="javascript:;">{{ __('Ajouter un document') }}</a></li>
                                                         <li><a class="dropdown-item add-lesson-btn" data-type="live"
                                                                 data-chapterid="{{ $chapter->id }}"
-                                                                href="javascript:;">{{ __('Add Live lesson') }}</a></li>
+                                                                href="javascript:;">{{ __('Ajouter une leçon en direct') }}</a></li>
                                                         <li><a class="dropdown-item add-lesson-btn" data-type="quiz"
                                                                 data-chapterid="{{ $chapter->id }}"
-                                                                href="javascript:;">{{ __('Add Quiz') }}</a></li>
+                                                                href="javascript:;">{{ __('Ajouter un quiz') }}</a></li>
                                                     </ul>
                                                 </div>
                                                 <a href="javascript:;" class="text-dark action-item edit-chapter-btn"
@@ -178,7 +178,7 @@
                                                                             <ul class="dropdown-menu dropdown-menu-end">
                                                                                 <li><a class="dropdown-item add-quiz-question-btn"
                                                                                         data-quiz-id="{{ $chapterItem->quiz?->id }}"
-                                                                                        href="javascript:;">{{ __('Add Question') }}</a>
+                                                                                        href="javascript:;">{{ __('Ajouter une question') }}</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -226,7 +226,7 @@
                                                                         </div>
                                                                     @empty
                                                                         <p class="text-center">
-                                                                            {{ __('No questions found.') }}</p>
+                                                                            {{ __('Aucune question trouvée.') }}</p>
                                                                     @endforelse
                                                                 </div>
                                                             </div>
@@ -234,13 +234,13 @@
                                                     </div>
                                                 @endif
                                             @empty
-                                                <p class="text-center">{{ __('No lessons found.') }}</p>
+                                                <p class="text-center">{{ __('Aucune leçon trouvée.') }}</p>
                                             @endforelse
                                         </div>
                                     </div>
                                 </div>
                             @empty
-                                <p class="text-center p-5">{{ __('No chapters found.') }}</p>
+                                <p class="text-center p-5">{{ __('Aucun chapitre trouvé.') }}</p>
                             @endforelse
                         </div>
                     </form>

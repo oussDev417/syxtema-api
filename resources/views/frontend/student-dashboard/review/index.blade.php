@@ -3,7 +3,7 @@
 @section('dashboard-contents')
     <div class="dashboard__content-wrap">
         <div class="dashboard__content-title">
-            <h4 class="title">{{ __('My Reviews') }}</h4>
+            <h4 class="title">{{ __('Mes avis') }}</h4>
 
         </div>
         <div class="row">
@@ -12,10 +12,10 @@
                     <table class="table table-borderless">
                         <thead>
                             <tr>
-                                <th>{{ __('No') }}</th>
-                                <th>{{ __('Course') }}</th>
-                                <th>{{ __('Rating') }}</th>
-                                <th>{{ __('Status') }}</th>
+                                <th>{{ __('N°') }}</th>
+                                <th>{{ __('Cours') }}</th>
+                                <th>{{ __('Note') }}</th>
+                                <th>{{ __('Statut') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -33,9 +33,9 @@
 
                                     <td>
                                         @if ($review->status == 1)
-                                            <div class="badge bg-success">{{ __('Approved') }}</div>
+                                            <div class="badge bg-success">{{ __('Approuvé') }}</div>
                                         @else
-                                            <div class="badge bg-warning">{{ __('Pending') }}</div>
+                                            <div class="badge bg-warning">{{ __('En attente') }}</div>
                                         @endif
                                     </td>
 
@@ -47,7 +47,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="10" class="text-center">{{ __('No orders found!') }}</td>
+                                    <td colspan="10" class="text-center">{{ __('Aucune donnée trouvée !') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>
