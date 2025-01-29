@@ -25,6 +25,7 @@
                                         class="instructor__profile-form course-form">
                                         @csrf
                                         <input type="hidden" name="course_id" id="" value="{{ $courseId }}">
+                                        <input type="hidden" name="qna" value="0">
                                         <input type="hidden" name="step" id="" value="2">
                                         <input type="hidden" name="next_step" value="3">
 
@@ -78,7 +79,7 @@
                                                     </div>
                                                 </div>
 
-                                                {{-- <div class="row w-100">
+                                                <div class="row w-100">
                                                     <div class="col-md-6">
                                                         <p>{{ __('Téléchargeable') }}</p>
                                                     </div>
@@ -91,7 +92,7 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div>
 
                                                 <div class="row w-100">
                                                     <div class="col-md-6">
