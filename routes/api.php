@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\ProfileController;
+use App\Http\Controllers\Api\V1\PartnerController;
+use App\Http\Controllers\Api\V1\TestimonialController;
+use App\Http\Controllers\Api\V1\PortfolioController;
 
 // Routes publiques
 // Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -22,3 +25,10 @@ Route::get('/auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
 
 Route::apiResource('newsletter', NewsletterController::class);
+Route::prefix('v1')->group(function () {
+    Route::apiResource('partners', PartnerController::class)->only(['index', 'show']);
+    Route::get('/testimonials', [TestimonialController::class, 'index']);
+    Route::get('/testimonials/{id}', [TestimonialController::class, 'show']);
+    Route::apiResource('portfolios', PortfolioController::class)->only(['index']);
+    Route::get('portfolios/{slug}', [PortfolioController::class, 'showBySlug']);
+});

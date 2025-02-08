@@ -8,7 +8,7 @@ class PortfolioService
 {
     public function getAll()
     {
-        return Portfolio::with(['departement'])->get();
+        return Portfolio::with(['departement', 'image'])->latest()->get();
     }
 
     public function create(array $data)
@@ -42,5 +42,15 @@ class PortfolioService
             $portfolio->image->delete();
         }
         return $portfolio->delete();
+    }
+
+    public function find($id)
+    {
+        return Portfolio::with(['departement', 'image'])->findOrFail($id);
+    }
+
+    public function findBySlug(string $slug)
+    {
+        return Portfolio::with(['departement', 'image'])->where('slug', $slug)->firstOrFail();
     }
 }

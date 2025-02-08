@@ -11,7 +11,6 @@ class Temoignage extends Model
         'nom',
         'profession',
         'message',
-        // 'avatar',
     ];
 
     protected $with = [
