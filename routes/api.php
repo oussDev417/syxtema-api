@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\Auth\ProfileController;
 use App\Http\Controllers\Api\V1\PartnerController;
 use App\Http\Controllers\Api\V1\TestimonialController;
 use App\Http\Controllers\Api\V1\PortfolioController;
+use App\Http\Controllers\Api\V1\StartupController;
 
 // Routes publiques
 // Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -31,4 +32,6 @@ Route::prefix('v1')->group(function () {
     Route::get('/testimonials/{id}', [TestimonialController::class, 'show']);
     Route::apiResource('portfolios', PortfolioController::class)->only(['index']);
     Route::get('portfolios/{slug}', [PortfolioController::class, 'showBySlug']);
+    Route::apiResource('startups', StartupController::class)->only(['index']);
+    Route::get('startups/{slug}', [StartupController::class, 'showBySlug']);
 });

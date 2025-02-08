@@ -27,6 +27,10 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    <label for="secteur" class="form-label">Secteur</label>
+                    <input type="text" class="form-control" id="secteur" name="secteur" value="{{ $service->secteur }}">
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/*">
                 </div>

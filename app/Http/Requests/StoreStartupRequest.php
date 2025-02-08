@@ -24,6 +24,7 @@ class StoreStartupRequest extends FormRequest
         return [
             'name' => 'required|string',
             'slug' => 'required|string|unique:portfolios,slug',
+            'secteur' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'nullable|string',
         ];
