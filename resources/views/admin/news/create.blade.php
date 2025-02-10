@@ -56,14 +56,17 @@
                     <textarea class="form-control" id="description" name="description"></textarea>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="user_id" class="form-label">Utilisateur</label>
-                    <select class="form-select" id="user_id" name="user_id">
-                        <!-- Remplir avec les utilisateurs -->
+                    <label for="created_by" class="form-label">Auteur</label>
+                    <select class="form-select" id="created_by" name="created_by">
+                        <option value="1">Admin</option>
                     </select>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="status" class="form-label">Statut</label>
-                    <input type="number" class="form-control" id="status" name="status" required>
+                    <select class="form-select" id="status" name="status" required>
+                        <option value="1">Actif</option>
+                        <option value="0">Inactif</option>
+                    </select>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Ajouter</button>

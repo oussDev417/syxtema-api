@@ -29,7 +29,7 @@
                         <td>{{ $new->id }}</td>
                         <td>{{ $new->title }}</td>
                         <td>{{ $new->slug }}</td>
-                        <td>{{ $new->status }}</td>
+                        13
                         <td>
                             <button type="button" class="btn btn-light-success icon-btn b-r-4"
                                 onclick="window.location.href='{{ route('admin.news.edit', $new->id) }}'">

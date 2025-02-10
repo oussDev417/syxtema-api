@@ -31,4 +31,30 @@ class StartupController extends Controller
             ], 404);
         }
     }
+
+    public function getSimilar(Request $request)
+    {
+        $secteur = $request->query('secteur');
+        $excludeId = $request->query('exclude_id');
+
+        if (!$secteur || !$excludeId) {
+            return response()->json([
+                'message' => 'Les paramètres secteur et exclude_id sont requis'
+            ], 400);
+        }
+
+        try {
+            $similarStartups = Startup::with('image')
+                ->where('secteur', $secteur)
+                ->where('id', '!=', $excludeId)
+                ->take(3)
+                ->get();
+
+            return StartupResource::collection($similarStartups);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Erreur lors de la récupération des startups similaires'
+            ], 500);
+        }
+    }
 }

@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class News extends Model
 {
     protected $fillable = [
-        'news_category_id',
         'country_id',
         'title',
         'slug',
@@ -25,10 +24,6 @@ class News extends Model
         return $this->morphOne(Image::class, 'imageable');
     }
     protected $with = ['image'];
-    public function category()
-    {
-        return $this->belongsTo(NewsCategory::class, 'news_category_id');
-    }
     public function country()
     {
         return $this->belongsTo(Country::class);

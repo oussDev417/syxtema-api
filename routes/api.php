@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\V1\PartnerController;
 use App\Http\Controllers\Api\V1\TestimonialController;
 use App\Http\Controllers\Api\V1\PortfolioController;
 use App\Http\Controllers\Api\V1\StartupController;
+use App\Http\Controllers\Api\V1\NewsController;
 
 // Routes publiques
 // Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -33,5 +34,9 @@ Route::prefix('v1')->group(function () {
     Route::apiResource('portfolios', PortfolioController::class)->only(['index']);
     Route::get('portfolios/{slug}', [PortfolioController::class, 'showBySlug']);
     Route::apiResource('startups', StartupController::class)->only(['index']);
+    Route::get('startups/similar', [StartupController::class, 'getSimilar']);
     Route::get('startups/{slug}', [StartupController::class, 'showBySlug']);
+    Route::get('/news', [NewsController::class, 'index']);
+    Route::get('/news/related', [NewsController::class, 'getRelated']);
+    Route::get('/news/{slug}', [NewsController::class, 'showBySlug']);
 });

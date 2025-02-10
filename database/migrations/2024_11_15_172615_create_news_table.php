@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('news_category_id')->nullable();
             $table->foreignId('country_id')->constrained('countries')->onDelete('cascade'); // Clé étrangère vers countries
             $table->string('title');
             $table->string('slug');
