@@ -27,7 +27,7 @@ return new class extends Migration {
             $table->integer('number_of_ticket')->default(0);
             $table->integer('number_of_ticket_left')->default(0); // Nombre de tickets restants
             $table->text('description')->nullable(); // Description de l'événement
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('created_by');
             $table->tinyInteger('status')->default(1);
             $table->softDeletes();
             $table->timestamps();

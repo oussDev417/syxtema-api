@@ -10,6 +10,8 @@ use App\Http\Controllers\Api\V1\TestimonialController;
 use App\Http\Controllers\Api\V1\PortfolioController;
 use App\Http\Controllers\Api\V1\StartupController;
 use App\Http\Controllers\Api\V1\NewsController;
+use App\Http\Controllers\Api\V1\EventController;
+use App\Http\Controllers\Api\V1\ServiceController;
 
 // Routes publiques
 // Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -39,4 +41,14 @@ Route::prefix('v1')->group(function () {
     Route::get('/news', [NewsController::class, 'index']);
     Route::get('/news/related', [NewsController::class, 'getRelated']);
     Route::get('/news/{slug}', [NewsController::class, 'showBySlug']);
+    Route::get('/events', [EventController::class, 'index']);
+    Route::get('/events/related', [EventController::class, 'getRelated']);
+    Route::get('/events/{slug}', [EventController::class, 'showBySlug']);
+    Route::get('/event-categories', [EventController::class, 'getCategories']);
+    Route::get('/countries', [EventController::class, 'getCountries']);
+    Route::get('/services', [ServiceController::class, 'index']);
+    Route::get('/services/related', [ServiceController::class, 'getRelated']);
+    Route::get('/services/{slug}', [ServiceController::class, 'showBySlug']);
+    Route::get('/service-categories', [ServiceController::class, 'getCategories']);
+    Route::get('/service-departements', [ServiceController::class, 'getDepartements']);
 });

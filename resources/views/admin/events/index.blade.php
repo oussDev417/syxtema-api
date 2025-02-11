@@ -45,7 +45,7 @@
                     @endswitch
                 </td>
                 <td>{{ $event->slug }}</td>
-                <td>{{ $event->status }}</td>
+                <td>{{ $event->status == 1 ? 'Actif' : 'Inactif' }}</td>
                 <td>
                     <button type="button" class="btn btn-light-success icon-btn b-r-4" onclick="window.location.href='{{ route('admin.events.edit', $event->id) }}'">
                         <i class="ti ti-edit text-success"></i>

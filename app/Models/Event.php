@@ -25,7 +25,7 @@ class Event extends Model
         'number_of_ticket',
         'number_of_ticket_left',
         'description',
-        'user_id',
+        'created_by',
         'status',
     ];
     protected $with = ['thumbnail'];

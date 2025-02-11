@@ -75,14 +75,17 @@
                 <textarea class="form-control" id="description" name="description">{{ $event->description }}</textarea>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="user_id" class="form-label">Utilisateur</label>
-                <select class="form-select" id="user_id" name="user_id" required>
-                    <!-- Remplir avec les utilisateurs -->
+                <label for="created_by" class="form-label">Auteur</label>
+                <select class="form-select" id="created_by" name="created_by">
+                    <option value="1" {{ $event->created_by == 1 ? 'selected' : '' }}>Admin</option>
                 </select>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="status" class="form-label">Statut</label>
-                <input type="number" class="form-control" id="status" name="status" value="{{ $event->status }}" required>
+                <select class="form-select" id="status" name="status" required>
+                    <option value="1" {{ $event->status == '1' ? 'selected' : '' }}>Actif</option>
+                    <option value="0" {{ $event->status == '0' ? 'selected' : '' }}>Inactif</option>
+                </select>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="country_id" class="form-label">Pays</label>
