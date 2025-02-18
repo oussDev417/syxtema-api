@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class NewsResource extends JsonResource
 {
-    public function toArray($request)
+    public function toArray($request): array
     {
         return [
             'id' => $this->id,
@@ -16,9 +16,9 @@ class NewsResource extends JsonResource
             'image' => $this->image ? asset('storage/' . $this->image->path) : null,
             'country' => [
                 'id' => $this->country->id,
-                'country_name' => $this->country->country_name,
+                'country_name' => $this->country->country_name
             ],
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'status' => $this->status
         ];
     }

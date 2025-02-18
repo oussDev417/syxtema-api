@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Frontend\InstructorCourseController;
 use Modules\Course\app\Http\Controllers\CourseController;
+use App\Http\Controllers\Admin\CoworkingController;
+use App\Http\Controllers\Admin\ReservationController;
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
@@ -48,4 +50,26 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
     Route::put('admin-status/{id}', [AdminController::class, 'changeStatus'])->name('admin.status');
     // Settings routes
     Route::get('settings', [SettingController::class, 'settings'])->name('settings');
+
+    // Routes pour la gestion des espaces de coworking
+    Route::group(['prefix' => 'coworkings', 'as' => 'coworkings.'], function () {
+        Route::get('/', [CoworkingController::class, 'index'])->name('index');
+        Route::get('/create', [CoworkingController::class, 'create'])->name('create');
+        Route::post('/', [CoworkingController::class, 'store'])->name('store');
+        Route::get('/{coworking}/edit', [CoworkingController::class, 'edit'])->name('edit');
+        Route::put('/{coworking}', [CoworkingController::class, 'update'])->name('update');
+        Route::delete('/{coworking}', [CoworkingController::class, 'destroy'])->name('destroy');
+        Route::put('/{coworking}/status', [CoworkingController::class, 'updateStatus'])->name('status.update');
+    });
+
+    // Routes pour la gestion des réservations
+    Route::group(['prefix' => 'reservations', 'as' => 'reservations.'], function () {
+        Route::get('/', [ReservationController::class, 'index'])->name('index');
+        Route::get('/pending', [ReservationController::class, 'pending'])->name('pending');
+        Route::get('/{reservation}', [ReservationController::class, 'show'])->name('show');
+        Route::get('/statistics', [ReservationController::class, 'statistics'])->name('statistics');
+        Route::put('/{reservation}/status', [ReservationController::class, 'updateStatus'])->name('status.update');
+        Route::delete('/{reservation}', [ReservationController::class, 'destroy'])->name('destroy');
+        Route::get('/export', [ReservationController::class, 'export'])->name('export');
+    });
 });

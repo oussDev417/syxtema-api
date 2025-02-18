@@ -60,4 +60,16 @@ class NewsController extends Controller
             ], 500);
         }
     }
+
+    public function getRecent(Request $request)
+    {
+        $limit = $request->input('limit', 3);
+        
+        $news = News::with(['image'])
+            ->latest()
+            ->take($limit)
+            ->get();
+
+        return NewsResource::collection($news);
+    }
 }

@@ -55,7 +55,7 @@ class RegisteredUserController extends Controller
         $marketingSettings = cache()->get('marketing_setting');
         if ($user && $settings->google_tagmanager_status == 'active' && $marketingSettings->register) {
             $register_user = [
-                'name' => $user->name,
+                'name' => $user->first_name,
                 'email' => $user->email,
             ];
             session()->put('registerUser', $register_user);

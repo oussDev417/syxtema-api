@@ -607,3 +607,24 @@ Route::prefix('admin/startups')->name('admin.startups.')->group(function () {
     Route::put('/{id}', [StartupController::class, 'update'])->name('update'); // Mettre à jour une startup
     Route::delete('/{id}', [StartupController::class, 'destroy'])->name('destroy'); // Supprimer une startup
 });
+
+Route::prefix('admin/reservations')->name('admin.reservations.')->group(function () {
+    // ... existing routes ...
+
+    // Routes pour les réservations
+    Route::get('/', [App\Http\Controllers\Admin\ReservationController::class, 'index'])
+        ->name('index');
+    Route::get('/statistics', [App\Http\Controllers\Admin\ReservationController::class, 'statistics'])
+        ->name('statistics');
+    Route::get('/{reservation}', [App\Http\Controllers\Admin\ReservationController::class, 'show'])
+        ->name('show');
+    Route::put('/{reservation}/status', [App\Http\Controllers\Admin\ReservationController::class, 'updateStatus'])
+        ->name('update-status');
+});
+
+Route::prefix('admin/coworkings')->name('admin.coworkings.')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\CoworkingController::class, 'index'])
+        ->name('index');
+    Route::get('/create', [App\Http\Controllers\Admin\CoworkingController::class, 'create'])
+        ->name('create');
+});

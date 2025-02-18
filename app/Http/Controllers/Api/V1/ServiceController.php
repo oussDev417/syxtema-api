@@ -14,7 +14,7 @@ class ServiceController extends Controller
     public function index(Request $request)
     {
         $query = Service::with(['image', 'category', 'departement'])
-            ->where('status', 'actif');
+            ->where('status', 'active');
 
         // Filtrage par catégorie
         if ($request->has('category_id')) {
