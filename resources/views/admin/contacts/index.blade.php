@@ -55,16 +55,15 @@
                                             <div class="btn-group">
                                                 <a href="{{ route('admin.contacts.show', $contact) }}" 
                                                    class="btn btn-sm btn-info">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                <form action="{{ route('admin.contacts.destroy', $contact) }}" 
+                                                   <i class="ti ti-edit"></i>
+                                                   <form action="{{ route('admin.contacts.destroy', $contact) }}" 
                                                       method="POST" 
                                                       class="d-inline"
                                                       onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?');">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm btn-danger">
-                                                        <i class="fas fa-trash"></i>
+                                                    <i class="ti ti-trash"></i>
                                                     </button>
                                                 </form>
                                             </div>

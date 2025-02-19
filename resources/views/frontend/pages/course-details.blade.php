@@ -34,7 +34,7 @@
                         <ul class="courses__item-meta list-wrap">
                             <li class="courses__item-tag">
                                 <a
-                                    href="{{ route('courses', ['category' => $course->category->id]) }}">{{ $course->category->translation->name }}</a>
+                                    href="{{ route('courses', ['category' => $course->category->id]) }}">{{ $course->category->translation?->name ?? '' }}</a>
                             </li>
                             <li class="avg-rating"><i class="fas fa-star"></i>
                                 {{ number_format($course->reviews()->avg('rating'), 1) ?? 0 }} {{ __('Avis') }}</li>
@@ -47,7 +47,7 @@
                                         class="instructor-avatar">
                                     {{ __('Par') }}
                                     <a
-                                        href="{{ route('instructor-details', $course->instructor->id) }}">{{ $course->instructor->name }}</a>
+                                        href="{{ route('instructor-details', ['id' => $course->instructor->id, 'slug' => Str::slug($course->instructor->first_name . ' ' . $course->instructor->last_name)]) }}">{{ $course->instructor->first_name . ' ' . $course->instructor->last_name }}</a>
                                 </li>
                                 <li class="date"><i
                                         class="flaticon-calendar"></i>{{ formatDate($course->created_at, 'd/M/Y') }}</li>
@@ -227,7 +227,7 @@
                                             class="instructor-thumb">
                                     </div>
                                     <div class="courses__instructors-content">
-                                        <h2 class="title">{{ $course->instructor->name }}</h2>
+                                        <h2 class="title">{{ $course->instructor->first_name . ' ' . $course->instructor->last_name }}</h2>
                                         <span class="designation">{{ $course->instructor->job_title }}</span>
                                         <p>{{ $course->instructor->short_bio }}</p>
                                         <div class="instructor__social">
@@ -260,7 +260,7 @@
                                                 <img src="{{ asset($instructor->instructor->image) }}" alt="img">
                                             </div>
                                             <div class="courses__instructors-content">
-                                                <h2 class="title">{{ $instructor->instructor->name }}</h2>
+                                                <h2 class="title">{{ $instructor->instructor->first_name . ' ' . $instructor->instructor->last_name }}</h2>
                                                 <span class="designation">{{ $instructor->instructor->job_title }}</span>
                                                 <p>{{ $instructor->instructor->short_bio }}</p>
                                                 <div class="instructor__social">
@@ -576,8 +576,8 @@
                     'courses': {
                         'name': '{{ $course->title }}',
                         'price': '{{ currency($course->price) }}',
-                        'instructor': '{{ $course->instructor->name }}',
-                        'category': '{{ $course->category->translation->name }}',
+                        'instructor': '{{ $course->instructor->first_name . ' ' . $course->instructor->last_name }}',
+                        'category': '{{ $course->category->translation?->name ?? '' }}',
                         'lessons': '{{ $courseLessonCount }}',
                         'duration': '{{ minutesToHours($course->duration) }}',
                         'url': "{{route('course.show',$course->slug)}}",

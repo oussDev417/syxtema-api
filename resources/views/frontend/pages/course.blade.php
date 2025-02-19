@@ -24,17 +24,19 @@
                                 <h4 class="widget-title">{{ __('Catégories') }}</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
-                                        @foreach ($categories->sortBy('translation.name') as $category)
-                                            <li>
-                                                <div class="form-check">
-                                                    <input class="form-check-input main-category-checkbox" type="radio"
-                                                        name="main_category" value="{{ $category->slug }}"
-                                                        id="cat_{{ $category->id }}">
-                                                    <label class="form-check-label"
-                                                        for="cat_{{ $category->id }}">{{ $category->translation->name }}</label>
-                                                </div>
-                                            </li>
-                                        @endforeach
+                                        @isset($categories)
+                                            @foreach ($categories->sortBy('translation.name') as $category)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input main-category-checkbox" type="radio"
+                                                            name="main_category" value="{{ $category->slug }}"
+                                                            id="cat_{{ $category->id }}">
+                                                        <label class="form-check-label"
+                                                            for="cat_{{ $category->id }}">{{ $category->translation->name }}</label>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        @endisset
                                     </ul>
                                     <div class="show-more">
                                     </div>
@@ -55,16 +57,18 @@
                                                     for="lang">{{ __('Toutes les langues') }}</label>
                                             </div>
                                         </li>
-                                        @foreach ($languages as $language)
-                                            <li>
-                                                <div class="form-check">
-                                                    <input class="form-check-input language-checkbox" type="checkbox"
-                                                        value="{{ $language->id }}" id="lang_{{ $language->id }}">
-                                                    <label class="form-check-label"
-                                                        for="lang_{{ $language->id }}">{{ $language->name }}</label>
-                                                </div>
-                                            </li>
-                                        @endforeach
+                                        @isset($languages)
+                                            @foreach ($languages as $language)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input language-checkbox" type="checkbox"
+                                                            value="{{ $language->id }}" id="lang_{{ $language->id }}">
+                                                        <label class="form-check-label"
+                                                            for="lang_{{ $language->id }}">{{ $language->name }}</label>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        @endisset
 
                                     </ul>
                                 </div>
@@ -112,16 +116,18 @@
                                                     for="difficulty_1">{{ __('Tous les niveaux') }}</label>
                                             </div>
                                         </li>
-                                        @foreach ($levels as $level)
-                                            <li>
-                                                <div class="form-check">
-                                                    <input class="form-check-input level-checkbox" type="checkbox"
-                                                        value="{{ $level->id }}" id="difficulty_{{ $level->id }}">
-                                                    <label class="form-check-label"
-                                                        for="difficulty_{{ $level->id }}">{{ $level->translation->name }}</label>
-                                                </div>
-                                            </li>
-                                        @endforeach
+                                        @isset($levels)
+                                            @foreach ($levels as $level)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input level-checkbox" type="checkbox"
+                                                            value="{{ $level->id }}" id="difficulty_{{ $level->id }}">
+                                                        <label class="form-check-label"
+                                                            for="difficulty_{{ $level->id }}">{{ $level->translation?->name ?? '' }}</label>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        @endisset
                                     </ul>
                                 </div>
                             </div>

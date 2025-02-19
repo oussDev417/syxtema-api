@@ -7,7 +7,7 @@
         <li>
             <div class="form-check">
                 <input @checked(in_array($category->id, $categoriesIds)) class="form-check-input category-checkbox" type="checkbox" value="{{ $category->id }}" id="cat_{{ $category->id }}">
-                <label class="form-check-label" for="cat_{{ $category->id }}">{{ $category->translation->name }}</label>
+                <label class="form-check-label" for="cat_{{ $category->id }}">{{ $category->translation?->name ?? '' }}</label>
             </div>
         </li>
         @endforeach

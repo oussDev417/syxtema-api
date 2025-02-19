@@ -12,12 +12,12 @@
     <div class="app-nav" id="app-simple-bar">
         <ul class="main-nav p-0 mt-2">
             <li class="menu-title">
-                <span>Dashboard</span>
+                <span>Tableau de bord</span>
             </li>
             <li>
                 <a class="" data-bs-toggle="collapse" href="#dashboard" aria-expanded="false">
                     <i class="ph-duotone  ph-house-line"></i>
-                    Dashboard
+                    Tableau de bord
                     <span class="badge text-bg-success badge-notification ms-2">4</span>
                 </a>
                 <ul class="collapse" id="dashboard">

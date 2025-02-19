@@ -7,7 +7,7 @@
 @endphp
 <!-- header-area -->
 <header>
-    @if ($setting?->header_topbar_status == 'active')
+    @if ($setting?->header_topbar_status != 'active')
         <div class="tg-header__top">
             <div class="container custom-container xl_container">
                 <div class="row">
@@ -72,12 +72,12 @@
                                             <option selected disabled>{{ __('Categories') }}</option>
                                             @foreach ($categories as $category)
                                                 <option @selected(request('main_category') == $category->slug) value="{{ $category->slug }}">
-                                                    {{ $category->translation->name }}</option>
+                                                    {{ $category->translation?->name ?? '' }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="input-grp">
-                                        <input type="text" placeholder="{{ __('Search For Course') }} . . ."
+                                        <input type="text" placeholder="{{ __('Rechercher un cours') }} . . ."
                                             name="search" value="{{ request('search') }}">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
@@ -99,26 +99,26 @@
                                         </a>
                                         <ul class="menu_user_list">
                                             @guest
-                                                <li><a href="{{ route('login') }}">{{ __('Sign in') }}</a></li>
-                                                <li><a href="{{ route('register') }}">{{ __('Sign Up') }}</a></li>
+                                                <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
+                                                <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
                                             @else
                                                 @if (Auth::guard('web')->user())
                                                     @if (instructorStatus() == 'approved')
                                                         <li><a
-                                                                href="{{ route('instructor.dashboard') }}">{{ __('Instructor Dashboard') }}</a>
+                                                                href="{{ route('instructor.dashboard') }}">{{ __('Tableau de bord') }}</a>
                                                         </li>
                                                     @endif
                                                     <li><a
-                                                            href="{{ route('student.dashboard') }}">{{ __('Student Dashboard') }}</a>
+                                                            href="{{ route('student.dashboard') }}">{{ __('Tableau de bord') }}</a>
                                                     </li>
                                                     <li><a
-                                                            href="{{ userAuth()->role == 'instructor' ? route('instructor.setting.index') : route('student.setting.index') }}">{{ __('Profile') }}</a>
+                                                            href="{{ userAuth()->role == 'instructor' ? route('instructor.setting.index') : route('student.setting.index') }}">{{ __('Profil') }}</a>
                                                     </li>
                                                     <li><a
-                                                            href="{{ userAuth()->role == 'instructor' ? route('instructor.courses.index') : route('student.enrolled-courses') }}">{{ __('Courses') }}</a>
+                                                            href="{{ userAuth()->role == 'instructor' ? route('instructor.courses.index') : route('student.enrolled-courses') }}">{{ __('Cours') }}</a>
                                                     </li>
                                                     <li><a href=""
-                                                            class="text-danger logout-btn">{{ __('Logout') }}</a>
+                                                            class="text-danger logout-btn">{{ __('Déconnexion') }}</a>
                                                     </li>
                                                 @endif
                                             @endguest
@@ -147,21 +147,21 @@
                             </div>
                             @guest
                                 <ul class="mobile_menu_login d-flex flex-wrap">
-                                    <li><a href="{{ route('login') }}">{{ __('login') }}</a></li>
-                                    <li><a href="{{ route('register') }}">{{ __('register') }}</a></li>
+                                    <li><a href="{{ route('login') }}">{{ __('Connexion') }}</a></li>
+                                    <li><a href="{{ route('register') }}">{{ __('Inscription') }}</a></li>
                                 </ul>
                             @endguest
                             @auth
                                 @if (Auth::guard('web')->user()->role == 'instructor')
                                     <ul class="mobile_menu_login d-flex flex-wrap">
-                                        <li><a href="{{ route('instructor.dashboard') }}">{{ __('Dashboard') }}</a></li>
-                                        <li><a href="{{ route('instructor.courses.index') }}">{{ __('Courses') }}</a>
+                                        <li><a href="{{ route('instructor.dashboard') }}">{{ __('Tableau de bord') }}</a></li>
+                                        <li><a href="{{ route('instructor.courses.index') }}">{{ __('Cours') }}</a>
                                         </li>
                                     </ul>
                                 @else
                                     <ul class="mobile_menu_login d-flex flex-wrap">
-                                        <li><a href="{{ route('student.dashboard') }}">{{ __('Dashboard') }}</a></li>
-                                        <li><a href="{{ route('student.enrolled-courses') }}">{{ __('Courses') }}</a>
+                                        <li><a href="{{ route('student.dashboard') }}">{{ __('Tableau de bord') }}</a></li>
+                                        <li><a href="{{ route('student.enrolled-courses') }}">{{ __('Cours') }}</a>
                                         </li>
                                     </ul>
                                 @endif
@@ -177,7 +177,7 @@
                                                 {{ $category->translation->name }}</option>
                                         @endforeach
                                     </select>
-                                    <input type="text" placeholder="{{ __('Search here') }}..." name="search">
+                                    <input type="text" placeholder="{{ __('Rechercher un cours') }}..." name="search">
                                     <button><i class="fas fa-search"></i></button>
                                 </form>
                             </div>

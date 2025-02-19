@@ -15,7 +15,7 @@
     @yield('custom_meta')
 
     @yield('title')
-    <link rel="icon" href="{{ asset($setting->favicon) }}">
+    <link rel="icon" href="{{ asset('assets/images/logo/favicon.png') }}">
     @include('admin.partials.styles')
     @stack('css')
     @yield('vite')
@@ -55,8 +55,8 @@
 
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown dropdown-list-toggle">
-                        <a target="_blank" href="{{ route('courses') }}" class="nav-link nav-link-lg">
-                            <i class="fas fa-home"></i> {{ __('Visiter le site') }}</i>
+                        <a target="_blank" href="{{ route('admin.coworkings.index') }}" class="nav-link nav-link-lg">
+                            <i class="fas fa-home"></i> {{ __('Aller sur syxtema admin') }}</i>
                         </a>
                     </li>
 

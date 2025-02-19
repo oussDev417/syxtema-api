@@ -10,8 +10,8 @@
   --font-light-color: #a0a0b0;
   --grid_color: rgba(144, 164, 246, 0.21);
   --border_color: rgba(0, 0, 0, 0.21);
-  --primary: 72, 190, 206;
-  --secondary: 139, 132, 118;
+  --primary: #1c3464;
+  --secondary: #E1B129;
   --success: 174, 204, 52;
   --danger: 299,94,64;
   --warning: 235,195,63;

@@ -64,18 +64,18 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.coworkings.edit', $coworking) }}" 
-                                           class="btn btn-sm btn-info">
-                                            <i class="fas fa-edit"></i>
+                                           class="btn btn-light-success">
+                                            <i class="ti ti-edit"></i>
                                         </a>
                                         <button type="button" 
-                                                class="btn btn-sm btn-{{ $coworking->status === 'disponible' ? 'warning' : 'success' }}"
+                                                class="btn btn-light-{{ $coworking->status === 'disponible' ? 'warning' : 'success' }}"
                                                 onclick="toggleStatus('{{ $coworking->id }}')">
-                                            <i class="fas fa-exchange-alt"></i>
+                                            <i class="ti ti-exchange"></i>
                                         </button>
                                         <button type="button" 
-                                                class="btn btn-sm btn-danger"
+                                                class="btn btn-light-danger"
                                                 onclick="confirmDelete('{{ $coworking->id }}')">
-                                            <i class="fas fa-trash"></i>
+                                            <i class="ti ti-trash"></i>
                                         </button>
                                     </div>
                                 </td>
