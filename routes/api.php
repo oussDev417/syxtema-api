@@ -15,6 +15,8 @@ use App\Http\Controllers\Api\V1\ServiceController;
 use App\Http\Controllers\Api\V1\CoworkingController;
 use App\Http\Controllers\Api\V1\ReservationController;
 use App\Http\Controllers\Api\V1\TeamController;
+use App\Http\Controllers\Api\V1\ContactController;
+use App\Http\Controllers\Api\V1\CountryController;
 
 // Routes publiques
 Route::post('/v1/login', [LoginController::class, 'login'])->name('login');
@@ -58,14 +60,15 @@ Route::prefix('v1')->group(function () {
     Route::get('startups/similar', [StartupController::class, 'getSimilar']);
     Route::get('startups/{slug}', [StartupController::class, 'showBySlug']);
     Route::get('/news', [NewsController::class, 'index']);
-    Route::get('/news/recent', [NewsController::class, 'getRecent']);
     Route::get('/news/related', [NewsController::class, 'getRelated']);
+    Route::get('/news/recent', [NewsController::class, 'getRecent']);
     Route::get('/news/{slug}', [NewsController::class, 'showBySlug']);
     Route::get('/events', [EventController::class, 'index']);
     Route::get('/events/related', [EventController::class, 'getRelated']);
     Route::get('/events/{slug}', [EventController::class, 'showBySlug']);
     Route::get('/event-categories', [EventController::class, 'getCategories']);
-    Route::get('/countries', [EventController::class, 'getCountries']);
+    Route::get('/event-countries', [EventController::class, 'getCountries']);
+    Route::get('/countries', [CountryController::class, 'index']);
     Route::get('/services', [ServiceController::class, 'index']);
     Route::get('/services/related', [ServiceController::class, 'getRelated']);
     Route::get('/services/{slug}', [ServiceController::class, 'showBySlug']);
@@ -83,5 +86,8 @@ Route::prefix('v1')->group(function () {
     Route::post('/reservations/{reservation}/cancel', [ReservationController::class, 'cancel']);
     Route::get('/teams', [TeamController::class, 'index']);
 
+    // Routes pour les messages de contact
+    Route::post('/contact', [ContactController::class, 'store']);
+    
 });
 

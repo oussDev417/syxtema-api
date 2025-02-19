@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\InstructorCourseController;
 use Modules\Course\app\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\CoworkingController;
 use App\Http\Controllers\Admin\ReservationController;
+use App\Http\Controllers\Admin\ContactController;
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
@@ -71,5 +72,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::put('/{reservation}/status', [ReservationController::class, 'updateStatus'])->name('status.update');
         Route::delete('/{reservation}', [ReservationController::class, 'destroy'])->name('destroy');
         Route::get('/export', [ReservationController::class, 'export'])->name('export');
+    });
+
+    // Routes pour la gestion des messages de contact
+    Route::prefix('contacts')->name('contacts.')->group(function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('/{contact}', [ContactController::class, 'show'])->name('show');
+        Route::delete('/{contact}', [ContactController::class, 'destroy'])->name('destroy');
     });
 });
