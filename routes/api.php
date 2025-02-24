@@ -19,8 +19,8 @@ use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\CountryController;
 
 // Routes publiques
-Route::post('/v1/login', [LoginController::class, 'login'])->name('login');
-Route::post('/v1/register', [RegisterController::class, 'register'])->name('register');
+// Route::post('/v1/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/v1/register', [RegisterController::class, 'register'])->name('register');
 
 // Routes protégées
 Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
@@ -47,7 +47,8 @@ Route::get('/auth/google/callback', [LoginController::class, 'handleGoogleCallba
 
 Route::apiResource('newsletter', NewsletterController::class);
 Route::prefix('v1')->group(function () {
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
+    Route::post('/register', [RegisterController::class, 'register']);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/user', [ProfileController::class, 'show'])->name('user.show');
     Route::put('/user', [ProfileController::class, 'update'])->name('user.update');
