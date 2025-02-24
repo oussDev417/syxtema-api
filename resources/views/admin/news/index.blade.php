@@ -36,7 +36,7 @@
                                 <i class="ti ti-edit text-success"></i>
                             </button>
                             <button type="button" class="btn btn-light-danger icon-btn b-r-4 delete-btn"
-                                onclick="new.preventDefault(); if(confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) { document.getElementById('delete-form-{{ $new->id }}').submit(); }">
+                                onclick="if(confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')) { document.getElementById('delete-form-{{ $new->id }}').submit(); }">
                                 <i class="ti ti-trash"></i>
                             </button>
                             <form id="delete-form-{{ $new->id }}"

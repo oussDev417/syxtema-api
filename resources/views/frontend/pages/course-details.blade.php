@@ -84,7 +84,7 @@
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
                                     <h3 class="title">{{ __('Description du cours') }}</h3>
-                                    {!! clean($course->description) !!}
+                                    {!! $course->description !!}
 
                                 </div>
                             </div>
