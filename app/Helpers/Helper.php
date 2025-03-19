@@ -221,6 +221,12 @@ function html_decode($text) {
     return $after_decode;
 }
 
+if (!function_exists('clean')) {
+    function clean($input) {
+        return htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+    }
+}
+
 if (!function_exists('checkAdminHasPermission')) {
     function checkAdminHasPermission($permission): bool {
         return Auth::guard('admin')->user()->can($permission) ? true : false;
