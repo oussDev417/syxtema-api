@@ -49,7 +49,6 @@ Route::apiResource('newsletter', NewsletterController::class);
 Route::prefix('v1')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
     Route::post('/register', [RegisterController::class, 'register']);
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/user', [ProfileController::class, 'show'])->name('user.show');
     Route::put('/user', [ProfileController::class, 'update'])->name('user.update');
     Route::apiResource('partners', PartnerController::class)->only(['index', 'show']);

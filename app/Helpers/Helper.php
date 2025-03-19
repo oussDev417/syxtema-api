@@ -774,7 +774,7 @@ if (!function_exists('routeList')) {
             (object) ['name' => __('Admin Commission'), 'route' => route('admin.commission-setting'), 'permission' => 'setting.view'],
             (object) ['name' => __('Manage Language'), 'route' => route('admin.languages.index'), 'permission' => 'language.view'],
             (object) ['name' => __('More Gateways'), 'route' => route('admin.paymentgateway'), 'permission' => 'payment.view'],
-            // (object) ['name' => __('Basic Payment'), 'route' => route('admin.basicpayment'), 'permission' => 'basic.payment.view'],
+            (object) ['name' => __('Basic Payment'), 'route' => route('admin.basicpayment'), 'permission' => 'basic.payment.view'],
             (object) ['name' => __('Multi Currency'), 'route' => route('admin.currency.index'), 'permission' => 'currency.view'],
             (object) ['name' => __('Manage Admin'), 'route' => route('admin.admin.index'), 'permission' => 'admin.view'],
             (object) ['name' => __('Role & Permissions'), 'route' => route('admin.role.index'), 'permission' => 'role.view'],
