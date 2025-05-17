@@ -1,6 +1,14 @@
 @extends('layout.master')
 
 @section('title', 'Modifier une offre de recrutement')
+@section('css')
+<!-- filepond css -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/filepond/filepond.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/filepond/image-preview.min.css') }}">
+
+<!-- editor css -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/trumbowyg/trumbowyg.min.css') }}">
+@endsection
 
 @section('main-content')
     <div class="container-fluid">
@@ -19,7 +27,13 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card">                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4 class="card-title mb-0">Détails du recrutement</h4>
+                        <a href="{{ route('admin.applications.index', $recruitment->id) }}" class="btn btn-primary">
+                            <i class="fas fa-list"></i> Voir les candidatures 
+                            <span class="badge bg-white text-primary">{{ $recruitment->applications->count() }}</span>
+                        </a>
+                    </div>
                     <div class="card-body">
                         <form action="{{ route('admin.recruitments.update', $recruitment->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -142,13 +156,37 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script>
-        // Initialiser l'éditeur de texte riche pour la description si nécessaire
-        $(document).ready(function() {
-            if (typeof CKEDITOR !== 'undefined') {
-                CKEDITOR.replace('description');
-            }
-        });
-    </script>
-@endpush
+@section('script')
+
+<!-- filepond -->
+<script src="{{ asset('assets/vendor/filepond/file-encode.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/filepond/validate-size.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/filepond/validate-type.js') }}"></script>
+<script src="{{ asset('assets/vendor/filepond/image-preview.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/filepond/filepond.min.js') }}"></script>
+
+<!-- editor -->
+<script src="{{ asset('assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    // Initialiser l'éditeur pour la description
+    $('#description').trumbowyg({
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'],
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['horizontalRule'],
+            ['removeformat'],
+            ['fullscreen']
+        ],
+        lang: 'fr'
+    });
+});
+</script>
+endsection()

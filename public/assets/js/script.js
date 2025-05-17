@@ -242,19 +242,22 @@ function myFunction() {
 
 // >>-- 11 Dark mode js --<<
 
-document.querySelector(".header-dark").addEventListener("click", () => {
-  document.querySelector(".sun-logo").classList.toggle("sun");
-  document.querySelector(".moon-logo").classList.toggle("moon");
-  if ($('body').hasClass("dark")) {
-    document.body.classList.remove("dark")
-    document.body.classList.add("light")
-    setLocalStorageItem('theme-mode', 'light')
-  } else {
-    document.body.classList.remove("light")
-    document.body.classList.add("dark")
-    setLocalStorageItem('theme-mode', 'dark')
-  }
-})
+const headerDark = document.querySelector(".header-dark");
+if (headerDark) {
+  headerDark.addEventListener("click", () => {
+    document.querySelector(".sun-logo")?.classList.toggle("sun");
+    document.querySelector(".moon-logo")?.classList.toggle("moon");
+    if ($('body').hasClass("dark")) {
+      document.body.classList.remove("dark")
+      document.body.classList.add("light")
+      setLocalStorageItem('theme-mode', 'light')
+    } else {
+      document.body.classList.remove("light")
+      document.body.classList.add("dark")
+      setLocalStorageItem('theme-mode', 'dark')
+    }
+  });
+}
 function appendHtml() {
   var div = document.getElementsByClassName('app-wrapper');
   div.innerHTML += '<p>This is some HTML code</p>';
@@ -274,25 +277,21 @@ $(document).on('click', '.close-btn', function () {
     targetParent.parent().parent().find('.offcanvas-body').addClass('h-auto');
   }
 });
-
- // >>-- 13 Searchbar js --<<
-$(document).on('keyup', '.search-filter', function (e) {
+$(document).on('keyup', '.search-filter', function () {
   var search = $(this).val().toLowerCase();
-  $('.search-list').each(function () {
-    $(this).find('.search-list-content h6').each(function (ele) {
-      var content = $(this).text().toLowerCase();
-      if (content.includes(search)) {
-        $(this).closest(".search-list-item").show();
-        var highlightedText = content.replace(new RegExp(search, 'gi'), function (match) {
-            return '<span class="highlight-searchtext">' + match + '</span>';
-        });
-        $(this).html(highlightedText);
-      } else {
-        $(this).closest(".search-list-item").hide();
-      }
-    });
+  $(this).find('.search-list-content h6').each(function (ele) {
+    var content = $(this).text().toLowerCase();
+    if (content.includes(search)) {
+      $(this).closest(".search-list-item").show();
+      var highlightedText = content.replace(new RegExp(search, 'gi'), function (match) {
+          return '<span class="highlight-searchtext">' + match + '</span>';
+      });
+      $(this).html(highlightedText);
+    } else {
+      $(this).closest(".search-list-item").hide();
+    }
   });
-})
+});
 
 
 // >>-- 14 CloseCollapse js --<<

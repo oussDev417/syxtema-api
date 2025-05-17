@@ -16,11 +16,12 @@ class RecruitmentController extends Controller
     public function __construct(RecruitmentService $recruitmentService)
     {
         $this->recruitmentService = $recruitmentService;
-    }
-
-    public function index()
+    }    public function index()
     {
-        $recruitments = $this->recruitmentService->getAll();
+        $recruitments = Recruitment::with('country')
+            ->withCount('applications')
+            ->orderByDesc('created_at')
+            ->get();
         return view('admin.recruitments.index', compact('recruitments'));
     }
 
@@ -39,8 +40,9 @@ class RecruitmentController extends Controller
 
     public function edit($id)
     {
+        $countries = Country::all();
         $recruitment = Recruitment::findOrFail($id);
-        return view('admin.recruitments.edit', compact('recruitment'));
+        return view('admin.recruitments.edit', compact('recruitment', 'countries'));
     }
 
     public function update(StoreRecruitmentRequest $request, $id)

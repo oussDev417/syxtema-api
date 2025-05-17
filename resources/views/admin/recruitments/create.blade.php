@@ -2,6 +2,14 @@
 
 @section('title', 'Créer une offre de recrutement')
 
+@section('css')
+<!-- filepond css -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/filepond/filepond.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/filepond/image-preview.min.css') }}">
+
+<!-- editor css -->
+<link rel="stylesheet" href="{{ asset('assets/vendor/trumbowyg/trumbowyg.min.css') }}">
+@endsection
 @section('main-content')
     <div class="container-fluid">
         <div class="row">
@@ -86,13 +94,46 @@
     </div>
 @endsection
 
-@push('scripts')
-    <script>
-        // Initialiser l'éditeur de texte riche pour la description si nécessaire
-        $(document).ready(function() {
-            if (typeof CKEDITOR !== 'undefined') {
-                CKEDITOR.replace('description');
-            }
-        });
-    </script>
-@endpush
+@section('scripts')
+<!-- filepond js -->
+<script src="{{ asset('assets/vendor/filepond/filepond.js') }}"></script>
+<script src="{{ asset('assets/vendor/filepond/image-preview.min.js') }}"></script>
+
+<!-- editor js -->
+<script src="{{ asset('assets/vendor/trumbowyg/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/trumbowyg/langs/fr.min.js') }}"></script>
+<script>
+    // Initialisation de FilePond
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    const inputElement = document.querySelector('input[type="file"]');
+    const pond = FilePond.create(inputElement, {
+        labelIdle: 'Glissez & déposez votre image ou <span class="filepond--label-action">Parcourir</span>',
+        imagePreviewHeight: 170,
+        imageCropAspectRatio: '16:9',
+        imageResizeTargetWidth: 1200,
+        imageResizeTargetHeight: 675,
+        stylePanelLayout: 'compact circle',
+        styleLoadIndicatorPosition: 'center bottom',
+        styleProgressIndicatorPosition: 'right bottom',
+        styleButtonRemoveItemPosition: 'left bottom',
+        styleButtonProcessItemPosition: 'right bottom',
+    });    // Initialisation de l'éditeur
+    $('#description').trumbowyg({
+        lang: 'fr',
+        btns: [
+            ['viewHTML'],
+            ['undo', 'redo'],
+            ['formatting'],
+            ['strong', 'em', 'del'],
+            ['superscript', 'subscript'],
+            ['link'],
+            ['insertImage'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+            ['unorderedList', 'orderedList'],
+            ['removeformat'],
+            ['fullscreen']
+        ],
+        autogrow: true
+    });
+</script>
+@endsection

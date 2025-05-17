@@ -189,6 +189,18 @@
                     <li><a href="{{ route('phosphor') }}">Phosphor</a></li>
                 </ul>
             </li>
+
+            <!-- Menu Recrutement -->
+            <li>
+                <a class="" data-bs-toggle="collapse" href="#recruitments" aria-expanded="false">
+                    <i class="ph-duotone ph-users-three"></i>
+                    Recrutement
+                </a>
+                <ul class="collapse" id="recruitments">
+                    <li><a href="{{ route('admin.recruitments.index') }}">Liste des offres</a></li>
+                    <li><a href="{{ route('admin.recruitments.create') }}">Ajouter une offre</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 
