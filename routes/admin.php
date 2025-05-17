@@ -14,6 +14,7 @@ use Modules\Course\app\Http\Controllers\CourseController;
 use App\Http\Controllers\Admin\CoworkingController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\RecruitmentController;
 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
@@ -46,6 +47,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin'], function () {
         Route::get('contact-messages/{id}', [ContactMessageController::class, 'show'])->name('contact-messages.show');
         Route::delete('contact-messages/{id}', [ContactMessageController::class, 'destroy'])->name('contact-messages.destroy');
         Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+
+        // Routes pour la gestion des recrutements
+        Route::resource('recruitments', RecruitmentController::class);
     });
     Route::resource('admin', AdminController::class)->except('show');
     Route::put('admin-status/{id}', [AdminController::class, 'changeStatus'])->name('admin.status');
