@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Application extends Model
+{
+    use SoftDeletes;
+
+    protected $fillable = [
+        'recruitment_id',
+        'name',
+        'email',
+        'phone_number',
+        'cover_letter',
+        'cv'
+    ];
+
+    public function recruitment(): BelongsTo
+    {
+        return $this->belongsTo(Recruitment::class);
+    }
+}

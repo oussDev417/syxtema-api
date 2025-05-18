@@ -17,6 +17,8 @@ use App\Http\Controllers\Api\V1\ReservationController;
 use App\Http\Controllers\Api\V1\TeamController;
 use App\Http\Controllers\Api\V1\ContactController;
 use App\Http\Controllers\Api\V1\CountryController;
+use App\Http\Controllers\Api\V1\RecruitmentController;
+use App\Http\Controllers\Api\V1\ApplicationController;
 
 // Routes publiques
 // Route::post('/v1/login', [LoginController::class, 'login'])->name('login');
@@ -89,5 +91,16 @@ Route::prefix('v1')->group(function () {
     // Routes pour les messages de contact
     Route::post('/contact', [ContactController::class, 'store']);
     
+});
+
+// Routes pour les recrutements
+Route::prefix('v1')->group(function () {
+    // Routes publiques pour les recrutements
+    Route::get('recruitments', [RecruitmentController::class, 'index']);
+    Route::get('recruitments/{id}', [RecruitmentController::class, 'show']);
+    Route::get('recruitments/country/{countryId}', [RecruitmentController::class, 'getByCountry']);
+
+    // Route pour postuler
+    Route::post('recruitments/{id}/apply', [ApplicationController::class, 'store']);
 });
 
